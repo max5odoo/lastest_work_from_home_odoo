@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_buttons_form">
+            <field name="name">Buttons</field>
+            <field name="model">button.demo</field>
+            <field name="arch" type="xml">
+                <form string="Button record">
+                    <sheet>
+                    <button string="Generate name" type="object" name="search_func" class="oe_highlight"/>
+
+
+                    <group>
+                        <field name="user_name"/>
+                        <field name="password"/>
+                        <field name="name"/>
+
+                    </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!--The action -->
+        <record model="ir.actions.act_window" id="buttonss_example_actions">
+            <field name="name">Create new record</field>
+            <field name="res_model">button.demo</field>
+
+            <field name="view_mode">form</field>
+
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="schools_main_menu" name="school"/>
+        <!--         <menuitem id="buttons_example_actions" name="school"/>-->
+        <menuitem id="button_menu" name="Buttons demo" action="buttonss_example_actions"
+                  parent="manthan.schools_main_menu"/>
+    </data>
+</odoo>

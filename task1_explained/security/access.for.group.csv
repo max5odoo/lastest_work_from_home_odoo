@@ -1,0 +1,13 @@
+access_task1_student_details_pro11,access.student.details.pro11,model_student_details,task1_explained.group_professor,1,1,0,0
+access_task1_course_details_pro11,access.course.details.pro11,model_course_details,task1_explained.group_professor,1,1,1,1
+access_task1_batch_details_pro11,access.batch.details.pro11,model_batch_details,task1_explained.group_professor,1,1,1,1
+access_task1_registration_details_pro11,access.registrations.details.pro11,model_registrations_details,task1_explained.group_professor,1,1,1,1
+access_task1_registration_wizard_pro11,access.registration.wizard.pro11,model_registration_wizard,task1_explained.group_professor,1,1,1,1
+access_task1_professor_details_pro11,access.professor.details.pro11,model_professor_details,task1_explained.group_professor,1,1,1,1
+
+access_task1_student_details_student11,access.student.details.student1,model_student_details,task1_explained.group_student,1,1,1,1
+access_task1_course_details_student11,access.course.details.student1,model_course_details,task1_explained.group_student,1,1,0,0
+access_task1_batch_details_student11,access.batch.details.student1,model_batch_details,task1_explained.group_student,1,1,1,1
+access_task1_registration_details_student11,access.registrations.details.student1,model_registrations_details,task1_explained.group_student,1,1,1,1
+access_task1_registration_wizard_student11,access.registration.wizard.student1,model_registration_wizard,task1_explained.group_student,1,1,1,1
+access_task1_professor_details_student11,access.professor.details.student1,model_professor_details,task1_explained.group_student,1,1,1,1

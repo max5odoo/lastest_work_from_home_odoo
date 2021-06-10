@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_practice_school_practice,school_practice.school_practice,model_school_practice_school_practice,base.group_user,1,1,1,1

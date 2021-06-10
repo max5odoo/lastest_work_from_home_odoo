@@ -1,0 +1,38 @@
+<odoo>
+    <record model="ir.ui.view" id="task_mail_wizard">
+        <field name="name">Task Mail Report</field>
+        <field name="model">task.mail.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Task Creation Report">
+                <group>
+                    <group>
+                        <field name="activity_type_id"/>
+                        <field name="summary"/>
+                    </group>
+                    <group>
+                        <field name="date_deadline"/>
+                        <field name="user_id"/>
+
+                    </group>
+                </group>
+                <footer>
+                    <button name="create_new_button" string="Create" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_schedule_activities_wizard" model="ir.actions.act_window">
+        <field name="name">Schedule Activity</field>
+        <field name="res_model">task.mail.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="manthan.task_mail_wizard"></field>
+        <field name="binding_model_id" ref="model_student_student"></field>
+        <field name="binding_view_types">form</field>
+    </record>
+
+
+</odoo>

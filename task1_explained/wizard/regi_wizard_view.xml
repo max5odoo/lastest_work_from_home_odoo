@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        form view-->
+        <record id="regi_wiz" model="ir.ui.view">
+            <field name="name">registration.form.view.wizard</field>
+            <field name="model">registration.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Registration Details by Wizard">
+                    <group>
+<!--                        <h5>Click the Button to redirect to the registration page</h5>-->
+                        <field name="student_id"/>
+                    </group>
+
+                    <footer>
+                        <button type="object"  name="go_to_regi" string="Go to Registration" class="btn btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="regi_wiz_action_1" model="ir.actions.act_window">
+            <field name="name">Go to Registration</field>
+            <field name="res_model">registration.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="regi_wiz_action_submenu" model="ir.actions.act_window">
+            <field name="name">Go to Registration</field>
+            <field name="res_model">registration.wizard</field>
+            <field name="view_id" ref="task1_explained.regi_wiz"/>
+            <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_student_details"/>
+            <field name="binding_view_types">form</field>
+            <field name="target">new</field>
+            <field name="context">{'default_student_id' : active_id}</field>
+        </record>
+
+        <menuitem action="regi_wiz_action_1" id="regi_wiz_menu" name="Wizard" parent="school_menu_" sequence="20"/>
+    </data>
+</odoo>

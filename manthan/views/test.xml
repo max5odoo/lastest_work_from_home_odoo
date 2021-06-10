@@ -1,0 +1,182 @@
+<record id="students_registration_menu" model="website.menu">
+    <field name="name">Create Student</field>
+    <field name="url">/register</field>
+    <field name="parent_id" ref="website.main_menu"/>
+</record>
+
+<template id="student_signup" name="Sign up login">
+<style>
+    a {
+    background: rgba($white, 0);
+    border-bottom: 5px solid;
+    color: $white;
+    line-height: 1.4;
+    padding: .25em;
+    text-decoration: none;
+    a:hover {
+    background: rgba($white, 1);
+    color: red;
+    }
+    }
+
+    .btn {
+    color: #fff;
+    cursor: pointer;
+    // display: block;
+    font-size:16px;
+    font-weight: 400;
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    btn:hover { text-decoration: none; }
+    }
+    .btn-2 {
+    letter-spacing: 0;
+    }
+
+    .btn-2:hover,
+    .btn-2:active {
+    letter-spacing: 5px;
+    }
+
+    .btn-2:before {
+    backface-visibility: hidden;
+    border: 1px solid rgba(#fff, 0);
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0;
+    }
+
+    .btn-2:hover:after,
+    .btn-2:hover:before {
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 0;
+    backface-visibility: hidden;
+    border: 1px solid black ;
+    transition: width 350ms ease-in-out;
+    width: 70%;
+    }
+
+    .btn-2:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 70%;
+    }
+
+
+</style>
+<t t-call="website.layout">
+    <div id="wrap">
+
+        <div class="jumbotron d-flex align-items-center">
+
+            <div class="container"
+                 style="border:1px solid #cecece;">
+
+                <form role="form" action="/create/student" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="name" class="control-label">Name</label>
+                        <input type="text" class="form-control" name="name" t-att-value="name"
+                               id="student_name"/>
+                    </div>
+                    <div class="clearfix_oe_login_button">
+                        <button type="submit" class="btn btn-primary pull-left">Submit</button>
+
+                    </div>
+                </form>
+                <a href="https://twitter.com/Dave_Conner" class="btn btn-2">Hover</a>
+            </div>
+        </div>
+    </div>
+</t>
+</template>
+
+
+<record id="student_thanxs" model="website.page">
+<field name="name">Student Thanks page</field>
+<field name="url">/student-successfully-registered</field>
+<field name="website_published">True</field>
+<field name="type">qweb</field>
+<field name="key">manthan.student_thanxs</field>
+<field name="website_published">True</field>
+<field name="arch" type="xml">
+    <t name="thank you" t-name='manthan.student_thanxs'>
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Thanks for Registration</h1>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+</field>
+</record>
+
+
+        <!-- student login page old code-->
+        <?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<template id='user_login' name='home'>
+    <!--  This is the path for CSS       -->
+    <link rel="stylesheet" href="manthan/static/src/css/button.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <div style="width:auto">
+
+        <div style="border-radius:10px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);background-color:#E7E9EB;width:400px;height:300px;margin:100px auto">
+            <div style="border-top-left-radius : 10px;border-top-right-radius : 10px;text-align:center;background-color:#2A99CF;height:50px;">
+                <h2 style="color:white;padding:10px 0 0 0">Login Page</h2>
+                <t t-foreach="student_mail_name" t-as="order">
+                    <span t-field="order.name"/>
+                </t>
+            </div>
+            <div style="margin:5px 0 0 60px;font-size:18px;padding:20px 0 0 0">
+                    <form action="/login" method="post" role='form'>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <br/>
+                    <label for="student_email">Email :</label>
+                    <input type="text" id="email" name="student_email" t-att-value="student_email"
+                           placeholder="Enter Your Email"/>
+                    <br/>
+                    <br/>
+                    <label for="student_password">Password:</label>
+                    <input type="text" id="student_password" name="student_password" t-att-value="student_password"
+                           placeholder="Enter Your Password"/>
+                    <br/>
+                    <br/>
+
+                    <br/>
+                    <br/>
+
+                    <input type="submit" value="Submit"
+                           style="margin:20px 0 0 10px;height:30px;width:100px;background-color: #008CBA;;color:white;display:inline-block;float:left"/>
+
+                </form>
+                <a href="/cancel" class="buttons red">Cancle</a>
+
+            </div>
+
+        </div>
+        <div class="alert alert-danger" role="alert" style="width:auto;">
+            This is a danger alert—check it out!
+        </div>
+    </div>
+</template>
+</odoo>

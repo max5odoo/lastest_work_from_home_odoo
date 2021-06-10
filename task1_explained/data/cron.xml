@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="ir_cron_student5" model="ir.cron">
+            <field name="name">Student Check</field>
+            <field name="model_id" ref="model_student_details"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="state">code</field>
+            <field name="code">model.test()</field>
+            <field name="interval_number">20</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall"/>
+        </record>
+
+        <record id="ir_cron_course" model="ir.cron">
+            <field name="name">Course Check</field>
+            <field name="model_id" ref="model_course_details"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="state">code</field>
+            <field name="code">model.test()</field>
+            <field name="interval_number">20</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall"/>
+        </record>
+
+        <record id="ir_cron_course4" model="ir.cron">
+            <field name="name">Course write</field>
+            <field name="model_id" ref="model_course_details"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="state">code</field>
+            <field name="code">model._multi_write()</field>
+            <field name="interval_number">20</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall"/>
+        </record>
+
+
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <report id="sale_wiz_report_1"
+            model="sale.order"
+            name="wizard_report_sale.sale_report_temp"
+            file="wizard_report_sale.sale_report_temp"
+            report_type="qweb-pdf"
+            string="Sale orders by Date"/>
+
+    <template id="sale_report_temp">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                The orders between  <h4><t t-esc="start_date"/> </h4> to <h4><t t-esc="end_date"/> </h4>
+                    <table class="table">
+                        <thead class="table-primary" style="color:white">
+                            <tr>
+                                <th>Sale Order No</th>
+                                <th>Created Date</th>
+                                <th>Customer Name</th>
+                                <th>Status Order</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-light">
+                            <tr t-foreach="order_list" t-as="order">
+                                <t>
+                                    <td><t t-esc="order['name']"/></td>
+                                    <td><t t-esc="order['date_order']"/></td>
+                                    <td> <t t-esc="order['partner_id']"/></td>
+                                    <td> <t t-esc="order['state']"/></td>
+                                    <td> <t t-esc="order['amount_total']"/></td>
+                                </t>
+                            </tr>
+                        </tbody>
+                        <td name="td_section_subtotal" colspan="99" class="text-right">
+                            <h3>Total: </h3>
+                            <span t-esc="all_amount_total"/>
+
+                            <h3 rowspan="99">Total orders: </h3>
+                            <span t-esc="counter"/>
+                        </td>
+
+                    </table>
+
+            </t>
+        </t>
+    </template>
+</odoo>

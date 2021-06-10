@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="regi_form">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"/>
+            <div class="card">
+                <div class="card-header">
+                    REGISTRATION FORM
+                </div>
+                <div class="card-body" style="margin-top: 5px;">
+                    <form action="/create/student" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row">
+                            <div class="col-xl-6 form-group">
+                                <label class="col-form-label" for="name">Name :</label>
+                                <input required="" type="text" name="name" class="form-control"/>
+                            </div>
+                            <div class="col-xl-6 form-group">
+                                <label class="col-form-label" for="phoneno">Phone No :</label>
+                                <input type="text" name="phoneno" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 form-group">
+                                <label class="col-form-label" for="gender">Gender</label>
+                                <select name="gender" class="form-control">
+                                    <option t-attf-value="male">Male</option>
+                                    <option t-attf-value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-6 form-group">
+                                <label class="col-form-label" for="student_profile">Student Profile</label>
+                                <input type="file" name="student_profile" class="form-control"/>
+                            </div>
+                        </div>
+                        <div>
+                            <table class="table table-dark" id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">task name</th>
+                                        <th scope="col">task technology</th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+                            <br/>
+
+                            <button type="button" onclick="myCreateFunction()">Create row
+                            </button>
+                        </div>
+                        <input type="hidden" name="count_no" value="0" id="record_cnt" class="form-control"/>
+                        <input type="submit" value="Submit"
+                               style="margin:20px 0 0 10px;height:30px;width:100px;background-color: #008CBA;;color:white;display:inline-block;float:left"/>
+                    </form>
+
+                </div>
+            </div>
+
+        </t>
+        <script src="manthan/static/src/js/adding_task.js"/>
+    </template>
+
+
+    <!--  BELOW CODE IS PROPER REGISTER PAGE OLDER CODE   -->
+    <!--    <template id='my_homepage' name='home'>-->
+    <!--        &lt;!&ndash;  This is the path for CSS       &ndash;&gt;-->
+    <!--        <link rel="stylesheet" href="manthan/static/src/css/button.css"/>-->
+
+    <!--        <div style="width:auto">-->
+
+    <!--            <div style="border-radius:10px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);background-color:#E7E9EB;width:400px;height:300px;margin:100px auto">-->
+    <!--                <div style="border-top-left-radius : 10px;border-top-right-radius : 10px;text-align:center;background-color:#2A99CF;height:50px;">-->
+    <!--                    <h2 style="color:white;padding:10px 0 0 0">Login Page</h2>-->
+    <!--                </div>-->
+    <!--                <div style="margin:5px 0 0 60px;font-size:18px;padding:20px 0 0 0">-->
+    <!--                    <form action="/create/student" method="post" role='form'>-->
+    <!--                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+
+    <!--                        <br/>-->
+    <!--                        <label for="name">First name:</label>-->
+    <!--                        <input type="text" id="fname" name="name" t-att-value="name"-->
+    <!--                               placeholder="Your Name"/>-->
+    <!--                        <br/>-->
+    <!--                        <br/>-->
+
+    <!--                        <label for="phoneno">Phone No:</label>-->
+    <!--                        <input type="text" id="phoneno" name="phoneno" t-att-value="phoneno"-->
+    <!--                               placeholder="Your Contact Number"/>-->
+    <!--                        <br/>-->
+    <!--                        <br/>-->
+    <!--                        <input type="checkbox" name="keep_login" value="loged_in" style="font-size:15px"/>-->
+    <!--                        <label for="vehicle3" style="font-size:15px">keep login</label>-->
+    <!--                        <br/>-->
+    <!--                        <br/>-->
+
+
+    <!--                        <input type="submit" value="Submit"-->
+    <!--                               style="margin:20px 0 0 10px;height:30px;width:100px;background-color: #008CBA;;color:white;display:inline-block;float:left"/>-->
+
+    <!--                    </form>-->
+    <!--                    <a href="/cancel" class="buttons red">Cancle</a>-->
+
+    <!--                </div>-->
+
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </template>-->
+
+    <record id="student_welcome" model="website.page">
+        <field name="name">Student Thanks page</field>
+        <field name="url">/student-successfully-registered</field>
+        <field name="website_published">True</field>
+        <field name="type">qweb</field>
+        <field name="key">manthan.student_thanxs</field>
+        <field name="website_published">True</field>
+        <field name="arch" type="xml">
+            <t name="thank you" t-name='manthan.student_thanxs'>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                      crossorigin="anonymous"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Studzz</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"/>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown" style="margin-left:50px">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Student</a>
+                                    <a class="dropdown-item" href="#">Professor</a>
+                                    <div class="dropdown-divider"/>
+                                    <a class="dropdown-item" href="#">Task</a>
+                                </div>
+                            </li>
+                            <li class="nav-item" style="margin-left:50px">
+                                <a class="nav-link" href="#">Create Students</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-user"/>
+                                Sign Up
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-log-in"/>
+                                Login
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="wrap" style="background-image: url('/manthan/static/src/img/background_image.jpeg'); background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+                    <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
+                    <div class="container mt-4">
+                        <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                                 data-snippet="s_text_block" data-name="Text" style="align-items-center">
+                            <div class="container"
+                                 style="margin-top: 100px;">
+                                <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/>
+                                <br/>
+                                <h1 class="text-center">Thank You!</h1>
+                                <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                    <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                </div>
+                                <h5 class="text-center">
+                                    <span class="fa fa-check-circle"/>
+                                    <span>Your Registration is
+                                        <b>successfully Done</b>
+                                    </span>
+                                </h5>
+                                <p class="text-center">We will get back to you shortly.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </t>
+
+        </field>
+    </record>
+</odoo>

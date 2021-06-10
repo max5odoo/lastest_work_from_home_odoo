@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sales_order_update_view" model="ir.ui.view">
+        <field name="name">sales.order.update.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='campaign_id']" position="after">
+
+
+                <filter string="is dt " name="is_dt" domain="[('is_dt', '=', True)]"/>
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

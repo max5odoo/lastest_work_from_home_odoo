@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="my_account_student" name="Show Students" customize_show="True"
+              inherit_id="portal.portal_my_home"
+              priority="10">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Students</t>
+                <t t-set="url" t-value="'/my/students'"/>
+                <t t-set="placeholder_count" t-value="'student_count'"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="contact_field_in_website" name="Xpath Contact Field" customize_show="True"
+              inherit_id="portal.portal_my_details"
+              priority="100">
+        <xpath expr="//div[@class='clearfix']" position="before">
+            <div t-attf-class="form-group #{error.get('is_student') and 'o_has_error' or ''} col-xl-6">
+                <!--                <label class="col-form-label label-optional" for="is_student">Student Or Professor</label>-->
+                <!--                <input type="text" name="is_student"-->
+                <!--                       t-attf-class="form-control #{error.get('is_student') and 'is-invalid' or ''}"-->
+                <!--                       t-att-value="is_student" />-->
+
+                <label for="st">Student or Professor</label>
+                <div id="st" class="max inline">
+                    <label class="radio inline">
+                        <input type="radio" name="is_student" value="student"/>
+                        <span>Student</span>
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="is_student" value="professor"/>
+                        <span>Professor</span>
+                    </label>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+    <template id="my_details_inherit" name="Xpath Details Field" inherit_id="portal.portal_layout">
+        <xpath expr="//div[hasclass('o_portal_my_details')]" position="inside">
+            <br/>Designation :
+            <t t-esc="user_id.partner_id.is_student"/>
+        </xpath>
+    </template>
+
+</odoo>

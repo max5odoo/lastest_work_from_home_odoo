@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="sales_inherit_report" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//p[@id='fiscal_position_remark']" position="before">
+                <div class="row mt32 mb32" id="test_inherit_report">
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Maxy</strong>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//th[@name='th_description']" position="after">
+                <th name="th_next" class="text-right">Manthan</th>
+            </xpath>
+
+            <xpath expr="//td[@name='td_name']" position="after">
+                <td name="td_new_name">
+                    <span>
+
+                    </span>
+                </td>
+            </xpath>
+
+
+        </template>
+    </data>
+</odoo>

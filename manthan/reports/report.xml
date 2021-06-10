@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report id="report_student"
+            string="Sample Report"
+            model="student.student"
+            report_type="qweb-pdf"
+            name="manthan.print_sample_report"
+            file="manthan.print_sample_report"/>
+
+    <report id="report_purchase_new"
+            string="Sample purchase Report"
+            model="purchase.order"
+            report_type="qweb-pdf"
+            name="manthan.report_purchaseorder"
+            file="manthan.report_purchaseorder"/>
+
+    <report id="report_inventory_new"
+            string="Sample delivery Report"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="stock.report_deliveryslip"
+            file="stock.report_deliveryslip"/>
+
+
+</odoo>

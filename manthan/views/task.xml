@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--task Tree view -->
+        <record id="task_tree_view" model="ir.ui.view">
+            <field name="name">task.tree.view</field>
+            <field name="model">tasks.tasks</field>
+            <field name="arch" type="xml">
+                <tree string="tasks">
+
+                    <field name="task_name"/>
+                    <field name="task_technology"/>
+                    <field name="task_done"/>
+                    <field name="task_not_done"/>
+                    <field name="task_start_time"/>
+                    <field name="task_end_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--task Form view -->
+        <record id="task_form_view" model="ir.ui.view">
+            <field name="name">task.form.view</field>
+            <field name="model">tasks.tasks</field>
+            <field name="arch" type="xml">
+                <form string="tasks">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="task_name"/>
+                                <field name="task_technology"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="task_start_time"/>
+                                    <field name="task_end_time"/>
+                                    <field name="professor_id"/>
+                                    <field name="professor_name_many2one"/>
+
+                                </group>
+                            </group>
+                        </group>
+                        <separator string="Task Status"/>
+                        <group>
+                            <field name="task_done"/>
+                            <field name="task_not_done"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="Task1" string="Different Tasks">
+                                <group>
+                                    <field name="company_name" style="width:200px"/>
+                                </group>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="task_menu_action" model="ir.actions.act_window">
+            <field name="name">task</field>
+            <field name="res_model">tasks.tasks</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Task</p>
+            </field>
+        </record>
+
+
+
+        <menuitem id="task_main_menu" name="Task managment"/>
+        <menuitem action="task_menu_action" id="taskmanage_task_menu" name="Tasks"
+                  parent="task_main_menu"/>
+    </data>
+
+
+</odoo>

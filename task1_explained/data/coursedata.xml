@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="course_data" model="course.details">
+            <field name="course_name">c1</field>
+            <field name="no_of_years">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="student_c" model="student.details">
+            <field name="course_id" eval="[(4,ref('student_data'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="batch_b" model="batch.details">
+            <field name="batch_name" eval="[(4,ref('batch_data'))]"/>
+        </record>
+    </data>
+
+</odoo>

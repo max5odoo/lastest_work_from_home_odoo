@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record id="student_email" model="mail.template">
+            <field name="name">Student report: Send by email</field>
+            <field name="model_id" ref="task1_explained.model_student_details"/>
+            <field name="email_from">${(user.email_formatted) |safe}</field>
+            <field name="email_to">${object.name.name}</field>
+            <field name="subject">Student Card : ${object.name.name}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <table class="table">
+                            <b>Dear ${object.name.name}</b><br/>
+                            <thead class="table-dark">
+                                <th>Age:</th>
+                                <th>Birthdate</th>
+                                <th>Email id</th>
+                                <th>Mobile no</th>
+                            </thead>
+                            <tr>
+                                <td>${object.age}</td>
+                                <td>${object.dob}</td>
+                                <td>${object.student_email}</td>
+                                <td>${object.mobile_no}</td>
+                            </tr>
+
+                            <tr>
+                            </tr>
+                        </table>
+                        Check your Fee Payment Status:
+                        <div style="margin: 16px 0px 16px 0px;">
+                            <a href="${ctx['reg_url']}"
+                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                Fees
+                            </a>
+                        </div>
+                        <hr/>
+                        If you have query ,don't ask me I am not free just pay the fees.
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="student_report"/>
+            <field name="report_name">Student Card ${object.name}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+</odoo>

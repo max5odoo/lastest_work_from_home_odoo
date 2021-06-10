@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="sale_order_custom_report">
+         <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <center><strong>Custom Sale Orders</strong></center><br/>
+                    <t t-foreach="docs" t-as="doc">
+                        <h4>
+                            <span t-field="doc.partner_id"/>
+                            <p t-foreach="doc.partner_id" t-as="add">
+                                <span t-field="add.street"/><br/>
+                                <span t-field="add.street2"/><br/>
+                                <span t-field="add.city"/><br/>
+                                <span t-field="add.country_id"/><br/>
+                            </p>
+                        <h2><i><span t-field="doc.state"/></i>
+                        <i> #<span t-field="doc.name"/></i></h2><br/>
+                        <div class="grid-container">
+                            <div>Quotation Date<br/><span t-field="doc.date_order"/></div>
+                            <div style="text-align:right;">Salesperson<br/><span t-field="doc.user_id"/></div>
+                        </div></h4>
+                <br/><br/>
+                        <table class="table table-sm table-reports">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:20px; font-size:25px;">Description</th>
+                                    <th style="text-align:20px; font-size:25px;">Quantity</th>
+                                    <th style="text-align:20px; font-size:25px;">Unit Price</th>
+                                    <th style="text-align:20px; font-size:25px;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr t-foreach="doc.order_line" t-as="po">
+                                    <td><t t-esc="po.name"/></td>
+                                    <td> <t t-esc="po.product_uom_qty"/></td>
+                                    <td> <t t-esc="po.price_unit"/></td>
+                                    <td> <t t-esc="po.price_subtotal"/></td>
+                                </tr>
+
+                                <tr class="is-subtotal text-right">
+                                    <td name="td_section_subtotal" colspan="99">
+                                        <strong class="mr16">Subtotal</strong>
+                                        <span
+                                            t-esc="sum([doc.amount_total for doc in docs])"
+                                            t-options='{"widget": "monetary", "display_currency": docs[0].pricelist_id.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </t>
+         </t>
+    </template>
+
+
+
+
+<!--    to remove fields from report-->
+<!--     <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">-->
+<!--        <xpath expr="//t[@t-set='information_block']" position="replace">-->
+<!--                        -->
+<!--            </xpath>-->
+<!--    </template>-->
+<!--    <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">-->
+<!--        <xpath expr="//t[@t-set='information_block']" position="after">-->
+<!--                <h2>Hoskjdnbj</h2>-->
+<!--            </xpath>-->
+<!--    </template>-->
+</odoo>

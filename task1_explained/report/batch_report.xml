@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report id="batch_report"
+        model="batch.details" name="task1_explained.batch_report_card"
+        report_type="qweb-pdf" string="Batches"/>
+
+    <template id="batch_report_card">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <center>
+                        <h2>Batches</h2>
+                    </center>
+                    <h6 style="text-align:right;">
+                    Date: <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/></h6>
+                    <br/>
+                    <br/>
+                     <div>
+                         <page>
+                            <table id="for_batch" class="table">
+                                <thead class="thead-dark">
+                                    <th><strong>Batch Name:</strong><br/></th>
+                                    <th><strong>Total Seats:</strong><br/></th>
+                                    <th><strong>Fees:</strong><br/></th>
+
+                                </thead>
+                                <t  t-as="data" t-foreach="batch">
+                                <tr>
+                                    <td><t t-esc="data.batch_name"/></td>
+                                    <td><t t-esc="data.total_seats"/></td>
+                                    <td><t t-esc="data.total_fees"/></td>
+                                </tr>
+                                </t>
+                            </table>
+                         </page>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

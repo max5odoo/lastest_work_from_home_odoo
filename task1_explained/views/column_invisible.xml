@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='reigistration_inherit' model="ir.ui.view">
+        <field name="name">xyz</field>
+        <field name="model">registrations.details</field>
+        <field name="inherit_id" ref='task1_explained.registraion_form_view'/>
+        <field name="arch" type="xml">
+            <form>
+                <xpath expr="//form//sheet//group//notebook//page//group//field[@name='no_of_students']"
+                       position="attribute">
+                    <attribute name="attrs">{'column_invisible': [('parent.state', '=', 'done')]}</attribute>
+                </xpath>
+            </form>
+        </field>
+    </record>
+</odoo>

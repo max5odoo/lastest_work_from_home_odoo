@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="course_tree_view" model="ir.ui.view">
+            <field name="name">course.tree.view</field>
+            <field name="model">course.details</field>
+            <field name="arch" type="xml">
+                <tree string="Course Information">
+                    <field name="sequence" widget="handle"/>
+                    <field name="course_name"/>
+                    <field name="no_of_years"/>
+                    <!--          hide column with condition by column_invisible-->
+                    <field name="no_of_students" attrs="{'column_invisible': [('parent.state', '!=', 'done')]}"/>
+                    <field name="fees"/>
+                    <field name="currency_id"/>
+                    <!-- <field name="student_id"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <!--Course Form view -->
+        <record id="course_form_view" model="ir.ui.view">
+            <field name="name">course.form.view</field>
+            <field name="model">course.details</field>
+            <field name="arch" type="xml">
+                <form string="Courses">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="go_to_student" string="Students" type="object" class="oe_stat_button"
+                                    icon="fa-users"/>
+                            <button name="go_to_batch" string="Batches" type="object" class="oe_stat_button"
+                                    icon="fa-pencil-square-o"/>
+                        </div>
+
+                        <!-- <field class="oe_left oe_avatar" name="photo" widget="image"/> -->
+                        <group string="Course Info">
+                            <group>
+                                <field name="course_name"/>
+                                <!-- <field name="email"/> -->
+                                <field name="no_of_years"/>
+                                <field name="no_of_students"/>
+                                <!--                <field name="no_of_students" attrs="{'column_invisible': [('parent.state', 'not in', ['done'])]}"-->
+                                <!--                                        optional="hide"/>-->
+                                <field name="currency_id" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                                </field>
+                                <field name="fees"/>
+
+                                <!-- <field name="s_id"/> -->
+
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Students" string="Students">
+                                <group>
+                                    <field name="student_ids" widget="many2many_tags">
+                                        <field name="course_name"/>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                    <button name="delete_course" type="object" string="Clear" class="oe_highlight"/>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="course_menu_action" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">course.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create The First Course</p>
+            </field>
+        </record>
+
+        <!-- Menu items -->
+        <menuitem action="course_menu_action" id="school_course_menu" name="Course" parent="school_menu_"/>
+    </data>
+</odoo>

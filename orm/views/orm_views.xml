@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+    <!-- Tree View for Student-->
+    <record id="orm_methods" model="ir.ui.view">
+      <field name="name">orm.methods</field>
+      <field name="model">orm.methods</field>
+      <field name="arch" type="xml">
+        <tree string="ORM">
+          <field name="name"/>
+<!--          <field name="email"/>-->
+          <!-- <field name="course_id"/> -->
+          <field name="dob"/>
+          <field name="age"/>
+          <field name="about"/>
+<!--          <field name="gender"/>-->
+          <!-- <field name="student_batch"/> -->
+        </tree>
+      </field>
+    </record>
+
+<!--    Search view for Student-->
+
+
+<!--    <record id="student_search_view" model="ir.ui.view">-->
+<!--      <field name="name">student.search.view</field>-->
+<!--      <field name="model">student.details</field>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <search string="Student Information">-->
+<!--          <filter name="male" string="Male" domain="[('gender','=', 'male')]"/>-->
+<!--          <filter name="female" string="Female" domain="[('gender','=', 'female')]"/>-->
+<!--          <group expand="0" string="Group By">-->
+<!--            <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>-->
+<!--          </group>-->
+<!--          <field name="name"/>-->
+<!--          <field name="email"/>-->
+<!--          <field name="roll_no"/>-->
+
+<!--        </search>-->
+<!--      </field>-->
+<!--    </record>-->
+
+    <!--Student Form view -->
+    <record id="orm_form_view" model="ir.ui.view">
+      <field name="name">orm.form.view</field>
+      <field name="model">orm.methods</field>
+      <field name="arch" type="xml">
+        <form string="ORM">
+          <sheet>
+            <!-- <field class="oe_left oe_avatar" name="photo" widget="image"/> -->
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="dob"/>
+                <field name="age"/>
+                <field name="about"/>
+
+
+              </group>
+<!--              <group>-->
+<!--                <field name="gender"/>-->
+<!--                <field name="email"/>-->
+<!--                <field name="mobile_no"/>-->
+<!--                &lt;!&ndash; <field name="student_batch"/> &ndash;&gt;-->
+<!--              </group>-->
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- Action -->
+    <record id="orm_action" model="ir.actions.act_window">
+      <field name="name">ORM</field>
+      <field name="res_model">orm.methods</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Create The First Student</p>
+      </field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="ORM" id="orm.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem action="orm_action" name="Info" id="orm.menu_1" parent="orm.menu_root"/>
+<!--    <menuitem name="Menu 2" id="orm.menu_2" parent="orm.menu_root"/>-->
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="orm.menu_1_list" parent="orm.menu_1"
+              action="orm.action_window"/>
+    <menuitem name="Server to list" id="orm" parent="orm.menu_2"
+              action="orm.action_server"/>
+-->
+  </data>
+</odoo>

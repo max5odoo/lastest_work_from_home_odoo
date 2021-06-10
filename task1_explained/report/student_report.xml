@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_report_details">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <center>
+                        <h2>Student Report</h2>
+                    </center>
+                    Date: <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+                    <br/>
+                    <br/>
+                     <div>
+                         <page>
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <th><strong>Name:</strong><br/></th>
+                                    <th><strong>Roll no.:</strong><br/></th>
+                                    <th><strong>DOB:</strong><br/></th>
+                                    <th><strong>Age:</strong><br/></th>
+                                    <th><strong>Gender:</strong></th>
+                                </thead>
+<!--                                <t  t-as="o" t-foreach="docs">-->
+                                <tr>
+                                    <td>
+                                        <span t-field="o.name.name"/>
+                                        <br/></td>
+                                    <td>
+                                        <span t-field="o.roll_no"/>
+                                        <br/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.dob"/>
+                                        <br/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.age"/>
+                                        <br/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.gender"/></td>
+                                </tr>
+<!--                                </t>-->
+                            </table>
+                             <br/>
+                             <br/>
+<!--                             this table from professor and its data is being collected by python function-->
+                             <table class="table">
+                                 <center>His Professor Details</center><br/>
+                                 <thead>
+                                     <th>Professor Name : </th>
+                                     <th>Professor Contact : </th>
+                                     <th>Professor Email : </th>
+                                 </thead>
+                                 <t t-foreach="p_list" t-as="p">
+                                     <tr>
+                                         <td><t t-esc="p['professor_name']"/></td>
+                                         <td><t t-esc="p['mobile_no']"/></td>
+                                         <td><t t-esc="p['email']"/></td>
+                                     </tr>
+                                 </t>
+                             </table>
+                                 <h6 style="text-align: right;">Please Contact in working hours only from 10:00 to 4:00 pm.</h6>
+                             <br/>
+                             <br/>
+                             <table class="table table-striped">
+                                 <b><center>Batches</center><br/></b>
+                                 <thead>
+                                     <th>Batch Name : </th>
+                                     <th>Total seats : </th>
+                                     <th>Courses : </th>
+                                     <th>Total fees : </th>
+                                 </thead>
+                                 <t t-foreach="batch_list" t-as="b">
+                                     <tr>
+                                         <td><t t-esc="b['batch_name']"/></td>
+                                         <td><t t-esc="b['total_seats']"/></td>
+                                         <td><t t-esc="', '.join(b['course_ids'])"/></td>
+                                         <td><t t-esc="b['total_fees']"/></td>
+                                     </tr>
+                                 </t>
+                             </table>
+                         </page>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="student_report_t1">
+
+            <t t-foreach="docs" t-as="o">
+                <t t-call="task1_explained.student_report_details"/>
+            </t>
+
+    </template>
+
+</odoo>

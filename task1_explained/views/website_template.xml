@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="shivam_site_template" name="Shivam Page">
+        <t t-call="website.layout">
+            <center>Helloo CSV from Security</center>
+        </t>
+    </template>
+
+    <record id="menu_website_shivam" model="website.menu">
+        <field name="name">Shivam</field>
+        <field name="url">/shivam</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">35</field>
+    </record>
+</odoo>
