@@ -37,7 +37,7 @@ class Students(models.Model):
     task_tech = fields.Many2one('tasks.tasks', string='task technologies')
     tasks_id = fields.One2many('tasks.tasks', 'student_id', string='Task names')
     student_compute = fields.Char('Invitation ', compute='_compute_name')
-    age = fields.Integer("Age of student", compute='age_student', store=False)
+    age = fields.Integer("Age of student")
     dob = fields.Date(string="Date of Birth", required=False, help="Date of Birth")
     pin_code = fields.Integer(string='Pincode ')
     pin_code_area = fields.Char('Area', compute='area_student')
@@ -172,14 +172,14 @@ class Students(models.Model):
             else:
                 lead.student_compute = f"Welcome {lead.name}"
 
-    @api.depends("dob")
+    @api.onchange("dob")
     def age_student(self):
-        self.age = 0
         for rec in self:
             if rec.dob:
                 your_date = rec.dob
                 today_date = datetime.date.today()
-                rec.age = abs((today_date - your_date).days // 365)
+                age_count = abs((today_date - your_date).days // 365)
+                rec.age = age_count
 
     @api.onchange("pin_code")
     def area_student(self):

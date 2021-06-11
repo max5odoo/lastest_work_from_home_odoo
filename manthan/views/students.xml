@@ -117,13 +117,13 @@
 
                             <group>
                                 <field name="phoneno" widget="phone"/>
-                                <field name="dob"/>
                                 <field name="task_tech"/>
                                 <!--                                <field name="professor_choose" position="attributes"><attribute name="context">{'journal_idss': True}</attribute></field>-->
                                 <field name="professor_choose"/>
                                 <field name="student_email" widget="email"/>
                                 <field name="student_compute"/>
                                 <field name="age"/>
+                                <field name="dob"/>
                                 <field name="student_tasks_ids" widget="many2many_tags"
                                        options="{'color_field': 'color'}"/>
                             </group>

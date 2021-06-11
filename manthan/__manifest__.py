@@ -19,7 +19,7 @@
     'version': '14.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website', 'mail', 'sale', 'hr_attendance', 'stock', 'contacts', 'portal'],
+    'depends': ['base', 'mail', 'website','sale'],
 
     # always loaded
     'data': [
@@ -47,7 +47,7 @@
 
         'reports/inherit_sale_report.xml',
         'reports/purchase_task_report.xml',
-        'reports/delivery_task_report.xml',
+        # 'reports/delivery_task_report.xml',
         'views/sale_customer_invoice_inherit.xml',
         'data/student_mail_template.xml',
         'views/website_task.xml',

@@ -35,9 +35,11 @@ class Professor(models.Model):
     #         if obj:
     #             raise ValidationError("sorry enter new name")
 
+    # THIS IS THE TASK --->
     def name_get(self):
         professor_name_gets = []
         print(f"\n\n\n\n\n{self.env.context.get('journal_idss')}\n\n\n\n")
+        print(f"\n\n\n\n\n THIS IS CONTEXT-->{self.env.context}\n\n\n\n")
         for rec in self:
             name = rec.name
             if not self.env.context.get('journal_idss'):

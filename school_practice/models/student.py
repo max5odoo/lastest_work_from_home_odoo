@@ -1,7 +1,7 @@
 import xlrd
 import xlsxwriter
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class Student(models.Model):
@@ -10,12 +10,18 @@ class Student(models.Model):
     _rec_name = 'first_name'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    first_name = fields.Char()
-    last_name = fields.Char()
+    first_name = fields.Char(default='maxy')
+    last_name = fields.Char(default='chawda', copy=False)
     email = fields.Char()
     mobile_no = fields.Integer()
     gender = fields.Selection(
         [('male', 'Male'), ('female', 'Female'), ], 'Gender', default='male')
+    priority = fields.Selection([
+        ('0', 'Low'),
+        ('1', 'Medium'),
+        ('2', 'High'),
+        ('3', 'Very High'),
+    ])
     profile_pic = fields.Image()
     address = fields.Text()
     dob = fields.Date()
@@ -27,6 +33,7 @@ class Student(models.Model):
     ], default='draft', string='State')
     xls_file = fields.Binary('File')
 
+    # ---------------------------------------------------------------------------------SalePaymentLink------------
     # BELOW IS THE DRAFT STATE BUTTON
     def button_draft(self):
         for record in self:
@@ -52,6 +59,7 @@ class Student(models.Model):
                 'age': 20
             })
 
+    # ---------------------------------------------------------------------------------------------
     # BELOW IS THE LOG NOTE BUTTON IN HEADER
     def log_note(self):
         for rec in self:
@@ -60,6 +68,23 @@ class Student(models.Model):
                 subject='Just Testing',
                 author_id=self.env.user.id,
             )
+
+    # ---------------------------------------------------------------------------------------------
+    # THIS IS THE COPY METHODS
+    # def copy(self, default={}):
+    #     self.ensure_one()
+    #     print(f"\n\n\nSELF--->>>{self.last_name}<<<---\n\n\n")
+    #     print(f"\n\n\nDEFAULT--->>>{default}<<<---\n\n\n")
+    #     default['last_name'] = ''
+    #     return super(Student, self).copy(default=default)
+
+    # ---------------------------------------------------------------------------------------------
+    # THIS IS THE DEFAULT_GET METHOD
+    @api.model
+    def default_get(self, fields):
+        res = super(Student, self).default_get(fields)
+        print(f'\n\n\n\nThis is the res----->{res}\n\n\n\n')
+        return res
 
     # ---------------------------------------------------------------------------------------------
     # BELOW CODE IS FOR EXPORT THE RECORD
@@ -99,3 +124,5 @@ class Student(models.Model):
                     })
 
                     print(student_read)
+
+    # -----------------------------------------------------------------------------------------------------------
