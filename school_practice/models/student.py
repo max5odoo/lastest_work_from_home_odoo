@@ -33,6 +33,14 @@ class Student(models.Model):
     ], default='draft', string='State')
     xls_file = fields.Binary('File')
 
+    # -------------------------------------------THIS IS THE DEFAULT CURRENCY FUNCTION-----------------------
+    # def get_default_currency_id(self):
+    #     return self.env.company.currency_id.id
+
+    # ---------------------------------------------------------------------------------------------------------
+    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.ref('base.INR'))
+    student_fees = fields.Monetary()
+
     # ---------------------------------------------------------------------------------SalePaymentLink------------
     # BELOW IS THE DRAFT STATE BUTTON
     def button_draft(self):

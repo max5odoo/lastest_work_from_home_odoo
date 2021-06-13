@@ -12,6 +12,7 @@
                        widget='badge'/>
                 <field name="last_name"/>
                 <field name="email"/>
+                <field name="student_fees"/>
                 <field name="mobile_no"/>
                 <field name="gender"/>
                 <field name="profile_pic" optional="hide"/>
@@ -37,6 +38,7 @@
                     <button name="button_cancel" string="Cancle" class="btn btn-danger" states="confirm"
                             type="object"/>
                     <button name="student_xlsx" string="create xlxs" type="object"/>
+                    <button name="%(sale.act_res_partner_2_sale_order)d" string="professor" type="action"/>
                     <button name="student_xlrd" string="import" type="object"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancelled"
                            options="{'clickable': '1'}"/>
@@ -62,6 +64,8 @@
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="email"/>
+                            <field name="currency_id"/>
+                            <field name="student_fees" widget="monetary"/>
                         </group>
                         <group>
                             <field name="mobile_no"/>
@@ -169,6 +173,16 @@
         </field>
     </record>
 
+    <!-- THIS IS FOR ACTION BUTTON (ACTION MENU) -->
+    <record id="student_action_button" model="ir.actions.act_window">
+        <field name="name">Professor</field>
+        <field name="res_model">professor.details</field>
+        <field name="view_id" ref="professor_form_view"/>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="model_student_details"/>
+        <field name="binding_view_types">form</field>
+        <field name="target">new</field>
+    </record>
 
     <!-- this is for THE MENU ACTION  -->
     <record id="student_menu_action" model="ir.actions.act_window">
