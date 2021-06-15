@@ -287,6 +287,8 @@
             <field name="number_increment">1</field>
         </record>
 
+
+
         <menuitem action="students_menu_action" sequence="1" id="schools_student_menu_" name="Student"
                   parent="manthan.schools_main_menu"/>
 

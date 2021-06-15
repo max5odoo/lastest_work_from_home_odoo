@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--professor Tree view -->
+        <record id="product_catalog_tree_view" model="ir.ui.view">
+            <field name="name">product.catalog.tree.view</field>
+            <field name="model">product.catalog</field>
+            <field name="arch" type="xml">
+                <tree string="product">
+
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--professor Form view -->
+        <record id="product_catalog_form_view" model="ir.ui.view">
+            <field name="name">product.catalog.form.view</field>
+            <field name="model">product.catalog</field>
+            <field name="arch" type="xml">
+                <form string="product">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="product info" string="Product Catalog">
+                                <field name="product_catelog_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="product_catalog_menu_action" model="ir.actions.act_window">
+            <field name="name">Product Catalog</field>
+            <field name="res_model">product.catalog</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First product</p>
+            </field>
+        </record>
+
+        <menuitem name="Product Catalogss"
+                  id="sale.product_catalogss"
+                  parent="sale.product_menu_catalog"
+                  action="manthan.product_catalog_menu_action"
+                  sequence="3"/>
+
+        <menuitem action="product_catalog_menu_action" sequence="3" id="product_catalog_menu" name="Product"
+                  parent="schools_main_menu"/>
+
+    </data>
+
+
+</odoo>

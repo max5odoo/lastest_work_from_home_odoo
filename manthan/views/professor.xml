@@ -67,6 +67,7 @@
             </field>
         </record>
 
+
         <menuitem id="schools_main_menu" name="school"/>
         <menuitem action="professor_menu_action" sequence="2" id="school_professor_menu" name="professor"
                   parent="schools_main_menu"/>

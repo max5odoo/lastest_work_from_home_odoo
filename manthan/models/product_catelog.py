@@ -6,4 +6,5 @@ class Product_Catelog(models.Model):
     _description = 'this is product catelog'
 
     name = fields.Char()
-    product_catelog_ids = fields.One2many('product.catalog.lines', 'product_catelog_id')
+    description = fields.Char()
+    product_catelog_ids = fields.One2many('product.catalog.lines', 'product_id')

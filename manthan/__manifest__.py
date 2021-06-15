@@ -41,6 +41,7 @@
         'views/professor.xml',
         'views/task.xml',
         'views/students.xml',
+        'views/product_catalog.xml',
         'views/wizard_demo.xml',
         'views/website_snippet.xml',
         'views/simple_student_page_render.xml',
@@ -48,14 +49,14 @@
         'reports/inherit_sale_report.xml',
         'reports/purchase_task_report.xml',
         # 'reports/delivery_task_report.xml',
-        'views/sale_customer_invoice_inherit.xml',
+        # 'views/sale_customer_invoice_inherit.xml',
         'data/student_mail_template.xml',
         'views/website_task.xml',
         'views/wizard_mail_task.xml',
         # 'views/task_set_values_wizard.xml'
         # 'views/task_fruits.xml',
         # 'views/button_prac.xml',
-        # 'views/sale_order_updates.xml',
+        'views/sale_order_updates.xml',
 
     ],
     # only loaded in demonstration mode
