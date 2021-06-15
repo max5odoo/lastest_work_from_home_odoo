@@ -1,8 +1,15 @@
+from lib2to3.fixes.fix_input import context
+from lxml import etree
+
+import simplejson
+
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 # from datetime import datetime
 import datetime
 import sys, random
+
+from odoo.tools.safe_eval import json
 
 sys.setrecursionlimit(2000)
 
@@ -31,8 +38,9 @@ class Students(models.Model):
     professor_choose = fields.Many2one('professor.professor', string='Professor')
     professor_id_read_only = fields.Char(related='professor_choose.address', string='Changable address ', readonly=True)
     student_signature = fields.Binary(string='Signature')
+    signature_by = fields.Char(string='Signature By: ')
     student_profile = fields.Image('Profile Picture')
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=False)
     handle_widget = fields.Integer()
     task_tech = fields.Many2one('tasks.tasks', string='task technologies')
     tasks_id = fields.One2many('tasks.tasks', 'student_id', string='Task names')
@@ -355,7 +363,7 @@ class Students(models.Model):
         # })
         # print(f"\n\n\n\n\n this is the cron job done --->>>>{student_create}<<<<-----\n\n\n\n")
 
-        template_id = self.env.ref('manthan.student_sending_email_template')
+        template_id = self.env.ref('manthan.student_sending_email_templates')
         student_record = self.env['student.student'].search([])
         random_count = random.choice(student_record)
         print(f"\n\n\n\n\n this is the cron job done --->>>>{student_record}<<<<-----\n\n\n\n")
@@ -366,12 +374,46 @@ class Students(models.Model):
             print(f"\n\n\n\n\n this is the EMAIL VALUES--->>>>{email_valuess}<<<<-----\n\n\n\n")
             template_id.send_mail(self.id, email_values=email_valuess, force_send=True)
 
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
+        res = super(Students, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar,
+                                                    submenu=submenu)
+        print(f'\n\n\n\nfields_get_view-->callable\n\n\n\n')
+        print(f'\n\n\n\nfields_get_view-->value{res}\n\n\n\n')
+        print(f'\n\n\n\ncontext-->value{self.env.context}\n\n\n\n')
+        if self._context.get('turn_view'):  # Check for context value
+            print(f'\n\n\n\ncontext-->callable INSIDE\n\n\n\n')
+            doc = etree.XML(res['arch'])
+            print(f'\n\n\n\ndoc-->value\n\n\n\n')
+            print(f'\n\n\n\ndoc-->value\n\n\n\n')
+            if view_type == 'form':  # Applies only for form view
+                print(f'\n\n\n\nform-->value\n\n\n\n')
+                if not self.active:
+                    for node in doc.xpath("//field"):  # All the view fields to readonly
+                        node.set('readonly', "1")
+                        modifiers = json.loads(node.get("modifiers"))
+                        modifiers['readonly'] = True
+                        node.set("modifiers", json.dumps(modifiers))
+                    res['arch'] = etree.tostring(doc)
+
+        return res
+
 
 class Contact_inherit(models.Model):
     _inherit = 'res.partner'
 
     profession = fields.Selection(
         [('student', 'Student'), ('professor', 'Professor'), ], 'Profession')
+
+
+# ---------------------------BELOW IS FUNCTION IN WHICH DEFAULT USER WILL BE SELECTED WHILE CREATING NEW USER-----
+# class User_group(models.Model):
+#     _inherit = 'res.users'
+#
+#     @api.model
+#     def create(self, vals):
+#         print(f'\n\n\n\n this is res-->{vals}')
+#         vals['groups_id'] = [(4, self.env.ref('manthan.overtime_users').id)]
+#         return super(User_group, self).create(vals)
 
 
 class Student_selection_add(models.Model):

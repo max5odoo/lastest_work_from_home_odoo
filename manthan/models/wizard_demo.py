@@ -95,7 +95,7 @@ class TaskMailSendingWizard(models.TransientModel):
 
     email_to = fields.Char()
     subject = fields.Char('subject')
-    student_body = fields.Html('Contents', sanitize_style=True)
+    student_body = fields.Html('Contents')
     stu_id = fields.Many2one('student.student',
                              default=lambda self: self.env['student.student'].browse(self._context.get("active_id")))
     student_ids = fields.Many2many('student.student', 'student_student_tasks',
@@ -106,16 +106,22 @@ class TaskMailSendingWizard(models.TransientModel):
 
     def send_email_button(self):
         for rec in self:
-            template_id = self.env.ref('manthan.student_sending_email_template')
+            template_id = self.env.ref('manthan.student_sending_email_templates')
         if template_id:
+            print("mail template yess")
+            print(f"self.env['student.student'].browse([stu.id]).student_email")
             for stu in rec.student_ids:
                 email_valuess = {'email_to': self.env['student.student'].browse([stu.id]).student_email,
-                                 'body': rec.student_body,
+                                 'subject': rec.subject,
+                                 'body_html': rec.student_body,
                                  'attachment_ids': [(4, attach.id) for attach in self.attachment_ids]}
+                print("mail values yess")
                 print(f"\n\n\n\n\n\n{email_valuess}\n\n\n\n\n\n")
                 print(
                     f"\n\n\n\n\n\nthis is the email ---->{self.env['student.student'].browse([stu.id]).student_email}\n\n\n\n\n\n")
                 template_id.send_mail(
                     stu.id, email_values=email_valuess, force_send=True)
+        else:
+            print("mail is not send")
 
 # [(5, 0, 0), (0, 0, { 'student_body': 'stu.student_email' })],   <<<<<<<<<<<<<-------------this is to put in the email_body

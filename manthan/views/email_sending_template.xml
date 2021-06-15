@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <!--Email template -->
-        <record id="student_sending_email_template" model="mail.template">
+        <record id="student_sending_email_templates" model="mail.template">
             <field name="name">Student Email Template</field>
             <field name="model_id" ref="manthan.model_task_mail_sending_wizard"/>
             <field name="email_to">${(object.email_to) | safe}</field>
@@ -33,6 +33,7 @@
                                 </tr>
                                 % endfor
                             </table>
+                            <div>${object.student_signature}</div>
                             <footer align="center" style="margin-top : 5px; border-top : 1px solid #d3d3d3">
                                 <a href="https://www.odoo.com/">odoo.com</a>
                             </footer>
@@ -44,7 +45,6 @@
             </field>
 
             <field name="report_template" ref="report_student"/>
-            <field name="report_name">Name${(object.name or '')</field>
         </record>
     </data>
 </odoo>

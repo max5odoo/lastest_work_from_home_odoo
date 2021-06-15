@@ -19,11 +19,11 @@
     'version': '14.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'website','sale'],
+    'depends': ['base', 'mail', 'website', 'sale'],
 
     # always loaded
     'data': [
-        # 'security/security_prac.xml',
+        'security/security_prac.xml',
         'security/ir.model.access.csv',
 
         # 'data/student_data.xml',
