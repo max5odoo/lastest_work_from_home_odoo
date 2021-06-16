@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sales_order_product_catalog_viewss" model="ir.ui.view">
+        <field name="name">sales.order.product.catalog.viewss</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+
+                <field name="product_catalogs_id"/>
+
+            </xpath>
+            <xpath expr="//page[@name='order_lines']//field[@name='order_line']//tree//field[@name='product_id']"
+                   position="before">
+
+                <field name="product_catelog_product_line_id"
+                       attrs="{'column_invisible':[('parent.product_catalogs_id','=',False)]}"/>
+                <field name="description" attrs="{'column_invisible':[('parent.product_catalogs_id','=',False)]}"/>
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>

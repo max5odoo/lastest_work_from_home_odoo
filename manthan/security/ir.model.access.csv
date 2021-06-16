@@ -6,6 +6,7 @@ access_manthan_wizard_new,manthan.wizard.new,model_task_creation_report_wizard,b
 access_manthan_wizard_mail,manthan.wizard.mail.new,manthan.model_task_mail_sending_wizard,base.group_user,1,1,1,1
 access_manthan_wizard_mail_send,manthan.wizard.mail.new.sending,model_task_mail_report_wizard,base.group_user,1,1,1,1
 access_manthan_product_catalog,manthan.product.catalog,model_product_catalog,base.group_user,1,1,1,1
+access_manthan_product_catalog_lines,manthan.product.catalog.lines,model_product_catalog_lines,base.group_user,1,1,1,1
 
 
 
