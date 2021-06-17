@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="hr_referral_form_template" name="Hr Referral Application">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section>
+                        <h1 class="text-center">
+                            Referral Registration
+                        </h1>
+                    </section>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form action="/referral/form/submit">
+                            <!-- <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="name">
+                                    <span class="s_website_form_label_content">Name</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input id="name" type="text" class="form-control s_website_form_input" name="name" required=""/>
+                                </div>
+                            </div> -->
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" name="name" id="name" required="true" />       
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email" id="email" required="true" />       
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="referral_name">Referral Name:</label>
+                                    <br/>
+                                    <select id="referral_name" class="col-lg-4 col-md-4 col-form-label"
+                                        name="referral_name"
+                                        required="1">
+                                        <t t-set="referral_name"
+                                            t-value="request.env['hr.employee'].search([])"/>
+                                        <t t-foreach="referral_name" t-as="cid">
+                                            <option t-att-value="cid.id">
+                                                <t t-esc="cid.name"/>
+                                            </option>
+                                        </t> <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="referral_name">Referral Name:</label>
+                                    <br/>
+                                    <select id="referral_name" class="col-lg-4 col-md-4 col-form-label"
+                                        name="referral_name"
+                                        required="1">
+                                        <t t-set="referral_name"
+                                            t-value="request.env['hr.employee'].search([])"/>
+                                        <t t-foreach="referral_name" t-as="cid">
+                                            <option t-att-value="cid.id">
+                                                <t t-esc="cid.name"/>
+                                            </option>
+                                        </t>
+                                    </select><br/><br/>
+                                </div>
+                                    </select><br/><br/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="degree">Degree :</label>
+                                    <br/>
+                                    <select id="degree" class="col-lg-4 col-md-4 col-form-label"
+                                        name="degree"
+                                        required="1">
+                                        <t t-set="degree"
+                                            t-value="request.env['hr.recruitment.degree'].search([])"/>
+                                        <t t-foreach="degree" t-as="did">
+                                            <option t-att-value="did.id">
+                                                <t t-esc="did.name"/>
+                                            </option>
+                                        </t>
+                                    </select><br/><br/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="department">Department :</label>
+                                    <br/>
+                                    <select id="department" class="col-lg-4 col-md-4 col-form-label"
+                                        name="department"
+                                        required="1">
+                                        <t t-set="department"
+                                            t-value="request.env['hr.job'].search([])"/>
+                                        <t t-foreach="department" t-as="jid">
+                                            <option t-att-value="jid.id">
+                                                <t t-esc="jid.name"/>
+                                            </option>
+                                        </t>
+                                    </select><br/><br/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="name">Expected Salary :</label>
+                                    <input type="text" class="form-control" name="expected_salary" id="expected_salary" required="true" />
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="name">Expected Joing Date:</label>
+                                    <input type="date" class="form-control" name="expected_joing_date" id="expected_joing_date" required="true" />
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group col-12 s_website_form_field s_website_form_required" data-type="text" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="summary">
+                                            <span class="s_website_form_label_content">Summary</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <br/>
+                                        <div class="col-sm">
+                                            <textarea id="summary" class="form-control s_website_form_input" name="summary" required=""></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_referral_manager,access_hr_manager,model_hr_referral_application,group_hr_referral_manager,1,1,1,1
+access_hr_referral_user,access_hr_user,model_hr_referral_application,group_hr_referral_user,1,1,1,1

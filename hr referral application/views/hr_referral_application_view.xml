@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Tree view for Tracking Order-->
+    <record id="hr_referral_tree" model="ir.ui.view">
+        <field name="name">hr referral application tree</field>
+        <field name="model">hr.referral.application</field>
+        <field name="arch" type="xml">
+            <tree string="Hr Referral Application">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="referral_name"/>
+                <field name="department"/>
+                <field name="expected_joing_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Form view for Tracking Order-->
+    <record id="hr_referral_application_form" model="ir.ui.view">
+        <field name="name">hr referral application form</field>
+        <field name="model">hr.referral.application</field>
+        <field name="arch" type="xml">
+            <form string="Hr referral application">
+                <header>
+                    <button name="button_approve" states="draft" type="object" string="Approve" groups="hr referral application.group_hr_referral_manager" class="oe_highlight"/>
+                    <button name="button_confirm" states="approved" type="object" string="Create Application" groups="hr referral application.group_hr_referral_manager" class="oe_highlight"/>
+                    <button name="button_cancel" states="approved" type="object" string="Cancel" groups="hr referral application.group_hr_referral_manager" class="oe_highlight"/>
+                    <button name="button_draft" states="cancel" type="object" string="Draft" groups="hr referral application.group_hr_referral_manager" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet string="HR Referral">
+                    <group>
+                        <group string="Detail Of Referral" col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="email" widget="email"/>
+                            <field name="referral_name" widget="many2one_tags"/>
+                            <field name="degree"/>
+                        </group>
+                        <group col="4" colspan="4">
+                            <field name="department"/>
+                            <field name="expected_salary"/>
+                            <field name="expected_joing_date"/>
+                        </group>
+                        <group>
+                            <separator string="Summary"/>
+                            <field name="summary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Action for Employee Document-->
+    <record id="action_hr_referral_application" model="ir.actions.act_window">
+        <field name="name">Hr Referral</field>
+        <field name="res_model">hr.referral.application</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enter Referral Details!!!
+            </p>
+        </field>
+    </record>
+
+    <!-- creating menus  -->
+    <menuitem id="menu_hr_referral" name="Hr Referral Application"
+              action="action_hr_referral_application" parent="hr.menu_hr_root" sequence="5"/>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="tmp_referral_form_success" name="Referral Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            Refferal Application created successfully.
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="form-group col-12 s_website_form_submit s_website_form_no_submit_options">
+                        <div style="width: 200px;" class="s_website_form_label"/>
+                            <a role="button" href="/form/hr_referral" class="btn btn-secondary float-left"><span class="fa fa-chevron-left"/> Back</a>
+                            <span id="s_website_form_result"></span>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
