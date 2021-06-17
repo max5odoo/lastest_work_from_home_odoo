@@ -1,0 +1,99 @@
+<odoo>
+    <!--res_partner_category_14  res.partner.category-->
+    <data noupdate="1">
+    
+        <record id="student_detail_1" model="student.data">
+            <field name="first_name">Guest</field>
+            <field name="last_name"></field>
+            <field name="country_code">91</field>
+            <field name="age">30</field>
+            <field name="mobile">99191911</field>
+            <field name="login_user" ref="base.user_admin"></field>
+            <field name="student_line_ids" eval="[(0,0,{
+                'course_id':ref('Course_1'),
+                'course_amount':2000,
+                }),
+                (0,0,{
+                'course_id':ref('Course_2'),
+                'course_amount':3000,
+                })
+            ]"></field>
+            <field name="skill_list" eval="[(4,ref('skill_3'),0)]"></field>
+        </record>
+        <record id="student_detail_2" model="student.data">
+            <field name="first_name">Michael</field>
+            <field name="last_name">Jackson</field>
+            <field name="country_code">34</field>
+            <field name="age">25</field>
+            <field name="mobile">9898</field>
+            <field name="login_user" ref="base.user_admin"></field>
+            <field name="student_line_ids" eval="[(0,0,{
+                'course_id':ref('Course_1'),
+                'course_amount':2000,
+                }),
+                (0,0,{
+                'course_id':ref('Course_2'),
+                'course_amount':3000,
+                })
+            ]"></field>
+            <field name="skill_list" eval="[(4,ref('skill_3'),0)]"></field>
+        </record>
+
+        <record id="student_detail_3" model="student.data">
+            <field name="first_name">Abdul</field>
+            <field name="last_name">Kalam</field>
+            <field name="country_code">92</field>
+            <field name="age">58</field>
+            <field name="mobile">9899</field>
+            <field name="login_user" ref="base.user_admin"></field>
+            <field name="student_line_ids" eval="[(0,0,{
+                'course_id':ref('Course_4'),
+                'course_amount':2000,
+                }),
+                (0,0,{
+                'course_id':ref('Course_2'),
+                'course_amount':3000,
+                })
+            ]"></field>
+            <field name="skill_list" eval="[(4,ref('skill_4'),0),(4,ref('skill_5'),0)]"></field>
+
+        </record>
+        <record id="student_detail_4" model="student.data">
+            <field name="first_name">Alon</field>
+            <field name="last_name">Musk</field>
+            <field name="mobile">98996</field>
+            <field name="country_code">94</field>
+            <field name="age">35</field>
+            <field name="login_user" ref="base.user_admin"></field>
+            <field name="student_line_ids" eval="[(0,0,{
+                'course_id':ref('Course_2'),
+                'course_amount':2000,
+                }),
+                (0,0,{
+                'course_id':ref('Course_1'),
+                'course_amount':3000,
+                })
+            ]"></field>
+            <field name="skill_list" eval="[(4,ref('skill_4'),0),(4,ref('skill_5'),0),(4,ref('skill_1'),0)]"></field>
+        </record>
+        <!-- <record id="student_detail_5" model="student.data">
+            <field name="first_name">Tonny</field>
+            <field name="last_name">Stark</field>
+            <field name="country_code">69</field>
+            <field name="mobile">9894567</field>
+            <field name="age">35</field>
+            <field name="login_user" ref="base.user_admin"></field>
+            <field name="student_line_ids" eval="[(0,0,{
+                'course_id':ref('Course_2'),
+                'course_amount':2000,
+                }),
+                (0,0,{
+                'course_id':ref('Course_1'),
+                'course_amount':3000,
+                })
+            ]">
+            </field>
+            <field name="skill_list" eval="[(4,ref('skill_1'),0),(4,ref('skill_2'),0),(4,ref('skill_3'),0),(4,ref('skill_4'),0)]"></field>
+        </record>-->
+    </data> 
+</odoo>

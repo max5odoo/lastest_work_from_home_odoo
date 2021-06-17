@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_cal1,access.calendar.event,calendar.model_calendar_event,sale_order_record_rules.cal_group2,0,1,1,1

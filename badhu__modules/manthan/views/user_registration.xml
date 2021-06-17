@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id='user_signup' name='home'>
+        <!--  This is the path for CSS       -->
+        <link rel="stylesheet" href="manthan/static/src/css/button.css"/>
+
+        <div style="width:auto">
+
+            <div style="border-radius:10px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);background-color:#E7E9EB;width:400px;height:300px;margin:100px auto">
+                <div style="border-top-left-radius : 10px;border-top-right-radius : 10px;text-align:center;background-color:#2A99CF;height:50px;">
+                    <h2 style="color:white;padding:10px 0 0 0">Signup Page</h2>
+                </div>
+                <div style="margin:5px 0 0 60px;font-size:18px;padding:20px 0 0 0">
+                    <form action="/signup" method="post" role='form'>
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+
+                        <label for="name">First Name :</label>
+                        <input type="text" id="name" name="name" t-att-value="name"
+                               placeholder="Enter Your Name"/>
+                        <br/>
+                        <br/>
+                        <label for="student_email">Email :</label>
+                        <input type="text" id="email" name="student_email" t-att-value="student_email"
+                               placeholder="Enter Your Email"/>
+                        <br/>
+                        <br/>
+
+                        <label for="student_password">Password:</label>
+                        <input type="text" id="student_password" name="student_password" t-att-value="student_password"
+                               placeholder="Enter Your Password"/>
+                        <br/>
+                        <br/>
+
+                        <br/>
+                        <br/>
+
+
+                        <input type="submit" value="Submit"
+                               style="margin:20px 0 0 10px;height:30px;width:100px;background-color: #008CBA;;color:white;display:inline-block;float:left"/>
+
+                    </form>
+                    <a href="/cancel" class="buttons red">Cancle</a>
+
+                </div>
+
+            </div>
+        </div>
+    </template>
+</odoo>

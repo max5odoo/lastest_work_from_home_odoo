@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!--Field showed in contanct form view-->
+        <!--    <record id='contact_inherit__' model="ir.ui.view">-->
+        <!--      <field name="name">contact.inherit</field>-->
+        <!--      <field name="model">res.partner</field>-->
+        <!--      <field name="inherit_id" ref='base.view_partner_form'/>-->
+        <!--      <field name="arch" type="xml">-->
+        <!--          <xpath expr="//form//sheet//group//group//field[@name='is_student']" position="after">-->
+        <!--                    <field name="is_professor" widget="radio"/>-->
+        <!--          </xpath>-->
+        <!--    </field>-->
+        <!--    </record>-->
+
+        <!-- Tree View for Professor-->
+        <record id="professor_tree_view" model="ir.ui.view">
+            <field name="name">professor.tree.view</field>
+            <field name="model">professor.details</field>
+            <field name="arch" type="xml">
+                <tree string="Professor Information">
+                    <field name="professor_name"/>
+                    <field name="his_students" widget="many2many_tags"/>
+                    <field name="mobile_no"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--    Search view for professor-->
+
+
+        <record id="professor_search_view" model="ir.ui.view">
+            <field name="name">professor.search.view</field>
+            <field name="model">professor.details</field>
+            <field name="arch" type="xml">
+                <search string="professor Information">
+
+                    <field name="professor_name"/>
+
+                </search>
+            </field>
+        </record>
+
+        <!--professor Form view -->
+        <record id="professor_form_view" model="ir.ui.view">
+            <field name="name">professor.form.view</field>
+            <field name="model">professor.details</field>
+            <field name="arch" type="xml">
+                <form string="Professor">
+                    <sheet>
+
+                        <!-- <field class="oe_left oe_avatar" name="photo" widget="image"/> -->
+                        <group string="Professor info">
+                            <group>
+                                <field class="oe_left oe_avatar" name="photo" widget="image"/>
+                                <!--                <field name="name"/>-->
+                                <field name="professor_name" domain="[('is_student','=','professor')]"/>
+
+                                <!--                  we can use any field of student in professor without declaration in prof.-->
+                                <!--                <field name="roll_no"/>-->
+                            </group>
+                            <group>
+                                <field name="mobile_no"/>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <sheet>
+                        <field name="his_students"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="professor_menu_action" model="ir.actions.act_window">
+            <field name="name">professor</field>
+            <field name="res_model">professor.details</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="domain">[]</field>
+            <!-- <field name="context">{'search_default_female': True}</field> -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First professor</p>
+            </field>
+        </record>
+
+
+        <menuitem action="professor_menu_action" id="school_professor_menu" name="Professor"
+                  parent="task1_explained.school_menu_"/>
+    </data>
+</odoo>

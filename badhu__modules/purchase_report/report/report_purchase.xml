@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report id="custom_purchase"
+            model="purchase.order"
+            name="purchase_report.custom_purchase_temp"
+            file="purchase_report.state_report_in_purchase"
+            report_type="qweb-pdf"
+            string="Purchase Custom"/>
+
+    <report id="custom_state"
+            model="purchase.order"
+            name="purchase_report.custom_state_temp"
+            file="purchase_report.state_table"
+            report_type="qweb-pdf"
+            string="Purchase orders by States"/>
+</odoo>

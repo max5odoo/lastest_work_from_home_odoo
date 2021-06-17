@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Email template -->
+        <record id="email_template_edi_invoice" model="mail.template">
+            <field name="name">Invoice: Send by email</field>
+            <field name="model_id" ref="manthan.model_student_student"/>
+            <field name="email_to">${(object.student_email) |safe}</field>
+            <field name="subject">${object.name}</field>
+            <field name="body_html" type="html">
+
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top:16px;background-color:#f1f1f1;font-family:Verdana,Arial,sans-serif;color:#454748;width:100%;border-collapse:separate">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="padding:24px;background-color:white;color:#454748;border-collapse:separate">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center" style="min-width: 590px">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                       style="background-color:white;padding:0;border-collapse:separate">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size:10px">Student Name</span>
+                                                                <br/>
+                                                                <span style="font-size:20px; font-weight:bold">
+                                                                    ${object.name}
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <span style="font-size:10px">Student Address</span>
+                                                                <br/>
+                                                                <span style="font-size:20px; font-weight:bold">
+                                                                    ${object.address}
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:4px 0px 32px 0px"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0">
+                                                <div style="font-size:13px;font-family:Verdana,Arial,sans-serif;margin:0px;padding:0px">
+                                                    <p style="font-size:13px;font-family:Verdana,Arial,sans-serif;margin:0px;padding:0px">
+
+                                                        Hello,
+
+                                                        <br/>
+                                                        <br/>
+
+                                                        Your Mobile is <strong style="font-weight:bolder">${object.phoneno}</strong>
+
+                                                    </p>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+            <field name="report_template" ref="report_student"/>
+            <field name="report_name">Student Report_${(object.name)}</field>
+        </record>
+    </data>
+</odoo>

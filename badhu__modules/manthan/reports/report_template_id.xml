@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="print_sample_reports">
+
+            <t t-call="web.external_layout">
+                <t t-call="web.html_container">
+                    <div class="page">
+                        <center>
+                            <h2>Student Report</h2>
+                        </center>
+                        Date:
+                        <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+                        <br/>
+                        <br/>
+                        <div>
+                            <page>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <th>
+                                            <strong>Name:</strong>
+                                            <br/>
+                                        </th>
+                                        <th>
+                                            <strong>Mobile No.:</strong>
+                                            <br/>
+                                        </th>
+                                        <th>
+                                            <strong>Gender:</strong>
+                                            <br/>
+                                        </th>
+                                        <th>
+                                            <strong>Dob:</strong>
+                                            <br/>
+                                        </th>
+                                        <th>
+                                            <strong>Age:</strong>
+                                            <br/>
+                                        </th>
+                                        <th>
+                                            <strong>Professor:</strong>
+                                            <br/>
+                                        </th>
+                                    </thead>
+                                    <t t-as="o" t-foreach="docs">
+                                        <tr>
+                                            <td>
+                                                <span t-field="o.name"/>
+                                                <br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.phoneno"/>
+                                                <br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.gender"/>
+                                                <br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.dob"/>
+                                                <br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.age"/>
+                                                <br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.professor_choose.name"/>
+                                                <br/>
+                                            </td>
+                                        </tr>
+                                        <!--                                        <div>-->
+                                        <!--                                            <img t-att-src="image_data_uri(o.student_profile)"/>-->
+                                        <!--                                        </div>-->
+
+                                    </t>
+
+                                </table>
+                                <t t-as="o" t-foreach="docs">
+                                    <div t-if="o.student_signature" class="mt32 ml64 mr4" name="signature">
+                                        <div class="offset-8">
+                                            <strong>Signature</strong>
+                                        </div>
+                                        <div class="offset-8">
+                                            <img t-att-src="image_data_uri(o.student_signature)"
+                                                 style="max-height: 4cm; max-width: 8cm;"/>
+                                        </div>
+                                        <div class="offset-8 text-center">
+                                            <p t-field="o.signature_by"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <br/>
+                                <br/>
+
+
+                            </page>
+                        </div>
+
+                    </div>
+
+                    <!--                    <t t-foreach="docs" t-as="doc">-->
+                    <!--                        <div>-->
+                    <!--                            <h2 align="center">Manthan the Boss</h2>-->
+                    <!--                        </div>-->
+                    <!--                        <t t-esc="doc.name"/>-->
+                    <!--                        <t t-esc="doc.professor_choose.name"/>-->
+                    <!--                    </t>-->
+                </t>
+            </t>
+        </template>
+
+        <template id="print_sample_report">
+            <t t-call="web.html_container">
+                <!--                <t t-foreach="docs" t-as="doc">-->
+                <t t-call="manthan.print_sample_reports"/>
+                <!--                </t>-->
+            </t>
+
+        </template>
+    </data>
+</odoo>

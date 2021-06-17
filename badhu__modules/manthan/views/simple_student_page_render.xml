@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="student_simple_page" name="My Student">
+        <t t-call="portal.portal_layout">
+            <button>CLICK HERE</button>
+            <p id="paraone"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Fees to pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>man</td>
+                        <td>man@gmail.com</td>
+                        <td>male</td>
+                        <td>address one</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </t>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"/>
+        <script src="manthan/static/src/js/student_ajax.js"/>
+
+
+    </template>
+</odoo>

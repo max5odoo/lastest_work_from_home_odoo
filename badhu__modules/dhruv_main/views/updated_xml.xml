@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+        <record id="sales_order_updated_view" model="ir.ui.view">
+        <field name="name">sales.order.updated.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="so_reference"/>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="invoice_updated_view" model="ir.ui.view">
+        <field name="name">invoice.updated.view</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+           
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="so_reference"/>
+            </xpath>
+        </field>
+    </record>
+
+       <record id="contact_updated_view" model="ir.ui.view">
+        <field name="name">contact.updated.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="so_reference"/>
+                <field name="designation"/>
+            </xpath>
+        </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="employee_new_update_view" model="ir.ui.view">
+        <field name="name">employee.new.update.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+
+                <button name="doc_button" string="Documents" class='oe_stat_button' icon="fa-edit" type="object">
+
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="total_employee"/>
+                        </span>
+                    </div>
+                </button>
+                <button name="youtube_button" string="Youtube" class='oe_stat_button' icon="fa-edit" type="object"/>
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

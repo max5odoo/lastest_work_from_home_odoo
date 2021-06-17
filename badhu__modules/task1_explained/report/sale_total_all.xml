@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="sale_custom_report_all"
+        model="sale.order" name="task1_explained.sale_order_custom_report_for_all"
+        report_type="qweb-pdf" string="All Sale(Total)"/>
+
+    <template id="sale_order_custom_report_for_all">
+        <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <strong>Sale Orders</strong><br/>
+                            <table class="table table-sm table-reports">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:20px; font-size:25px;">Sale Order No</th>
+                                        <th style="text-align:20px; font-size:25px;">Customer Name</th>
+                                        <th style="text-align:20px; font-size:25px;">Sales Person</th>
+                                        <th style="text-align:20px; font-size:25px;">Order Date</th>
+                                        <th style="text-align:20px; font-size:25px;">Status Order</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="doc">
+                                        <tr t-if="not(doc.partner_id.customer_rank &gt; 0 and doc.partner_id.supplier_rank &gt; 0)">
+                                            <td><t t-esc="doc.name"/></td>
+                                            <td> <t t-esc="doc.partner_id.name"/></td>
+                                            <td> <t t-esc="doc.user_id.name"/></td>
+                                            <td> <t t-esc="doc.date_order"/></td>
+                                            <td> <t t-esc="doc.state"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr class="is-subtotal text-right">
+                                        <td name="td_section_subtotal" colspan="99">
+                                            <strong class="mr16">Subtotal</strong>
+                                            <span
+                                                t-esc="sum([doc.amount_total for doc in docs])"
+                                                t-options='{"widget": "monetary", "display_currency": docs[0].pricelist_id.currency_id}'
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="clearfix" name="so_total_summary">
+                                <div id="total" class="row" name="total">
+                                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                        <table class="table table-sm">
+                                            <t t-foreach="docs" t-as="doc">
+                                            <tr class="border-black o_subtotal" style="">
+                                                <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
+                                                <td name="td_amount_untaxed" class="text-right">
+                                                    <span
+                                                        t-esc="sum([doc.amount_total for doc in docs])"
+                                                        t-options='{"widget": "monetary", "display_currency": docs[0].pricelist_id.currency_id}'
+                                                    />
+                                                </td>
+                                            </tr>
+                                                <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+                                                <tr style="">
+                                                    <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                                        <td name="td_amount_by_group_label_3">
+                                                            <span t-esc="amount_by_group[0]"/>
+                                                            <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
+                                                        </td>
+                                                        <td name="td_amount_by_group_3" class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[1]"
+                                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else ="">
+                                                        <td name="td_amount_by_group_label">
+                                                            <span t-esc="amount_by_group[0]"/>
+                                                        </td>
+                                                        <td name="td_amount_by_group" class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[1]"
+                                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                        </td>
+                                                    </t>
+                                                </tr>
+                                            </t>
+                                            <tr class="border-black o_total">
+                                                <td name="td_amount_total_label"><strong>Total</strong></td>
+                                                <td name="td_amount_total" class="text-right">
+                                                    <span t-field="doc.amount_total"/>
+                                                </td>
+                                            </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </t>
+            </t>
+    </template>
+</odoo>

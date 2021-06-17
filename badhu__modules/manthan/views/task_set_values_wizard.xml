@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="task_set_new_value_view" model="ir.ui.view">
+        <field name="name">task.set.new.value.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Open Academy Data-String"
+                     string="Student"
+                     data-key="manthan">
+                    <h2>Student Info</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <label for="template_id_new"/>
+                            <field name="template_id_new" class="o_light_label"/>
+                        </div>
+                    </div>
+                </div>
+
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

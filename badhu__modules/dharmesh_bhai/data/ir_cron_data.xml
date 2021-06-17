@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record forcecreate="True" id="Student_Lecture_Reminder" model="ir.cron">
+        <field name="name">Student Lecture Reminder</field>
+        <field name="active" eval="False" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">5</field>
+        <field name="doall">1</field>
+        <field name="model_id" ref="model_student_data"/>
+        <field name="state">code</field>
+        <field name="code">model._schedule_call()</field>
+    </record>
+</odoo>

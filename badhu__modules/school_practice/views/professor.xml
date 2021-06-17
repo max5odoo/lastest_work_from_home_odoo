@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--  THIS IS THE TREE VIEW OF THE Professor          -->
+    <record id="professor_tree_view_tree_view" model="ir.ui.view">
+        <field name="name">professor.tree.view</field>
+        <field name="model">professor.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name" decoration-success="first_name=='manthan'"
+                       decoration-info="first_name=='dhruv'"
+                       widget='badge'/>
+                <field name="last_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <field name="gender"/>
+                <field name="profile_pic" optional="hide"/>
+                <field name="address" optional="hide"/>
+                <field name="dob" optional="hide"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Professor Search view -->
+    <record id="professor_search_view" model="ir.ui.view">
+        <field name="name">professor.search.view</field>
+        <field name="model">professor.details</field>
+        <field name="arch" type="xml">
+            <search string="Search Professor">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <separator/>
+
+                <filter domain="[('gender', '=', 'male')]" name="male" string="Male"/>
+                <filter domain="[('first_name', '=like','man%')]" name="first_name" string="First Name"/>
+
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter context="{'group_by':'gender'}" name="gender" string="Gender"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+
+    <!--  THIS IS THE FORM VIEW OF THE Professor          -->
+    <record id="professor_form_view" model="ir.ui.view">
+        <field name="name">professor.form.view</field>
+        <field name="model">professor.details</field>
+        <field name="arch" type="xml">
+            <form string="professor">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="mobile_no"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="email"/>
+                            <field name="profile_pic" widget="image"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="professor_name" string="Professor name">
+                            <group>
+                                <field name="first_name"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!--   BELOW DIV IS FOR GETTING THE CHATTER  -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- THIS IS FOR ACTION BUTTON (ACTION MENU) -->
+    <record id="student_action_button" model="ir.actions.act_window">
+        <field name="name">Professor</field>
+        <field name="res_model">professor.details</field>
+        <field name="view_id" ref="professor_form_view"/>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="model_student_details"/>
+        <field name="binding_view_types">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- this is for THE MENU ACTION  -->
+    <record id="professor_menu_action" model="ir.actions.act_window">
+        <field name="name">Professor</field>
+        <field name="res_model">professor.details</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create The First Professor</p>
+        </field>
+    </record>
+
+    <!--        This is to show the menu inside the main menu-->
+    <menuitem action="professor_menu_action" id="professor_menu" name="Professor" sequence="2"
+              parent="school_main_menu"/>
+</odoo>

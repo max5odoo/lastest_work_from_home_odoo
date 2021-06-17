@@ -1,0 +1,108 @@
+<odoo>
+   <data>
+       <!--Email template -->
+       <record id="student_email_template" model="mail.template">
+           <field name="name">Student Email Template</field>
+           <field name="model_id" ref="new_app.model_school_student_mail_wizard"/>
+           <!-- <field name="email_from"></field> -->
+           <field name="email_to">${(object.email_to) | safe}</field>
+           <field name="subject">Ref ${object.subject or 'n/a' }</field>
+           <field name="auto_delete" eval="True"/>
+           <field name="body_html" type="html">
+            <div>
+
+               <div style="width:70%;height:auto;margin:0 auto!important;padding : 25px!important;box-shadow: 5px 10px #888888!important; background-color: #d3d3d3;">
+                 
+
+                <header style="padding-bottom : 3px; border-bottom : 1px solid #000000!important;">
+
+                  <div style="display:inline-block;width:100%;">
+                    <div style="float:left;width:70%;">
+
+                         <img src="/web/image/school.student.detail/${object.stu_id.id}/avatar_img" style="width: 65px; height: 65px; object-fit: contain;" alt="Avatar image"></img>
+
+                    <h3 >${object.stu_id.name}
+                    </h3>
+                    </div>
+
+                    <p style="float:right;width:30%;">
+                      <address>
+                        ${object.stu_id.address_line1}, ${object.stu_id.address_line2}
+                      </address>
+                    </p>
+                  </div>
+
+                </header>
+
+
+               
+               
+
+                <div style="padding : 5px; margin-top : 3px;">
+
+                   ${object.body}
+
+                   <table  cellpadding="0" cellspacing="0">
+
+                    <tr>
+                      <td><strong>Your Name : </strong></td>
+                      <td><p>${object.stu_id.name}</p></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Your Email : </strong></td>
+                      <td><p>${object.stu_id.email_id}</p></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Your gender : </strong></td>
+                      <td><p>${object.stu_id.email_id}</p></td>
+                    </tr>
+
+                      <tr>
+                      <td><h3>Assigned Task : </h3></td>
+                      <td><p>${object.stu_id.todo_name.title}</p></td>
+                    </tr>
+
+                   </table>
+                </div>
+
+
+          <div style="padding : 5px;margin-top:5px;">
+
+              
+           
+            <h4>Applied Courses</h4>
+
+               <table  cellpadding="0" cellspacing="0" width="650" align="center" style="text-align : center;" border="1">
+                    
+                    <tr>
+                      <th>Title</th>
+                      <th>Short Desc.</th>
+                      <th>Created By</th>
+                    </tr>
+                 
+                  % for line in object.stu_id.course_ids: 
+                      <tr>
+                      <td>${line.course_id.name}</td> 
+                      <td>${line.short_desc}</td>
+                      <td>${line.created_by}</td>
+                      </tr>
+                  % endfor 
+                  </table>
+                  <footer align="center" style="margin-top : 5px; border-top : 1px solid #d3d3d3;padding-top : 5px;  ">
+                    <a href="https://www.odoo.com/">odoo.com</a>
+                  </footer>
+            </div>
+               </div>
+
+            </div>
+
+           </field>
+         
+         <!--  <field name="report_template" ref="report_student_info"/>
+            <field name="report_name">Your Report</field>
+            <field name="auto_delete" eval="True"/> -->
+       </record>
+   </data>
+</odoo>

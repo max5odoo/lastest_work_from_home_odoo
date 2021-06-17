@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<!-- Tree View for Todos-->
+		<record id="todos_tree_view" model="ir.ui.view">
+			<field name="name">todos.tree.view</field>
+			<field name="model">todos.detail</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="title"/>
+					<field name="description"/>
+					<field name="is_done"/>
+					<field name="start_datetime" optional="hide"/>
+					<field name="end_datetime" optional="hide"/>
+				</tree>
+			</field>
+		</record>
+		<!--Todo search view-->
+		<record id="todos_search_view" model="ir.ui.view">
+			<field name="name">todos.search.view</field>
+			<field name="model">todos.detail</field>
+			<field name="arch" type="xml">
+				<search string="Search Todos">
+					<field name="title"/>
+					<field name="description"/>
+					<separator/>
+					<filter domain="[('is_done','=',True)]" name="done" string="Done"/>
+					<filter domain="[('is_done','=',False)]" name="not_done" string="Not Done"/>
+					<separator/>
+					<group expand="1" string="Group By">
+						<filter context="{'group_by':'is_done'}" name="is_done" string="Is Completed"/>
+					</group>
+				</search>
+			</field>
+		</record>
+		<!-- Form View for Todos-->
+		<record id="todos_form_view" model="ir.ui.view">
+			<field name="name">todos.form.view</field>
+			<field name="model">todos.detail</field>
+			<field name="arch" type="xml">
+				<form String="Todos">
+					<sheet>
+						<group>
+							<field name="title"/>
+							<field name="is_done"/>
+							<field name="start_datetime"/>
+							<field name="end_datetime"/>
+						</group>
+						<notebook>
+							<page autofocus="autofocus" name="description" string="description">
+								<field name="description" placeholder="Description"/>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids"/>
+						<field name="activity_ids"/>
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+		<!-- Action -->
+		<record id="todos_menu_action" model="ir.actions.act_window">
+			<field name="name">Todos</field>
+			<field name="res_model">todos.detail</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{"todo_context":True}</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create The First Todo</p>
+			</field>
+		</record>
+		<menuitem id="task_menu" name="Task Management"/>
+		<menuitem action="todos_menu_action" id="task_todos_menu" name="Todos" parent="new_app2.task_menu"/>
+	</data>
+</odoo>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="register_template_website">
+        <t t-call="website.layout">
+            <div class="alert alert-success" role="alert">
+                Contact us regarding any query.
+            </div>
+            <div class="page-header">
+                <center><h1>Registration Form</h1></center>
+            </div>
+            <div class="container">
+                <form action="/registration/submit" method="POST">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="row mx-2 my-4">
+                        <div class="col-md mb-8 mt-6">
+                            <b>Student Name : </b>
+                            <select name="name" id="name" required="True" class="form-control link-style"
+                                    style="width: 432px; height: 35px;">
+                                <t t-foreach="students" t-as="st">
+                                    <option t-att-value="st.id" t-esc="st.name"/>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--                        <div class="col-md form-group">-->
+                        <!--                            <label for="name">Your Name  :</label>-->
+                        <!--                            <input type="name" class="form-control" id="name" t-att-value="name" placeholder="Enter your Name" name="name"/>-->
+                        <!--                        </div>-->
+
+                        <div class="col-md form-group mx-4">
+                            <label for="email">Your Email :</label>
+                            <input type="email" class="form-control" id="email" t-att-value="student_email"
+                                   placeholder="Enter your Email" name="student_email"/>
+                        </div>
+                        <div class="col-md form group mx-4">
+                            <label for="phone">Your Phone Number :</label>
+                            <input type="text" class="form-control" t-att-value="mobile_no" id="phone"
+                                   placeholder="Enter your Phone Number"
+                                   name="mobile_no"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col mx-4 form-group">
+                            <label for="">Gender</label>
+                            <div class="max">
+                                <label class="radio inline">
+                                    <input type="radio" name="gender" value="male"/>
+                                    <span> Male </span>
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="gender" value="female"/>
+                                    <span> Female </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="dob">Your Birth date :</label>
+                            <input type="date" class="form-control" t-att-value="dob" id="dob"
+                                   placeholder="Enter your Birth Date"
+                                   name="dob"/>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md mx-4">
+                                <b>Professor Name : </b>
+                                <select name="his_professor" id="his_professor" required="True"
+                                        class="form-control link-style"
+                                        style="width: 432px; height: 35px;">
+                                    <t t-foreach="professor" t-as="p">
+                                        <option t-att-value="p.id" t-esc="p.professor_name.name"/>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                    </div><br/><br/>
+
+                    <div class="my-4">
+                        <center><b>Courses Information</b></center>
+                    </div>
+                    <table class="table">
+                        <thead class="table table-dark">
+                            <tr>
+                                <th style="text-align:20px;">Course Name</th>
+                                <th style="text-align:20px;">Years</th>
+                                <th style="text-align:20px;">Fees</th>
+                                <th style="text-align:20px;">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="courses" t-as="c">
+                                <td><t t-esc="c.course_name"/></td>
+                                <td><t t-esc="c.no_of_years"/></td>
+                                <td><t t-esc="c.fees"/></td>
+                                <td><t t-esc="c.currency_id.name"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="my-4">
+                        <center><b>Batch Information</b></center>
+                    </div>
+                    <table class="table">
+                        <thead class="table table-dark">
+                            <tr>
+                                <th style="text-align:20px;">Batch Name</th>
+                                <th style="text-align:20px;">Total Seats</th>
+                                <th style="text-align:20px;">Remaining Seats</th>
+                                <th style="text-align:20px;">Courses</th>
+                                <th style="text-align:20px;">Total Fees</th>
+                                <th style="text-align:20px;">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="batches" t-as="b">
+
+                                <td><t t-esc="b.batch_name"/></td>
+                                <td><t t-esc="b.total_seats"/></td>
+                                <td><t t-esc="b.remaining_seat"/></td>
+                                <td>
+                                    <t t-foreach="b.course_ids" t-as="cc">
+                                        <t t-esc="cc.course_name"/>
+                                    </t>
+                                </td>
+                                <td><t t-esc="b.total_fees"/></td>
+                                <td><t t-esc="b.currency_id.name"/></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <center>
+                        <button id="submit" type="submit" class="btn btn-primary mt-2 mb-2">Submit</button>
+                    </center>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="submit_template_website">
+        <t t-call="website.layout">
+            <div class="alert alert-success" role="alert">
+                Registration Has been successfully completed.
+            </div>
+            <h2 class="mx-4">Thank You!!!</h2>
+        </t>
+    </template>
+
+    <record id="menu_website_registration" model="website.menu">
+        <field name="name">Register Here</field>
+        <field name="url">/registration</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">38</field>
+    </record>
+
+</odoo>

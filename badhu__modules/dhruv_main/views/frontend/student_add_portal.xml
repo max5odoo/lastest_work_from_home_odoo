@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_add_student" name="New Student">
+		
+			<t t-call="portal.portal_layout">
+				<t t-set="breadcrumbs_searchbar" t-value="True"/>
+				<t t-call="portal.portal_searchbar">Add Student
+            	</t>
+				<div class="card mt-2">
+					<div class="card-header pb-0">
+						<h3 style="float:left;">Add Student
+						</h3>
+					</div>
+					<div class="card-body mt-3">
+						<form   method="post"  enctype="multipart/form-data">
+							<input name="csrf_token" t-att-value="request.csrf_token()" type="hidden"/>
+							<div class="row">
+								<div class="form-group col-xl-6">
+									<label class="col-form-label" for="name">Full Name</label>
+									<input name="name" t-attf-class="form-control" type="text"/>
+								</div>
+								<div class="form-group col-xl-6">
+									<label class="col-form-label" for="email_id">Email</label>
+									<input name="email_id" t-attf-class="form-control" type="text"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xl-6">
+									<label class="col-form-label" for="gender">Gender</label>
+									<select class="configurator_select form-control" name="gender">
+										<option t-attf-value="male">Male
+						                </option>
+										<option t-attf-value="female">Female
+						                </option>
+									</select>
+								</div>
+								<div class="form-group col-xl-6">
+									<label class="col-form-label" for="email_id">Address</label>
+									<textarea class="form-control" name="address_line1" rows="2"/>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group col-xl-6">
+								    <label for="avatar_img">Upload Profile Picture</label>
+								    <input type="file" class="form-control-file" name="avatar_img"/>
+							    </div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xl-12">
+								  <table class="table course_table" id="course_tb_1">
+									  <thead>
+									    <tr>
+									      <th scope="col">Course Name</th>
+									      <th scope="col">Created By</th>
+									      <th scope="col">Desc.</th>
+									    </tr>
+									  </thead>
+									 <!--  	<tr>
+									  	 <td><input type="text" id="course_name" name="course_name" /></td>
+      									 <td><input type="text" id="created_by" name="created_by"/></td>
+      									  <td><input type="text" id="desc" name="desc"/></td>
+      									 </tr>  -->
+									  </table> 
+
+							<!-- 	<button class="btn btn-primary btn-sm" onclick="addRow()">Add</button> -->
+
+						
+
+								<a class="btn btn-primary btn-sm" href="#add_btn" onclick="
+							 addRow();
+							">Add</a>
+							    </div>
+							</div>
+
+							<input type="text" id="record_cnt" name="record_cnt" value="0"/>
+							<button class="btn btn-primary mb-2" type="submit" formaction="/my/students/add">Submit</button>
+						</form>
+					</div>
+				</div>
+			</t>
+			<script src="/custom_addons/dhruv_main/static/src/js/course_controller.js" type="text/javascript"/>
+		
+	</template>
+</odoo>

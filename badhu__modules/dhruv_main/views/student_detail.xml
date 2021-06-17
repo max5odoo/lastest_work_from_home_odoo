@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Tree View for Student-->
+    <record id="student_tree_view" model="ir.ui.view">
+      <field name="name">student.tree.view</field>
+      <field name="model">school.student.detail</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="email_id"/>
+          <field name="address_line1"/>
+          <field name="address_line2"/>
+          <field name="gender"/>
+          <field name="fees" groups="new_app.group_teacher"/>
+        </tree>
+      </field>
+    </record>
+
+      <!-- Kanban View for Student-->
+    <record id="student_kanban_view" model="ir.ui.view">
+      <field name="name">student.kanban.view</field>
+      <field name="model">school.student.detail</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="gender">
+          <field name="id"/>
+          <field name="avatar_img"/>
+          <field name="name"/>
+          <field name="email_id"/>
+          <field name="gender"/>
+          <field name="address_line1"/>
+          <field name="address_line2"/>course_cnt
+          <field name="course_cnt"/>
+
+          <templates>
+              <t t-name="kanban-box">
+                <div>
+                  <div class="o_kanban_image">
+                    <img alt="Avatar" t-if="record.avatar_img.raw_value"  t-att-src="kanban_image('school.student.detail', 'avatar_img',record.id.raw_value)"/>
+                  </div>
+
+                  <div class="oe_kanban_details">
+                    <strong class="o_kanban_record_title">
+                                      <field name="name"/>
+                               </strong>
+                              <ul>
+                                <li><field name="email_id"/></li>
+                                <li>Gender : <field name="gender"/></li>
+                                <li><field name="address_line1"/></li>
+                              </ul>
+                               <div class="o_row">
+                                  <span>
+                                           <span class="badge badge-pill"><i class="fa fa-fw fa-graduation-cap" aria-label="Courses" role="img" title="Courses"/><t t-esc="record.course_cnt.value"/></span>
+                                  </span>          
+                               </div>
+                  </div>
+
+                </div>
+              </t>
+            </templates>
+
+        </kanban>
+      </field>
+    </record>
+    
+
+    <!--Student Search view -->
+    <record id="student_search_view" model="ir.ui.view">
+      <field name="name">student.search.view</field>
+      <field name="model">school.student.detail</field>
+      <field name="arch" type="xml">
+        <search string="Search Students">
+          <field name="name"/>
+          <field name="email_id"/>
+          <field name="address_line1"/>
+          <field name="address_line2"/>
+          <field name="fees"/>
+          <separator/>
+          <filter domain="[('gender', '=', 'male')]" name="male" string="Male"/>
+          <filter domain="[('gender', '=', 'female')]" name="female" string="Female"/>
+          <separator/>
+          <group expand="1" string="Group By">
+            <filter context="{'group_by':'gender'}" name="gender" string="Gender"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!--Student Form view -->
+    <record id="student_form_view1" model="ir.ui.view">
+      <field name="name">student.form.view</field>
+      <field name="model">school.student.detail</field>
+      <field name="arch" type="xml">
+        <form string="Students" readonly="1">
+          <header>
+            <button attrs="{'invisible' :  ['|',('course_payment_status','=','ordered'),('course_payment_status','=','pending')] }" class="btn btn-primary" name="action_ordered" string="Order" type="object"/>
+            <button attrs="{'invisible' :  ['|',('course_payment_status','=','pending'),('course_payment_status','=','delivered')] }" class="btn btn-info" name="action_pending" string="pending" type="object"/>
+            <button attrs="{'invisible' :  ['|',('course_payment_status','=','ordered'),('course_payment_status','=','delivered'),] }" class="btn btn-success" name="action_delivered" string="deliver" type="object"/>
+
+            <button  type="object" name="open_wizard" string="Open Fees Wizard"  />
+         
+            <button  type="action" name="%(new_app.student_fees_wizard_menu_action)d" string="Open Fees Wizard"  />
+
+            <!--  <button  type="action" name="dhruv_main.student_courses_wizard_menu_action" string="Open Course Wizard"  /> -->
+            
+            <!--  <button  type="action" name="dhruv_main.student_activity_wizard_menu_action_students" string="Schedule Activity"  /> -->
+
+            <button type="object" name="send_mail" string="Send Mail(d)"  />
+
+            <button type="object" name="open_mail_template_wizard" string="Send Mail(w)"  />
+
+            <button type="object" name="open_mail_template_wizard_m2m" string="Send Mail(m2m)"  />
+
+           <button type="object" name="export_c_record_xl_report" string="(C)Export"  />
+           <button type="object" name="export_all_record_xl_report" string="(ALL)Export"  />
+
+           <button type="object" name="send_msg" string="Send Msg"  />
+
+         <!--   <button  type="object" name="validate_emailid" string="Validate Mobile No." >
+             <field name="email_id" string="Emailid"   options="{'reload_on_button': true}"/>
+           </button> -->
+
+
+
+            <field name="course_payment_status" statusbar_visible="ordered,pending,delivered,rejected" widget="statusbar"/>
+          </header>
+          <sheet>
+
+              <div class="oe_button_box">
+                 <button class="oe_stat_button " name="%(u_courses_menu_action)d" type="action" icon="fa-tasks"> 
+                  <field name="course_cnt" widget="statinfo"/>
+                </button>
+                
+                <button class="oe_stat_button" name="action_course" type="object" icon="fa-tasks"> 
+                  <field name="course_cnt" widget="statinfo"/>
+                </button>
+              </div>
+
+               <field name="avatar_img" widget="image"/>
+            <group>
+              <h1>
+                <field name="name" placeholder="Name"/>
+              </h1>
+              <field name="todo_name"  />
+              <field name="email_id" widget="email"/>
+              <field name="gender"/>
+              <field name="is_completed"/>
+              <field name="todo_name"  />
+            
+
+            </group>
+
+            <div id="fruits" class="fruits">
+              <span>Apple</span>
+              <span>Mango</span>
+              <span>Graps</span>
+            </div>
+            <div class="vegetable">
+                    <span>Potato</span>
+                    <span>Onion</span>
+                    <span>Tomato</span>
+            </div>
+
+            <notebook colspan="4">
+              <page autofocus="autofocus" name="addresss" string="Addresss">
+                <group>
+                  <field name="address_line1"/>
+                  <field name="address_line2"/>
+                </group>
+              </page>
+              <page name="fees" string="Fees">
+                <field name="fees" string="Fees"/>
+              </page>
+              <page string="Applied Courses">
+                <field name="course_ids">
+                  <tree editable="bottom">
+                    <field name="course_id"   attrs="{'column_invisible': [('parent.gender', '!=', 'male')]}" />
+                    <field name="short_desc"/>
+                    <field name="created_by"   />
+                  </tree>
+                </field>
+              </page>
+              <page string="Course tags">
+                <group>
+                  <field name="course_tags" options="{'color_field': 'color'}" widget="many2many_tags"/>
+                </group>
+              </page>
+              <page string="Skill Per.">
+                <field name="max_skill_per" />
+                <!-- <field name="skill_per" widget="gauge" style="width:90px;height:60px;cursor:pointer" options="{'max_field : 'max_skill_per'}"/>-->
+                <!--  <field name="skill_per"widget="gauge"style="width:120px;height:90px;cursor:pointer;"     
+                options="{'max_field':'max_skill_per'}">EntryProgress
+                </field>-->
+              </page>
+
+               <page string="Authorization Detail">
+                <field name="signature" />
+                <!-- <field name="skill_per" widget="gauge" style="width:90px;height:60px;cursor:pointer" options="{'max_field : 'max_skill_per'}"/>-->
+                <!--  <field name="skill_per"widget="gauge"style="width:120px;height:90px;cursor:pointer;"     
+                options="{'max_field':'max_skill_per'}">EntryProgress
+                </field>-->
+              </page>
+            </notebook>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+          </div>
+        </form>
+      </field>
+    </record>
+<!-- 
+       <record id="model_account_move_action_share" model="ir.actions.server">
+            <field name="name">Share</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">form</field>
+        </record> -->
+
+
+       <!--  <record id="account_send_payment_receipt_by_email_action" model="ir.actions.act_window">
+            <field name="name">Send receipt by email</field>
+            <field name="res_model">mail.compose.message</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context" eval="{
+                'mail_post_autofollow': True,
+                'default_composition_mode': 'comment',
+                'default_use_template': True,
+                'default_template_id': ref('account.mail_template_data_payment_receipt'),
+                'custom_layout': 'mail.mail_notification_light',
+            }"/>
+            <field name="binding_model_id" ref="model_account_payment"/>
+            <field name="binding_view_types">form</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record> -->
+
+
+    <record id="action_student_courses" model="ir.actions.act_window">
+      <field name="name">Courses</field>
+      <field name="res_model">courses.detail</field>
+      <field name="domain">[('is_discounted','=',True)]</field> <!-- if school.courses_line_ids.id == courses_detail.id -->
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="course__portal.course_tree_view"/>
+      <field name="binding_model_id" ref="model_school_student_detail"/>
+      <field name="binding_view_types">form</field>
+    </record>
+
+    <!-- Action -->
+    <record id="student_menu_action" model="ir.actions.act_window">
+      <field name="name">Students</field>
+      <field name="res_model">school.student.detail</field>
+      <field name="view_mode">tree,kanban,form,search</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Create The First Student</p>
+      </field>
+    </record>
+
+   
+    <menuitem id="school_menu" name="School"/>
+    <menuitem action="student_menu_action" id="school_student_menu" name="Student" parent="new_app.school_menu"/>
+  </data>
+</odoo>

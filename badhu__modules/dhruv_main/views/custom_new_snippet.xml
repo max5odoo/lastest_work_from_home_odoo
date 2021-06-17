@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="custom_para_with_a_redirect" name="My Custom Snippet">
+      <section class="snippet_testimonial">
+			<div class="card" style="width: 18rem;">
+				<img alt="Card image cap" class="card-img-top" src="..."/>
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a class="btn btn-primary" href="#">Go somewhere</a>
+				</div>
+			</div>
+		</section>
+	</template>
+</odoo>
+
+
+

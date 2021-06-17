@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="snippet_testimonial" name="Features">
+        <section class="snippet_testimonial">
+            <div class="container">
+                <div class="row">
+                    <p>Place Your Snippet Content Here</p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+    <template id="website_snipp" inherit_id="website.snippets" name="new snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+            <t t-snippet="manthan.snippet_testimonial"
+               t-thumbnail="/manthan/static/src/img/code1.jpg"/>
+        </xpath>
+    </template>
+</odoo>
+

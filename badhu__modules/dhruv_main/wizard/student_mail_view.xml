@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="student_email_wizard_form">
+            <field name="name">student.email.wizard.form</field>
+            <field name="model">school.student.mail.wizard</field>
+            <!-- <field name="groups_id" eval="[(4,ref('base.group_user'))]"/> -->
+            <field name="arch" type="xml">
+                <form string="Send Email Form">
+                    <group>
+                        <field name="email_to"/>
+                        <field name="subject"/>
+
+                      
+                    </group>
+                    <field name="body"/>
+                    <field name="stu_id"/>
+
+                    <group col="4">
+                        <field name="attachment_ids" widget="many2many_binary" string="Attach a file" nolabel="1" colspan="2"/>
+                    </group>
+                    <footer>
+                        <button string="Send" name="action_send_mail" type="object" class="btn-primary o_mail_send"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+       
+    </data>
+</odoo>

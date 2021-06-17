@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+  <template id='signup_page' name='signup'>
+    <link href="student_app/static/src/css/button.css" rel="stylesheet"/>
+
+    <div style="width:auto">
+      <div style="border-radius:10px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);background-color:#E7E9EB;width:400px;height:500px;margin:100px auto">
+        <div style="border-top-left-radius : 10px;border-top-right-radius : 10px;text-align:center;background-color:#282A35;height:50px;">
+          <h2 style="color:white;padding:10px 0 0 0">Signup Page</h2>
+        </div>
+        <div style="margin:5px 0 0 60px;font-size:18px;padding:20px 0 0 0">
+          <form action="/signup" method="post" role='form'>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <br/>
+            <label for="fname">First name :</label>
+            <input class="formcontainer" type="text" id="fname" name="first_name" t-att-value="first_name" placeholder="Name"/>
+            <br/>
+
+            <label for="lname">Last name :</label>
+            <input class="formcontainer" type="text" id="lname" name="last_name" t-att-value="last_name" placeholder="Surname"/>
+            <br/>
+
+            <label for="semail">Email :</label>
+            <input class="formcontainer" type="text" id="email" name="semail" t-att-value="email" placeholder="Email"/>
+            <br/>
+
+            <label for="spass">Password :</label>
+            <input class="formcontainer" type="password" id="spass" name="spass" t-att-value="spass" placeholder="Passowrd"/>
+            <br/>
+         
+            <input type="submit" value="Signup" style="cursor:pointer;margin:20px 0 0 20px;height:30px;width:100px;background-color: #008CBA;color:white;display:inline-block;float:left" />
+          </form>
+          <a href="/homepage" class="buttons red">Cancel</a>
+
+        </div>
+      </div>
+    </div>
+  </template>
+</odoo>

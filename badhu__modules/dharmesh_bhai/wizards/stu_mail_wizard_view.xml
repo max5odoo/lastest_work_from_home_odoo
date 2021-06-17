@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--  -->
+    <record model="ir.ui.view" id="student_mail_wizard_form_view">
+        <field name="name">student_mail_wizard.form.view</field>
+        <field name="model">student.mail.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="mail_to" string="Mail to" widget="many2many_tags"/>
+                    <field name="subject_msg" string="Subject"></field>
+                </group>
+                <field name="email_data_wizard"/>
+                <group col="4">
+                    <field name="attechment_ids" widget="many2many_binary" string="Attach a file" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button type="object" name="Send_mail_user" string="Send" class="btn-primary"/>
+                    <button class="btn-secondary" special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model='ir.actions.act_window' id="student_mail_wizard_action">
+        <field name="name">student.mail.wizard.view</field>
+        <field name="res_model">student.mail.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_mail_to': (6,active_id)}</field>
+    </record>
+</odoo>

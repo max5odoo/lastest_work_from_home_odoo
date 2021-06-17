@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="delevery_report_update_view" inherit_id="stock.report_delivery_document">
+
+        <xpath expr="//div[@name='signature']" position="before">
+            <br/>
+            <br/>
+            <div >
+                <span>
+                    <p>Signature : ______________</p>
+                </span>
+                <span>
+                    <p3>Date : _________________</p3>
+                </span>
+
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--professor Tree view -->
+        <record id="professors_tree_view" model="ir.ui.view">
+            <field name="name">professor.tree.view</field>
+            <field name="model">professor.professor</field>
+            <field name="arch" type="xml">
+                <tree string="professor">
+
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="pro_id"/>
+                    <field name="phoneno"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--professor Form view -->
+        <record id="professor_form_view" model="ir.ui.view">
+            <field name="name">professor.form.view</field>
+            <field name="model">professor.professor</field>
+            <field name="arch" type="xml">
+                <form string="professor">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="pro_id"/>
+                                <field name="student_ids" widget="many2many_tags"/>
+                            </group>
+
+                            <group>
+                                <field name="phoneno"/>
+                                <field name="student_id"/>
+                            </group>
+                        </group>
+                        <separator string="SEX"/>
+                        <group>
+                            <field name="male"/>
+                            <field name="female"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="xyz" string="General Info">
+                                <group>
+                                    <field name="company_name" style="width:200px"/>
+                                </group>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="professor_menu_action" model="ir.actions.act_window">
+            <field name="name">professor</field>
+            <field name="res_model">professor.professor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Professor</p>
+            </field>
+        </record>
+
+
+        <menuitem id="schools_main_menu" name="school"/>
+        <menuitem action="professor_menu_action" sequence="2" id="school_professor_menu" name="professor"
+                  parent="schools_main_menu"/>
+
+    </data>
+
+
+</odoo>

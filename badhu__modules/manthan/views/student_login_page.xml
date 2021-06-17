@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <template id="user_login" name="Student Login Page">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+                  crossorigin="anonymous"/>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Studzz</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"/>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/homepage">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/students">Students</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid mt-5">
+                <div class="card" style="margin:0 auto;width:50%;">
+                    <div class="card-header">Student Login</div>
+                    <div class="card-body">
+                        <form method="POST" action="/login">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <br/>
+                            <div class="form-group mb-3 ">
+                                <label for="forEmailInout">Email</label>
+                                <input type="email" class="form-control" placeholder="name@domain.com"
+                                       name="student_email"/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="forPasswordInout">Password</label>
+                                <input type="password" class="form-control" placeholder="" name="student_password"/>
+                            </div>
+                            <p t-if="alert_msg">
+                                <span t-esc="alert_msg" style="color:red;"/>
+                            </p>
+                            <div class="form-group mb-3">
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+                    crossorigin="anonymous"/>
+        </template>
+    </data>
+</odoo>

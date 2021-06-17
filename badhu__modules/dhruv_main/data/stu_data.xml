@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="course_data_1" model="courses.detail">
+        <field name="name">neW Way ghj </field>
+        <field name="short_desc">desc...</field>
+        <field name="created_by">WM</field>
+        <!-- <field name="st_id" ref="student_data_7"/>-->
+    </record>
+    <record id="course_data_2" model="courses.detail">
+        <field name="name">Getting started with Odoo</field>
+        <field name="short_desc">desc...</field>
+        <field name="created_by">MW</field>
+        <!-- <field name="st_id" ref="student_data_7"/>-->
+    </record>
+    <record id="course_data_3" model="courses.detail">
+        <field name="name">Getting started with c++</field>
+        <field name="short_desc">desc...</field>
+        <field name="created_by">KH</field>
+        <!-- <field name="st_id" ref="student_data_7"/>-->
+    </record>
+
+      <record id="course_data_5" model="courses.detail">
+        <field name="name">Getting started with ARDUINO</field>
+        <field name="short_desc">desc...</field>
+        <field name="created_by">DJ</field>
+        <!-- <field name="st_id" ref="student_data_7"/>-->
+    </record>
+
+  
+  
+</odoo>

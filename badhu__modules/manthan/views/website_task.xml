@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="website_portal_new_inherit"
+              inherit_id="portal.portal_my_details">
+        <xpath expr="//div[hasclass('clearfix')]" position="after">
+            <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-xl-6">
+                <label class="col-form-label" for="phone">Profession</label>
+                <br/>
+
+
+                <input type="radio" name="profession" t-att-checked="partner.profession == 'student'"
+                       value="student"/>
+                <label for="male">student</label>
+                <br/>
+                <input type="radio" name="profession" t-att-checked="partner.profession == 'professor'"
+                       value="professor"/>
+                <label for="female">professor</label>
+                <br/>
+
+            </div>
+        </xpath>
+    </template>
+
+    <template id="website_detail_portal_inherit"
+              inherit_id="portal.portal_layout">
+        <xpath expr="//div[@id='o_my_sidebar']" position="inside">
+
+            <br/>Designation :
+            <t t-esc="user_id.partner_id.profession"/>
+        </xpath>
+    </template>
+
+    <template id="my_account_student" name="Show Students" customize_show="True"
+              inherit_id="portal.portal_my_home"
+              priority="10">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Students</t>
+                <t t-set="url" t-value="'/my/students'"/>
+                <t t-set="placeholder_count" t-value="'student_counts'"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- res partner update -->
+        <record model='ir.ui.view' id="res_partner_update_field">
+            <field name="name">res.partner.update.field</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+
+                    <field name="profession" widget="radio"/>
+                </field>
+            </field>
+        </record>
+        <!--for ui side -->
+        <template id="inherit_portal_my_details" inherit_id="portal.portal_my_details" name="inherit account">
+            <xpath expr="//*[hasclass('clearfix')]" position="before">
+
+
+                <!-- <select class="form-control" type="radio" name="partner.profession">
+                      <option t-attf-value="'student'">Student</option>
+                        <option t-attf-value="'professor'">Professor</option>
+                      
+                    </select> -->
+                <div t-attf-class="form-group #{error.get('partner.profession') and 'o_has_error' or ''} col-xl-6">
+                    <label class="col-form-label" for="profession">Profession</label>
+                    <br/>
+
+                    <input type="radio" t-att-checked="partner.profession == 'professor'" name="profession" value="professor">Professor</input>
+                    <input type="radio" t-att-checked="partner.profession == 'student'" name="profession" value="student">Student</input>
+
+                </div>
+
+            </xpath>
+
+
+        </template>
+        <template id="portal_layout_updatess" inherit_id="portal.portal_layout">
+            <xpath expr="//div[@t-field='user_id.partner_id']" position="after">
+
+                <hr class="mt-1 mb-0"/>
+                <div>
+                    <i class="fa fa-fw fa-user"></i>
+                    <span t-field="user_id.partner_id.profession">
+                    </span>
+
+                </div>
+            </xpath>
+        </template>
+        <template id="portal_my_home_student" name="Show Purchase Orders" customize_show="True" inherit_id="portal.portal_my_home" priority="5">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">Student</t>
+                    <t t-set="url" t-value="'/my/student'"/>
+                    <t t-set="placeholder_count" t-value="'student_counts'"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+
+</odoo>
+

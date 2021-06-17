@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_student_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p>hi dharmesh</p>
+                        <h3>
+                            <span t-field="doc.first_name"/>
+                        </h3>
+                        <!-- <img class="img img-responsive" src="/student_app/static/src/img/flogo_white.png" /> -->
+                        <img src="/base/static/img/logo_white.png" alt="Alternate Text"/>
+                        <p>First Name  :
+                            <span t-field="doc.first_name"/>
+                        </p>
+                        <p>Last Name  :
+                            <span t-field="doc.last_name"/>
+                        </p>
+                        <p>Age  :
+                            <span t-field="doc.age"/>
+                        </p>
+                        <!-- <img t-att-src="image_data_uri(doc.photo_id)" /> -->
+                        <br/>
+                        <br/>
+                        <table style="border:2px solid black ;width:100%;border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: #dddddd;">
+                                    <th style="text-align:center;border: 1px solid black;width:60%;padding:0 0 0 0">
+                                        <span>Name</span>
+                                    </th>
+                                    <th style="text-align:center;border: 1px solid black;width:20%;">
+                                        <span>Length</span>
+                                    </th>
+                                    <th style="text-align:center;border: 1px solid black;width:20%">
+                                        <span>Amount</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody t-foreach="doc.student_line_ids" t-as="line">
+                                <tr >
+                                    <td style="text-align:left;border: 1px solid black;width:60%;padding:0 0 0 10px">
+                                        <span t-field="line.course_name"/>
+                                        <!-- <span t-field="doc.student_line_ids.course_name"/> -->
+                                    </td>
+                                    <td style="text-align:center;border: 1px solid black;width:20%;background-color: #dddddd;">
+                                        <span t-field="line.course_lengths"/>
+                                        <!-- <span t-field="doc.student_line_ids.course_lengths"/> -->
+                                    </td>
+                                    <td style="text-align:center;border: 1px solid black;width:20%">
+                                        <span t-field="line.course_amount"/>
+                                        <!-- <span t-field="doc.student_line_ids.course_amount"/> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <div t-if="doc.signature" style="max-height: 4cm; max-width: 8cm;">
+                            <span t-field="doc.signature_by"/>
+                            <img  t-att-src="image_data_uri(doc.signature)" />
+                        </div> -->
+                        <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
+                            <div class="offset-8">
+                                <strong>Signature</strong>
+                            </div>
+                            <div class="offset-8">
+                                <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                            </div>
+                            <div class="offset-8 text-center">
+                                <p t-field="doc.signature_by"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

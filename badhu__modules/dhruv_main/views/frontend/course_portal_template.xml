@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="course_portal_template" name="Course">
+		<t t-call="portal.portal_layout">
+			<t t-set="breadcrumbs_searchbar" t-value="True"/>
+			<t t-call="portal.portal_searchbar">Courses
+            </t>
+			<div class="card mt-2 ">
+				<div class="card-header pb-0">
+					<h3 style="float:left;">Course #
+							<i><t t-esc="id"/></i>
+						</h3>
+				</div>	
+				<div class="card-body mt-3">
+					<t t-as="c" t-foreach="course">
+						<h4 style="margin-top:5px;" t-field="c.name"/>
+
+						<table style="width:100%;margin-top:15px;">
+							<tr>
+								<td>
+									<b>Price</b>
+								</td>
+								<td>
+									<p>₹<span t-field="c.rate"/></p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>Created By</b>
+								</td>
+								<td>
+									<p t-field="c.created_by"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>Short Dec.</b>
+								</td>
+								<td>
+									<p t-field="c.short_desc"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>Discount Available</b>
+								</td>
+								<td>
+									<input type="checkbox" t-att-checked="c.is_discounted" disabled=""/>
+								</td>
+							</tr>
+						</table>	
+					</t>
+				</div>	
+			</div>
+		</t>
+	</template>
+</odoo>

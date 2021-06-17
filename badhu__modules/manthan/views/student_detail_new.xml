@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Student Tree view -->
+<!--        <record id="studentss_tree_views" model="ir.ui.view">-->
+<!--            <field name="name">student.tree.views</field>-->
+<!--            <field name="model">student.student</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--&lt;!&ndash;                    <field name="handle_widget" widget="handle"/>&ndash;&gt;-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="address"/>-->
+<!--&lt;!&ndash;                    <field name="rollno"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="phoneno"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="task_tech"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="dob"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="professor_choose"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="gender"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="student_signature" widget="signature" optional="hide"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="student_compute"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <field name="age"/>&ndash;&gt;-->
+
+
+<!--                    &lt;!&ndash;                    <field name="tasks_name"/>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <field name="tasks_done"/>&ndash;&gt;-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+  <record id="student_details_tree" model="ir.ui.view">
+            <field name="name">student.details.tree.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+<field name="name"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Student Search view -->
+        <record id="student_search_views" model="ir.ui.view">
+            <field name="name">student.search.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <search string="Search Students">
+
+                    <field name="name"/>
+                    <field name="rollno"/>
+                    <field name="address"/>
+                    <field name="dob"/>
+                    <field name="student_email"/>
+                    <field name="phoneno"/>
+                    <separator/>
+
+                    <filter domain="[('gender', '=', 'male')]" name="male" string="Male"/>
+                    <filter domain="[('professor_choose.name','=','manthan')]" name='professor_choose'
+                            string='professor'/>
+
+                    <separator/>
+
+                    <group expand="1" string="Group By">
+                        <filter context="{'group_by':'name'}" name="gender" string="Gender"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+
+        <!-- Student Form view -->
+        <record id="student_details_form_views" model="ir.ui.view">
+            <field name="name">student.form.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <form string="student">
+                    <!--  from here to </header> we have created buttons and view states in statusbar -->
+                    <header>
+                        <button name="button_done" string="Done" class="oe_highlight" type="object"/>
+                        <button name="button_reset" string="Reset to Draft" class="oe_highlight"
+                                type="object"/>
+                        <button name="button_cancel" string="Cancel" type="object"/>
+                        <!--                        <button name="report_button" string="report" type="object"/>-->
+                        <!--                        <button name="open_wizard" string="open wizard" type="object"/>-->
+                        <button name="open_wizard" string="open wizard" type="object"/>
+                        <button name="open_chatter_wizard" string="open mail wizard" type="object"/>
+                        <button name="send_email" string="Send Email" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,cancle,activity"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+
+                            <button class="oe_stat_button" name="button_employee" string="Professor"
+                                    type="object" icon="fa-file-text-o">
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="total_proffesor"/>
+                                    </span>
+                                </div>
+                            </button>
+
+                        </div>
+                        <div class="oe_button_box" name="button_box"/>
+
+                        <widget attrs="{'invisible': [('active', '=', True)]}" bg_color="bg-danger"
+                                name="web_ribbon" title="active"/>
+
+                        <group>
+                            <group>
+
+                                <field name="name"/>
+                                <field name="student_profile" widget="image"/>
+                                <field name="new_name"/>
+                                <field name="address"/>
+                                <field name="rollno"/>
+                                <field name="currency_id"/>
+                                <field name="login_user"/>
+                                <field name="amount" widget="monetary"/>
+                                <field name="student_signature" widget="signature"/>
+                                <field name="active"/>
+                                <field name="professor_id_read_only"/>
+
+
+                                <!--                                <field name="tasks_name"/>-->
+                                <!--                                <field name="tasks_done"/>-->
+
+                            </group>
+
+                            <group>
+                                <field name="phoneno" widget="phone"/>
+                                <field name="task_tech"/>
+                                <!--                                <field name="professor_choose" position="attributes"><attribute name="context">{'journal_idss': True}</attribute></field>-->
+                                <field name="professor_choose"/>
+                                <field name="student_email" widget="email"/>
+                                <field name="student_compute"/>
+                                <field name="age"/>
+                                <field name="dob"/>
+                                <field name="student_tasks_ids" widget="many2many_tags"
+                                       options="{'color_field': 'color'}"/>
+                            </group>
+                            <group>
+                                <field name="pin_code"/>
+                                <field name="pin_code_area"/>
+                                <field name="students_professor_id"/>
+                            </group>
+                        </group>
+                        <div id="fruits" class="fruits">
+                            <span>Apple</span>
+                            <span>Mango</span>
+                            <span>Graps</span>
+                        </div>
+                        <div class="vegetable">
+                            <span>Potato</span>
+                            <span>Onion</span>
+                            <span>Tomato</span>
+                        </div>
+                        <separator string="GENDER"/>
+                        <group>
+                            <group>
+                                <field name="gender" widget="radio"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+
+                            <page name="task_info" string="task Courses">
+                                <!--                                  attrs="{'invisible': [('gender', '=', 'male')]}">-->
+                                <field name="tasks_id">
+
+                                    <tree editable="bottom">
+                                        <field name="task_name"/>
+                                        <field name="task_technology"/>
+
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="xyz" string="General Info">
+                                <group>
+                                    <field name="company_name" style="width:200px"/>
+                                </group>
+
+                            </page>
+                            <page name="signature" string="Student Signature">
+                                <group>
+                                    <field name="student_signature"/>
+                                    <field name="signature_by"/>
+                                </group>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+        <!--  THIS IS FOR KANBAN VIEW       -->
+        <record id="student_details_kanban_views" model="ir.ui.view">
+            <field name="name">student.kanban.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="rollno"/>
+                    <field name="student_profile"/>
+                    <field name="student_signature"/>
+                    <field name="total_task_no"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar" t-if="record.student_profile.raw_value"
+                                         t-att-src="kanban_image('student.student', 'student_profile',record.id.raw_value)"/>
+                                </div>
+
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <ul>
+                                        <li>
+                                            Address:
+                                            <field name="address"/>
+                                        </li>
+                                        <li>Roll No:
+                                            <field name="rollno"/>
+                                        </li>
+                                    </ul>
+                                    <div class="o_row">
+                                        <span class="oe_kanban_partner_links">
+                                            <span class="badge badge-pill">
+                                                <i class="fa fa-fw fa-star" aria-label="Favorites" role="img"
+                                                   title="Favorites"/>
+                                                <t t-esc="record.total_task_no.value"/>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="students_details_menu_actions" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">student.student</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Student</p>
+            </field>
+        </record>
+
+        <!-- aa go_to_student vadu apane action("olu delete vadu ave aema") ma avse   -->
+        <record id="go_to_student" model="ir.actions.act_window">
+            <field name="name">Go to professor</field>
+            <field name="res_model">professor.professor</field>
+            <field name="view_id" ref="professor_form_view"/>
+            <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_student_student"/>
+            <field name="binding_view_types">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!--         aa go_to_studentss vadu apane action("ama wizard khulse") ma avse   -->
+        <!--        <record id="go_to_studentss" model="ir.actions.act_window">-->
+        <!--            <field name="name">Go to tasks new</field>-->
+        <!--            <field name="res_model">task.creation.report.wizard</field>-->
+        <!--            <field name="view_id" ref="task_creation_report_wizard"/>-->
+        <!--            <field name="view_mode">form</field>-->
+        <!--            <field name="binding_model_id" ref="model_student_student"/>-->
+        <!--            <field name="binding_view_types">form</field>-->
+        <!--            <field name="target">new</field>-->
+        <!--        </record>-->
+
+        <!-- aa sequence number ('ir.squence) generate karva mate xml   -->
+        <record id="sequence_self_service" model="ir.sequence">
+            <field name="name">New name</field>
+            <field name="code">cory</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">SS</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+
+        <menuitem action="students_details_menu_actions" sequence="1" id="schools_student_menu_" name="Student"
+                  parent="manthan.schools_main_menu"/>
+
+        <!--        <menuitem action="student_menu_action" id="school_student_menu" name="Student" parent="manthan.student_menu"/>-->
+
+    </data>
+
+
+</odoo>

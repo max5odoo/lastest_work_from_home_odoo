@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--Student Tree view -->
+        <record id="teamleaders_tree_view" model="ir.ui.view">
+            <field name="name">teamleader.tree.view</field>
+            <field name="model">teamleader.teamleader</field>
+            <field name="arch" type="xml">
+                <tree string="Team leader">
+                    <field name="team_leader_profile" widget="image" optional="hide"/>
+                    <field name="team_leader_id"/>
+                    <field name="team_leader_name"/>
+                    <field name="team_leader_address"/>
+                    <field name="team_leader_phoneno"/>
+                    <field name="team_leader_email_id"/>
+                    <field name="dob" optional="hide"/>
+                    <field name="male"/>
+                    <field name="female"/>
+                    <field name="trainee_team_leader"/>
+                    <field name="team_leader_short_desc" optional="hide"/>
+                    <field name="team_leader_country"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Student Form view -->
+        <record id="team_leader_form_view" model="ir.ui.view">
+            <field name="name">teamleader.form.view</field>
+            <field name="model">teamleader.teamleader</field>
+            <field name="arch" type="xml">
+                <form string="teamleader">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="is_published" widget="website_redirect_button"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="team_leader_profile" widget="image" class="oe_avatar"/>
+                                <field name="team_leader_id" placeholder="Enter The Company's Given Id"/>
+                                <field name="team_leader_name"/>
+                                <field name="team_leader_address"/>
+                                <field name="team_leader_email_id"/>
+                                <field name="trainee_team_leader"/>
+                            </group>
+
+                            <group>
+                                <field name="team_leader_short_desc" placeholder='Short Info On Technology Related'/>
+                                <field name="team_leader_phoneno"/>
+                                <field name="dob"/>
+                                <field name="team_leader_country"/>
+                            </group>
+                        </group>
+                        <separator string="SEX"/>
+                        <group>
+                            <field name="male"/>
+                            <field name="female"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="xyz" string="General Info">
+                                <group>
+                                    <field name="company_name" style="width:200px"
+                                           placeholder="enter the comapny name"/>
+                                </group>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="team_leader_menu_action" model="ir.actions.act_window">
+            <field name="name">Team Leader</field>
+            <field name="res_model">teamleader.teamleader</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Team Leader</p>
+            </field>
+        </record>
+
+
+        <menuitem id="company_main_menu" name="Company Administration"/>
+        <menuitem action="team_leader_menu_action" id="company_team_leader_menu" name="Team Leader"
+                  parent="company_main_menu"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+        <record id="student_update_form_view" model="ir.ui.view">
+        <field name="name">student.update.form.view</field>
+        <field name="model">school.student.detail</field>
+        <field name="inherit_id" ref="new_app.student_form_view1"/>
+            <field name="arch" type="xml">
+               
+                <xpath expr="//div[hasclass('fruits')]/span[2]" position="replace">
+                   <span> Banana</span>
+                </xpath>
+                
+                <xpath expr="//div[hasclass('vegetable')]/span[2]" position="replace">
+                   <span>Lady Finger</span>
+                </xpath>
+                
+            </field>
+        </record>
+  </data>
+</odoo>

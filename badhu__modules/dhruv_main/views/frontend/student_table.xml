@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_table_page" name="Students">
+
+            <t t-call="portal.portal_layout">
+            	<button>get student data</button>
+            	<p id="msg"></p>
+            	<table style="border:1px solid dotted;">
+                        <thead>
+                        	<tr>
+					      <th scope="col">Name</th>
+					      <th scope="col">Email Id</th>
+					      <th scope="col">Gender</th>
+					      <th scope="col">Address</th>
+					    </tr>
+					  </thead>
+					     <tbody id="tbody">
+					     	<tr>
+					     		<td></td>
+					     		<td></td>
+					     		<td></td>
+					     		<td></td>
+					     	</tr>
+					  	 </tbody>
+            	</table>
+            </t>	
+            <script
+		  src="https://code.jquery.com/jquery-3.6.0.min.js"
+		  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		  crossorigin="anonymous"></script>
+		<script src="/custom_addons/dhruv_main/static/src/js/student_ajax_test.js" type="text/javascript"/>
+
+     </template>
+
+</odoo>        

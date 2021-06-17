@@ -1,0 +1,23 @@
+<odoo>
+    <record model="ir.ui.view" id="student_mail_wizard">
+        <field name="name">student Mail sending</field>
+        <field name="model">task.mail.sending.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="student mail form">
+                <group>
+                    <field name="email_to"/>
+                    <field name="student_ids" widget="many2many_tags"/>
+                    <field name="subject"/>
+                    <field name="student_body"/>
+                    <field name="stu_id"/>
+                    <field name="attachment_ids" widget="many2many_binary"/>
+                </group>
+                <footer>
+                    <button name="send_email_button" string="Send" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

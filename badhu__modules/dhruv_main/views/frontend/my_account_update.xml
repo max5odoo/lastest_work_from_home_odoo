@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+   <template id="portal_layout_update" inherit_id="portal.portal_layout">
+            <xpath expr="//div[@t-field='user_id.partner_id']" position="after">
+                <p>Designation : <t t-esc="user_id.partner_id.designation" /> </p>
+            </xpath>
+    </template>
+
+
+  <template id="my_account_update_dj" inherit_id="portal.portal_my_details">
+    <xpath expr="//*[hasclass('clearfix')]" position="before">
+      <div t-attf-class="form-group col-xl-6">
+        <label for="designation">Designation</label>
+        <br/>
+        
+        <p t-esc="partner.designation"/>
+
+        <p t-att-value="partner.designation"/>
+        <div style="display:inline-block;">
+          <input name="designation" t-att-checked="partner.designation == 'student'" value="student" type="radio"/>
+          <label for="student">Student</label>
+          <input name="designation" t-att-checked="partner.designation == 'professor'" value="professor" type="radio"/>
+          <label for="professor">Professor</label>
+        </div>
+
+      </div>
+    </xpath>
+  </template>
+
+
+<template id="portal_student_u" name="Show Invoices &amp; Bills" inherit_id="portal.portal_my_home" customize_show="True" priority="1">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Students</t>
+                <t t-set="url" t-value="'/students'"/>
+                <t t-set="placeholder_count" t-value="'student_count'"/>
+               
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

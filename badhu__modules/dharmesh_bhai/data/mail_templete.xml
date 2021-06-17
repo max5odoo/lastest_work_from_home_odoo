@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <record id="dh_email_template_direct" model="mail.template">
+            <field name="name">Email Template</field>
+            <field name="model_id" ref="student_app.model_student_data"/>
+            <field name="email_from">${(object.login_user.email_formatted |safe}</field>
+            <field name="email_to">${(object.email) | safe}</field>
+            <field name="subject">dharmesh (Ref ${object.name})</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <header style="border-bottom: 2px solid black;width:auto;border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align:left;width:90%;">
+                            Your Course Bill
+                            <br/>
+                          Bill No. ${object.mobile}
+                        </td>
+                        <td style="text-align: left;width:10%;">
+                           Azure Interiror
+                        </td>
+                    </tr>
+                </header>
+                <!-- <p>
+                    <img src="data:image/png;base64,${object.photo_id}" style="width: 150px;height: 80px;" />
+                </p> -->
+                <br/>
+                <br/>
+                <span>Hello,</span>
+                <br/>
+                <address class="adress_box">
+                c-34,ankur soc,
+                    <br/>
+                opp vijaypark,
+                    <br/>
+                krishnanagr,
+                    <br/>
+                ahmedabad.382345.
+                </address>
+                <br/>
+                <!-- <img t-att-src="'student_project/odoo/addons/base/static/img/logo_white.png'"/> -->
+                <br/>
+                <br/>
+                <div class="message_box">
+                    <p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;lorem Ipsum is simply
+                        <strong>dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the
+                        <mark>industry's</mark> standard dummy text ever since the
+                        <del>1500s</del>, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <br/>
+                <div class="order_table_box">
+                    <table style="border:2px solid black ;width:100%;border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #dddddd;">
+                                <th style="text-align:center;border: 1px solid black;width:60%;padding:0 0 0 0">
+                                    <span>Name</span>
+                                </th>
+                                <th style="text-align:center;border: 1px solid black;width:20%;">
+                                    <span>Length</span>
+                                </th>
+                                <th style="text-align:center;border: 1px solid black;width:20%">
+                                    <span>Amount</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        % for student in object.student_line_ids
+                            <tr>
+                                <td style="text-align:left;border: 1px solid black;width:60%;padding:0 0 0 10px">
+                                    <span>
+                                    ${student.course_name}
+                            </span>
+                                </td>
+                                <td style="text-align:center;border: 1px solid black;width:20%;background-color: #dddddd;">
+                                ${student.course_lengths}
+            
+                        </td>
+                                <td style="text-align:center;border: 1px solid black;width:20%">
+                                ${student.course_amount}
+                        </td>
+                            </tr>
+                        % endfor
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <p>Signature................</p>
+                <footer style="border-top: 2px solid black; text-align:center;">
+                    <p>www.odoo.com</p>
+                </footer>
+            </field>
+            <field name="report_template" ref="report_student_model_view"/>
+            <field name="report_name"> ${object.get_report_base_filename() | safe}</field>
+            <!-- <field name="report_name"> ${object.last_name}</field> -->
+        </record>
+    </data>
+</odoo>

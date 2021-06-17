@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for register-->
+        <record id="registeration_tree_view" model="ir.ui.view">
+            <field name="name">registration.tree.view</field>
+            <field name="model">registrations.details</field>
+            <field name="arch" type="xml">
+                <tree string="Registration Information" decoration-info="state == 'confirm'"
+                      decoration-danger="state == 'draft'"
+                      decoration-success="state == 'done'" >
+                    <field name="student"/>
+                    <field name="course_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <field name="batch_id"/>
+                    <field name="currency_id"/>
+                    <field name="total_fees"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--    Search view for Registration-->
+
+
+        <record id="registration_search_view" model="ir.ui.view">
+            <field name="name">registration.search.view</field>
+            <field name="model">registrations.details</field>
+            <field name="arch" type="xml">
+                <search string="Registration Information">
+                    <field name="batch_id" string="Batches"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="graph_regi" model="ir.ui.view">
+            <field name="name">registration.search.view</field>
+            <field name="model">registrations.details</field>
+            <field name="arch" type="xml">
+                <graph string="Registration Graph">
+                    <field name="student" string="Student"/>
+<!--                    <field name="total_fees" string="Total Fees"/>-->
+<!--                    <field name="course_ids" string="Course"/>-->
+                </graph>
+            </field>
+        </record>
+
+
+        <!--registraion Form view -->
+        <record id="registration_form_view" model="ir.ui.view">
+            <field name="name">registraion.form.view</field>
+            <field name="model">registrations.details</field>
+            <field name="arch" type="xml">
+                <form string="Registration">
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="graph_view" string="Registration Graph" type="object" class="oe_stat_button"
+                                    icon="fa-file-text-o"/>
+                        </div>
+                        <widget name="web_ribbon" text="Draft" bg_color="bg-danger"
+                                attrs="{'invisible': [('state', '!=', 'draft')] }"/>
+                        <widget name="web_ribbon" text="Done" bg_color="bg-success"
+                                attrs="{'invisible': [('state', '!=', 'done')] }"/>
+                        <!--            <widget name="web_ribbon" text="Confirm" bg_color="bg-info" attrs="{'invisible': [('state', '=', 'done'), ('state', '=', 'draft')] }"/>-->
+                        <group string="Registration Info">
+                            <group>
+                                <field name="student"/>
+                            </group>
+                            <group>
+                                <field name="batch_id"/>
+                                <field name="currency_id"/>
+                                <field name="total_fees"/>
+                                <!--                <field name="course_id"/>-->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Course" string="Course">
+                                <group>
+                                    <field name="course_ids" widget="many2many_tags"
+                                           options="{'color_field': 'color'}"
+                                           placeholder="Courses">
+<!--                                        <tree options="{'color_field': 'color', 'no_create': True}">-->
+<!--                                            <field name="course_name"/>-->
+<!--                                        </tree>-->
+                                    </field>
+<!--                                           attrs="{'readonly': [('batch_id', '!=', False)]}"-->
+                                </group>
+                            </page>
+                        </notebook>
+                        <button name="action_confirm" type="object" states="draft" string="Confirm"
+                                class="oe_highlight"/>
+                        <button name="action_done" type="object" states="confirm" string="Done" class="oe_highlight"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="registration_menu_action" model="ir.actions.act_window">
+            <field name="name">registration</field>
+            <field name="res_model">registrations.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First registration</p>
+            </field>
+        </record>
+
+        <record id="go_to_student" model="ir.actions.act_window">
+            <field name="name">Go to Student</field>
+            <field name="res_model">student.details</field>
+            <field name="view_id" ref="task1_explained.student_menu_action"/>
+            <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_registrations_details"/>
+            <field name="binding_view_types">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="registration_menu_action" id="school_registration_menu" name="Registration"
+                  parent="school_menu_"/>
+    </data>
+</odoo>

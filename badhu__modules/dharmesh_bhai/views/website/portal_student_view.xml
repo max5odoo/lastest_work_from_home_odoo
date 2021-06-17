@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+         <template id="portal_student_view" name="student view">
+         
+           <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">STUDENT</t>
+            </t>
+            <t t-if="not student">
+                <p>There are currently no quotations for your account.</p>
+            </t>
+<div class="card text-left">
+  <div class="card-header">
+    <span t-field="student.first_name"/>
+  </div>
+  </div>
+  <div class="card-body">
+
+<!-- <div class="card" style="width: 18rem;">
+<t t-if="student.photo_id">
+                        <img t-att-src="image_data_uri(student.photo_id)" class="rounded-circle" alt="..."/>
+                      </t> -->
+  
+  <!-- <div class="card-body">
+    <h5 class="card-title"><span t-field="student.first_name" class="font-weight-bold"/><span t-field="student.last_name" class="font-weight-bold"/></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div> -->
+<!-- </div> -->
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <t t-if="student.photo_id">
+                        <img t-att-src="image_data_uri(student.photo_id)" class="rounded-circle" alt="..."/>
+                      </t>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><span t-field="student.first_name" class="font-weight-bold"/></h4>
+        
+        <p class="card-text">
+         <div>
+                    <i class="fa fa-mobile"></i>
+                    <span t-field="student.mobile"/>
+  </div></p>
+        <p class="card-text">
+        <div>
+        <i class="fa fa-envelope"></i>
+        <span t-field="student.email"/>
+        </div>
+        </p>
+        <p class="card-text">
+        <div>
+                  
+                    <i class="fa fa-address-card"></i>
+                    This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+        </div>
+        </p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Course</th>
+      <th scope="col">Length</th>
+      <th scope="col" class="text-right">Amount</th>
+    </tr>
+  </thead>
+  <tbody id="t_body">
+    
+    <tr t-foreach="student.student_line_ids" t-as="stu">
+    
+      <td scope="row">1</td>
+                   
+      <td><a t-attf-href="/my/student/course/#{stu.course_id.id}"><span t-field="stu.course_name" class="font-weight-bold"/></a></td>
+      <td> <span t-esc="stu.course_lengths"/></td>
+      
+      <td class="text-right"><span t-esc="stu.course_amount"/></td>
+    </tr>
+ 
+  </tbody>
+  <tfoot>
+   <td id="total"></td>
+   </tfoot>
+</table>
+
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+
+            </t>
+<script src="/student_app/static/src/js/total.js"/>
+
+
+  </template>
+    </data>
+</odoo>

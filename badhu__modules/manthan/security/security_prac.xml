@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_managements_abc">
+        <field name="name">School Manageent</field>
+        <field name="description">User access level for manthan module</field>
+        <field name="sequence">19</field>
+    </record>
+
+    <record model="ir.module.category" id="module_managements">
+        <field name="name">School</field>
+        <field name="description">User access level for manthan module</field>
+        <field name="sequence">20</field>
+        <field name="parent_id" ref="module_managements_abc"/>
+    </record>
+
+    <record id="overtime_users" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="module_managements"/>
+    </record>
+
+    <record id="overtime_managers" model="res.groups">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="module_managements"/>
+        <field name="implied_ids" eval="[(4, ref('overtime_users'))]"/>
+    </record>
+
+    <record id="own_record_rule" model="ir.rule">
+        <field name="name">Own Record Only</field>
+        <field ref="model_student_student" name="model_id"/>
+        <field name="domain_force">[('login_user','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('overtime_users')),(4, ref('overtime_managers'))]"/>
+    </record>
+    <!--    <record model="ir.module.category" id="module_managements_new">-->
+    <!--        <field name="name">New</field>-->
+    <!--        <field name="description">User access level for manthan module</field>-->
+    <!--        <field name="sequence">21</field>-->
+    <!--        <field name="parent_id" ref="module_managements_abc"/>-->
+    <!--    </record>-->
+
+    <!--    <record id="overtime_new_users" model="res.groups">-->
+    <!--        <field name="name">Users</field>-->
+    <!--        <field name="category_id" ref="module_managements_new"/>-->
+    <!--    </record>-->
+
+</odoo>

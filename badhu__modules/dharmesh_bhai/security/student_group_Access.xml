@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="student_corner_regitrationz">
+            <field name="name">StudentCorner module</field>
+        </record>
+        <record model="ir.module.category" id="studentapp_access">
+            <field name="name">Student_app</field>
+            <field name="description">User access level for Student module</field>
+            <field name="parent_id" ref="student_app.student_corner_regitrationz"/>
+            <field name="sequence">20</field>
+        </record>
+        <record id="student_a" model="res.groups">
+            <field name="name">Student</field>
+            <field name="category_id" ref="studentapp_access"/>
+        </record>
+        <record id="proffessor" model="res.groups">
+            <field name="name">Professor</field>
+            <field name="category_id" ref="studentapp_access"/>
+            <field name="implied_ids" eval="[(4, ref('student_a'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+
+        </record>
+        <!--    setting the rules for student-->
+        <record model="ir.rule" id="rule_for_student_data">
+            <field name="name">Student can see only his/her Record</field>
+            <field name="model_id" ref="model_student_data"/>
+            <field name="groups" eval="[(4, ref('student_app.student_a'))]"/>
+            <field name="domain_force">[('login_user', '=', user.id)]</field>
+        </record>
+        <!-- setting the rules for professor -->
+        <record model="ir.rule" id="rule_for_professor">
+            <field name="name">professor see all Record</field>
+            <field name="model_id" ref="model_student_data"/>
+            <field name="groups" eval="[(4, ref('student_app.proffessor'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data>
+</odoo>

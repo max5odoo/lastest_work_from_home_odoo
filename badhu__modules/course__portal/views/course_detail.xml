@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		 <!-- Tree View for Course-->
+	    <record id="course_tree_view" model="ir.ui.view">
+	      <field name="name">course.tree.view</field>
+	      <field name="model">courses.detail</field>
+	      <field name="arch" type="xml">
+	        <tree>
+
+	        	<field name="thumbnail" widget="image" />
+			    <field name="name"/>
+			    <field name="short_desc"/>
+			    <field name="created_by"/>
+			    <field name="rate"/>
+			    <field name="requirements"/>		
+			    <field name="long_desc"/>
+				<field name="is_discounted"/>
+	        
+	        </tree>
+	      </field>
+	    </record>
+
+  		<!-- <record id="course_kanban_view" model="ir.ui.view">
+	      <field name="name">course.kanban.view</field>
+	      <field name="model">courses.detail</field>
+	      <field name="arch" type="xml">
+	        <kanban>
+
+	        	<field name="id" />
+	        	<field name="thumbnail" />
+	        	<field name="name" />
+	        	<field name="created_by" />
+	        	<field name="rate" />
+
+	        	<templates>
+	        		<t t-name="kanban-box">
+	        			  <div t-attf-class="oe_kanban_global_click">
+	        			  	<div class="o_kanban_image">
+                                    <img alt="Avatar" t-if="record.thumbnail.raw_value"  t-att-src="kanban_image('courses.detail', 'thumbnail',record.id.raw_value)"/>
+                                </div>
+	        			  
+
+	        			  <div class="oe_kanban_details">
+	        			  	<strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                             </strong>
+                             <ul>
+                             	<li><field name="created_by"/></li>
+                             	<li>Rs.<field name="rate"/></li>
+                             </ul>
+        			      </div>
+        			      </div>
+	        		</t>
+	        	</templates>
+
+	        </kanban>
+	      </field>
+	    </record> -->
+
+	    <record id='course_detail_kanban_view' model="ir.ui.view">
+	      <field name="name">course.detail.kanban.view</field>
+	      <field name="model">courses.detail</field>
+	      <field name="arch" type="xml">
+	      	<kanban>
+	      		<field name="id"/>
+	      		<field name="thumbnail"/>
+	      	
+	
+
+	      		<templates> 
+	      			<t t-name="kanban-box">
+	      				
+	      				<div>
+	      					<div class="o_kanban_image"> 
+	      						<img alt="Avatar" t-if="record.thumbnail.raw_value"  t-att-src="/kanban_image('courses.detail', 'thumbnail',record.id.raw_value)"/>
+	      					</div>
+
+	      					<div class="oe_kanban_details"> 
+		      					<strong class="o_kanban_record_title">
+	                                    <field name="name"/>
+	                             </strong>
+	                            <ul>
+	                             	<li><field name="created_by"/></li>
+	                             	<li>Rs.<field name="rate"/></li>
+                             	</ul>
+	      					</div>
+
+	      				</div>
+
+	      			</t>
+	      		</templates>
+
+	      	</kanban>
+	      </field>
+	    </record>
+
+
+	     <!-- Search View for Course-->
+	    <record id="course_search_view" model="ir.ui.view">
+	      <field name="name">course.search.view</field>
+	      <field name="model">courses.detail</field>
+	      <field name="arch" type="xml">
+	        <search>
+
+	        	<field name="thumbnail" widget="image" />
+			    <field name="name"/>
+			    <field name="short_desc"/>
+			    <field name="created_by"/>
+			    <field name="rate"/>
+			    <field name="requirements"/>		
+			    <field name="long_desc"/>
+				<field name="is_discounted"/>
+				<separator/>
+
+					<filter domain="[('is_discounted','=',True)]" 
+						name="discounted" string="Discounted"/>
+					<filter domain="[('is_discounted','=',False)]" 
+						name="non_discounted" string="Non Discounted"/>	
+				<separator/>
+				<group expand="1" string="Group By">
+					<filter context="{'group_by':'is_discounted'}" name="is_discounted" string="Is Discounted"/>
+					
+				</group>
+	        
+	        </search>
+	      </field>
+	    </record>
+
+	     <!-- Form View for Course-->
+	    <record id="course_form_view" model="ir.ui.view">
+	      <field name="name">course.form.view</field>
+	      <field name="model">courses.detail</field>
+	      <field name="arch" type="xml">
+	        <form>
+
+	        	<sheet>
+	        		<group>
+
+	        	<field name="thumbnail" widget="image"/>
+			    <field name="name"/>
+			    <field name="short_desc"/>
+			    <field name="created_by"/>
+			    <field name="currency_id"/>
+                <!-- <field name="price" widget="monetary"  /> -->
+			    <field name="rate" widget="monetary"/>
+			    <field name="is_discounted"/>
+			    <!-- <field name="st_id"/> -->
+
+	        		</group>
+	        		<notebook>
+			    		<page autofocus="autofocus" name="requirements" string="requirements">
+						<field name="requirements" placeholder="Requirements"/>		
+			    		</page>
+					
+			    		<page autofocus="autofocus" name="long_desc" string="Long Description">
+						<field name="long_desc" placeholder="Long Description"/>
+						</page>
+
+			    	</notebook>
+	        	</sheet>
+	        </form>
+	      </field>
+	    </record>
+
+	    <!-- Action -->
+	    <record id="courses_menu_action" model="ir.actions.act_window">
+	    	<field name="name">Courses</field>
+	        <field name="res_model">courses.detail</field>
+	        <field name="view_mode">tree,kanban,form,search</field>
+	        <field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create The First Course</p>
+			</field>
+	    </record>
+
+  		<!-- Domain Action -->
+        <record id="d_courses_menu_action" model="ir.actions.act_window">
+           	<field name="name">Courses</field>
+	        <field name="res_model">courses.detail</field>
+	        <field name="view_mode">tree,form</field>
+	    	<field name="domain">[('st_id','=',active_id)]</field>
+        </record>
+
+	    <menuitem id="course_portal_menu" name="Course Portal"/>
+	    <menuitem action="courses_menu_action"  id="courses_menu" name="Courses" parent="course__portal.course_portal_menu"
+	    	/>
+
+	</data>
+</odoo>
