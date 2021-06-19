@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="sale_order_detail_page" name="My Sales">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">sale</t>
+            </t>
+            <div class="card">
+                <div class="card-header">
+                    <h1>Sale Orders</h1>
+                </div>
+                <div class="card-body">
+                    <table style="border-collapse: separate;border-spacing:0 1em;">
+                        <tr>
+                            <th>Name :</th>
+                            <td>
+                                <span t-esc="sale_order.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Address :</th>
+                            <td>
+                                <span t-esc="sale_order.partner_id.street"/>,
+                                <span t-esc="sale_order.partner_id.state_id.name"/>,
+                                <span t-esc="sale_order.partner_id.country_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Delivery Address :</th>
+                            <td>
+                                <span t-esc="sale_order.partner_invoice_id.street"/>,
+                                <span t-esc="sale_order.partner_invoice_id.state_id.name"/>,
+                                <span t-esc="sale_order.partner_invoice_id.country_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Billing Address :</th>
+                            <td>
+                                <span t-esc="sale_order.partner_shipping_id.street"/>,
+                                <span t-esc="sale_order.partner_shipping_id.state_id.name"/>,
+                                <span t-esc="sale_order.partner_shipping_id.country_id.name"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <strong>Order Lines:</strong>
+                    <br/>
+                    <table class="table">
+                        <tr>
+                            <th>Products</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Taxes</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr t-foreach="sale_order.order_line" t-as="order_line">
+                            <td>
+                                <span t-esc="order_line.product_id.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="order_line.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="order_line.product_uom_qty"/>
+                            </td>
+                            <td>
+                                <span t-esc="order_line.price_unit"/>
+                            </td>
+                            <td>
+                                <span t-esc="order_line.tax_id.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="order_line.price_subtotal"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                        <div class="col-sm-7 col-md-5 ml-auto">
+
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Subtotal</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="sale_order.amount_untaxed"/>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="sale_order.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <strong>Sales Person -</strong>
+                            <span t-esc="sale_order.user_id.name"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

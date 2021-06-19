@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_sale_update_u" name="Show Checked Order &amp; Bills" inherit_id="portal.portal_my_home"
+              customize_show="True" priority="21">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Check Existing Order</t>
+                <t t-set="url" t-value="'/register/sale/prac'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="sale_order_front" name="manthan">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section>
+                        <h1 class="text-left">
+                            Sale Orders
+                        </h1>
+                    </section>
+                    <hr/>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form action="/sale_front/form/submit">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="name">Start Date:</label>
+                                    <input type="date" class="form-control" name="start_date"
+                                           id="expected_joing_date" required="true"/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="name">Start Date:</label>
+                                    <input type="date" class="form-control" name="end_date"
+                                           id="expected_joing_date" required="true"/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="degree">Status :</label>
+                                    <br/>
+                                    <select class="form-group" name="state" id="states_id">
+                                        <option value="all">All</option>
+                                        <option value="quotation">quotation</option>
+                                        <option value="quotation_sent">quotation sent</option>
+                                        <option value="sale_order">sale order</option>
+                                        <option value="locked">locked</option>
+                                        <option value="cancel">cancle</option>
+                                    </select>
+                                    <br/>
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="text" data-name="Field">
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <hr/>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Submit Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

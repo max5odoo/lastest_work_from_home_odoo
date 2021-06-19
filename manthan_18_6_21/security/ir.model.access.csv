@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manthan_18_6_21_manthan_18_6_21_partner,manthan_18_6_21.manthan_18_6_212,model_res_partner,base.group_user,1,1,1,1

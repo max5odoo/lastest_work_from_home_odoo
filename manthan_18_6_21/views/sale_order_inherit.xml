@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_partner_id" model="ir.ui.view">
+        <field name="name">sales.order.partner.vewss</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_invoice_id']" position="before">
+                <field name="partner_id" muted="1" display="full" context="{'custom_search':True}"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
