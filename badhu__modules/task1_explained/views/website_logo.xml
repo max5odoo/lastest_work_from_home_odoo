@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="website_logo" customize_show="True"
+              inherit_id="website.view_website_form">
+        <xpath expr="//record[@id='view_website_form'//field//form//sheet//div[@name='logo']]" position="replace">
+            <div name="logo">
+                <group name="logo">
+                    <t t-set="logo" t-attf-value="/home/odoo/Downloads/icon.jpg"/>
+                </group>
+            </div>
+        </xpath>
+    </template>
+</odoo>

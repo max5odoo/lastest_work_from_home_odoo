@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<data>
+
+		 <!-- Tree View for Student-->
+    <record id="u_courses_tree_view" model="ir.ui.view">
+      <field name="name">u.courses.tree.view</field>
+      <field name="model">course.data.lines</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="course_id"/>
+          <field name="short_desc"/>
+          <field name="created_by"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- Domain Action -->
+
+        <record id="u_courses_menu_action" model="ir.actions.act_window">
+           	<field name="name">Courses</field>
+	        <field name="res_model">course.data.lines</field>
+	        <field name="view_mode">tree,form</field>
+	    	<field name="domain">[('st_id','=',active_id)]</field>
+        </record>
+
+
+
+ 
+  </data>
+</odoo>       

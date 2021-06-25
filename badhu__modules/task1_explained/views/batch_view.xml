@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Tree View -->
+    <record id="batch_tree_view" model="ir.ui.view">
+      <field name="name">batch.tree.view</field>
+      <field name="model">batch.details</field>
+      <field name="arch" type="xml">
+        <tree string="Batch Information">
+          <field name="batch_name"/>
+          <field name="total_seats"/>
+          <field name="remaining_seat"/>
+          <field name="course_ids" widget="many2many_tags"/>
+          <field name="total_fees"/>
+
+          <!---->
+        </tree>
+      </field>
+    </record>
+    
+    <!--Course Form view -->
+    <record id="batch_form_view" model="ir.ui.view">
+      <field name="name">batch.form.view</field>
+      <field name="model">batch.details</field>
+      <field name="arch" type="xml">
+        <form string="batch">        
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="count_remaining_seat" type="object" class="oe_stat_button"
+                        icon="fa-exclamation-triangle">
+                     <div class="o_form_field o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="remaining_seat"/>
+                            </span>
+                            <span class="o_stat_text">Remaining Seats</span>
+                     </div>
+                </button>
+              </div>
+            <group>
+            <group string="Batch Details">
+              <field name="batch_name"/>
+              <field name="total_seats"/>
+              <field name="course_ids" widget="many2many_tags"/>
+                <!-- <field name=""/> -->
+            </group>
+            <group string="Seats">
+              <field name="remaining_seat"/>
+                <field name="total_fees" attrs="{'invisible': [('course_ids', '=', False)]}"/>
+              <field name="currency_id"/>
+
+
+              <!-- <field name="student_in_batch"/> -->
+            </group>
+
+
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id="batch_menu_action" model="ir.actions.act_window">
+      <field name="name">Batch</field>
+      <field name="res_model">batch.details</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Create The First batch</p>
+      </field>
+    </record>
+
+    <!-- Menu items -->
+    <menuitem action="batch_menu_action" id="school_batch_menu" name="Batch" parent="school_menu_"/>
+  </data>
+</odoo>

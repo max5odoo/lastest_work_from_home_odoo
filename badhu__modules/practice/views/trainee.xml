@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--trainee Tree view -->
+        <record id="trainee_tree_view" model="ir.ui.view">
+            <field name="name">trainee.tree.view</field>
+            <field name="model">trainee.trainee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="trainee_profile" widget="image" class="oe_avatar" optional="hide"/>
+                    <field name="trainee_id"/>
+                    <field name="trainee_name"/>
+                    <field name="trainee_address"/>
+                    <field name="trainee_phoneno"/>
+                    <field name="trainee_email_id"/>
+                    <field name="dob" optional="hide"/>
+                    <field name="male" optional="hide"/>
+                    <field name="female" optional="hide"/>
+                    <field name="trainee_short_desc" optional="hide"/>
+                    <field name="trainee_country"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--trainee Form view -->
+        <record id="trainee_form_view" model="ir.ui.view">
+            <field name="name">trainee.form.view</field>
+            <field name="model">trainee.trainee</field>
+            <field name="arch" type="xml">
+                <form string="trainee">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="is_published" widget="website_redirect_button"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="trainee_profile" widget="image" class="oe_avatar"/>
+                                <field name="trainee_id" placeholder="Enter The Company's Given Id."/>
+                                <field name="trainee_name"/>
+                                <field name="trainee_address"/>
+                                <field name="trainee_email_id"/>
+                            </group>
+
+                            <group>
+                                <field name="trainee_short_desc" placeholder='Short Info On Technologies You Like.'/>
+                                <field name="trainee_phoneno"/>
+                                <field name="dob"/>
+                                <field name="trainee_country"/>
+                            </group>
+                        </group>
+                        <separator string="SEX"/>
+                        <group>
+                            <field name="male"/>
+                            <field name="female"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="xyz" string="General Info">
+                                <group>
+                                    <field name="company_name" style="width:200px"
+                                           placeholder="enter the comapny name"/>
+                                </group>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="trainee_menu_action" model="ir.actions.act_window">
+            <field name="name">Trainee</field>
+            <field name="res_model">trainee.trainee</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Trainee</p>
+            </field>
+        </record>
+
+
+        <menuitem id="company_main_menu" name="Company Administration"/>
+        <menuitem action="trainee_menu_action" id="company_trainee_menu" name="Trainee"
+                  parent="company_main_menu"/>
+
+    </data>
+</odoo>

@@ -42,6 +42,7 @@
         'views/task.xml',
         'views/students.xml',
         'views/product_catalog.xml',
+        'views/sale_product_catalog.xml',
         'views/wizard_demo.xml',
         'views/website_snippet.xml',
         'views/simple_student_page_render.xml',
@@ -56,7 +57,7 @@
         # 'views/task_set_values_wizard.xml'
         # 'views/task_fruits.xml',
         # 'views/button_prac.xml',
-        'views/sale_order_updates.xml',
+        # 'views/sale_order_updates.xml',
 
     ],
     # only loaded in demonstration mode

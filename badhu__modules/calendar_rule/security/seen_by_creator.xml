@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--    creating a calender category-->
+    <record id="category_calendar10" model="ir.module.category">
+        <field name="name">Calendar110</field>
+        <field name="description">Calendar</field>
+    </record>
+<!--    group-->
+    <record id="group_calendar1010" model="res.groups">
+        <field name="name">Calendar110 only for User</field>
+        <field name="category_id" ref="calendar_rule.category_calendar10"/>
+    </record>
+
+<!--        first need to overwrite the existing record rule-->
+<!--for that we need to disable the noupdate-->
+    <function model="ir.model.data" name="write">
+        <function model="ir.model.data" name="search">
+            <value eval="[('module', '=', 'calendar'), ('name', '=', 'calendar_event_rule_employee')]"/>
+        </function>
+        <value eval="{'noupdate': False}"/>
+    </function>
+
+<!--    calender event visible to only who created it-->
+    <record model="ir.rule" id="calendar.calendar_event_rule_employee">
+        <field name="name">me</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="groups" eval="[(4, ref('calendar_rule.group_calendar1010'))]"/>
+        <field name="domain_force">[('partner_ids', 'in', user.partner_id.id)]</field>
+    </record>
+<!--        enable noupldate-->
+    <function model="ir.model.data" name="write">
+        <function model="ir.model.data" name="search">
+            <value eval="[('module', '=', 'calendar'), ('name', '=', 'calendar_event_rule_employee')]"/>
+        </function>
+        <value eval="{'noupdate': True}"/>
+    </function>
+
+</odoo>

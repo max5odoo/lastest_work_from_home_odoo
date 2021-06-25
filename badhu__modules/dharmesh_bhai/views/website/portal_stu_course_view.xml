@@ -1,0 +1,81 @@
+<odoo>
+  <data>
+    <template id="portal_course_view" name="course view">
+      <link href="student_app/static/src/css/course.css" rel="stylesheet"/>
+      <t t-call="portal.portal_layout">
+        <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+
+        <t t-call="portal.portal_searchbar">
+          <t t-set="title">Course</t>
+        </t>
+        <t t-if="not course">
+          <p>There are currently no course for your account.</p>
+        </t>
+        <div class="card text-left">
+          <div class="card-header">
+            <span t-field="course.course_names"/>
+            <span t-esc="user"/>
+          </div>
+        </div>
+
+
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#Id</th>
+                <th scope="col">Course</th>
+                <th scope="col">Length</th>
+                <th scope="col">Active</th>
+                <th scope="col" class="text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <th scope="row">
+                  <span t-field="course.id"/>
+                </th>
+                <td>
+                  <span t-field="course.course_names" class="font-weight-bold"/>
+                </td>
+                <td>
+                  <span t-esc="course.course_length"/>
+                </td>
+                <td>
+                  <input type="radio" t-att-checked="course.course_active == True" name="active"></input>
+                </td>
+                <td class="text-right">
+                  <span t-esc="course.course_amount"/>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <div class="footer d-flex flex-column mt-5">
+            <div class="row r4">
+              <div class="col-md-2 myt des">
+                <a href="#">Description</a>
+              </div>
+              <div class="col-md-2 myt ">
+                <a href="#">Review</a>
+              </div>
+              <div class="col-md-2 mio offset-md-4">
+                <a href="#">ADD TO CART</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </t>
+
+    </template>
+  </data>
+</odoo>

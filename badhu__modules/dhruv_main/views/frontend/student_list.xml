@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_student" name="Students">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous"/>
+
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Students</t>
+            </t>
+
+            <div class="Student_Btn">
+                <a href="/my/students/add" class="btn btn-secondary active" role="button" aria-pressed="true">Add <i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+
+            <t t-call="portal.portal_table">
+                <t t-as="students" t-foreach="grouped_student_rec">
+                 
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                            <th>Name #</th>
+                            <th t-if="groupby == 'gender'">
+                                <em class="font-weight-normal text-muted">group for :</em>
+                                <span t-field="students[0].sudo().gender"/></th>
+                            <th class="text-right" t-if="groupby != 'gender'">gender</th>
+                            <th class="text-right">email_id</th>
+                            <th class="text-right">Address</th>
+                        </tr>
+                    </thead>
+                    <!-- <thead>
+                        <tr class="active">
+                            <th>Name #</th>
+                            <th class="text-right">gender</th>
+                            <th class="text-right">email_id</th>
+                            <th class="text-right">Address</th>
+                        </tr>
+                    </thead> -->
+                    <t t-as="student" t-foreach="students">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/student/#{student.id}" target="'_blank'">
+                                    <t t-esc="student.name"/>
+                                </a>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="student.gender"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="student.email_id"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="student.address_line1"/>,
+                                <span t-field="student.address_line2"/></td>
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_task1_student_details1,access.student.details1,model_student_details,,1,1,1,1
+access_task1_course_details1,access.course.details1,model_course_details,,1,1,1,1
+access_task1_batch_details1,access.batch.details1,model_batch_details,,1,1,1,1
+access_task1_registration_details1,access.registrations.details1,model_registrations_details,,1,1,1,1
+access_task1_registration_wizard1,access.registration.wizard1,model_registration_wizard,,1,1,1,1
+access_task1_professor_details1,access.professor.details1,model_professor_details,,1,1,1,1
+access_task1_skills,access.skill.skill,model_skill_skill,,1,1,1,1
+access_task1_student_skills,access.student.skill,model_student_skill,,1,1,1,1
+access_task1_student_skill_level,access.student.skill.level,model_student_skill_level,,1,1,1,1
+access_task1_student_skill_type,access.student.skill.type,model_student_skill_type,,1,1,1,1

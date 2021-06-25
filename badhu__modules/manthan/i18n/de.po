@@ -1,0 +1,1004 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* manthan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-22 06:35+0000\n"
+"PO-Revision-Date: 2021-04-22 06:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid ""
+"<span>Apple</span>\n"
+"                            <span>Mango</span>\n"
+"                            <span>Graps</span>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid ""
+"<span>Potato</span>\n"
+"                            <span>Onion</span>\n"
+"                            <span>Tomato</span>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Age:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Amount</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Date Req.</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Description</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Dob:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthank
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Gender:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.sales_inherit_report
+msgid "<strong>Maxy</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Mobile No.:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Name:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Order Date:</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid ""
+"<strong>Professor:</strong>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Purchase Representative:</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Qty</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Shipping address:</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Taxes</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Unit Price</strong>"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "<strong>Your Order Reference:</strong>"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__active
+msgid "Active"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_ids
+msgid "Activities"
+msgstr ""
+
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__activity_type_id
+msgid "Activity Type"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__age
+msgid "Age of student"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__pin_code_area
+msgid "Area"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__user_id
+msgid "Assigned to"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__can_publish
+msgid "Can Publish"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+#: model_terms:ir.ui.view,arch_db:manthan.task_creation_report_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "Cancelled Purchase Order #"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields.selection,name:manthan.selection__student_student__state__cancle
+msgid "Canclled"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__professor_id_read_only
+msgid "Changable address "
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__color
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__color
+msgid "Color Index"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__company_name
+#: model:ir.model.fields,field_description:manthan.field_student_student__company_name
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__company_name
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__company_name
+msgid "Company Name"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfiguration "
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.task_creation_report_wizard
+msgid "Create"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.actions.act_window,help:manthan.professor_menu_action
+msgid "Create The First Professor"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.actions.act_window,help:manthan.students_menu_action
+msgid "Create The First Student"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.actions.act_window,help:manthan.task_menu_action
+msgid "Create The First Task"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__create_uid
+#: model:ir.model.fields,field_description:manthan.field_student_student__create_uid
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__create_uid
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__create_uid
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__create_date
+#: model:ir.model.fields,field_description:manthan.field_student_student__create_date
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__create_date
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__create_date
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__dob
+#: model:ir.model.fields,help:manthan.field_student_student__dob
+msgid "Date of Birth"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid "Date:"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__sale_re
+msgid "Description"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.task_form_view
+msgid "Different Tasks"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_account_move__display_name
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__display_name
+#: model:ir.model.fields,field_description:manthan.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:manthan.field_res_partner__display_name
+#: model:ir.model.fields,field_description:manthan.field_sale_order__display_name
+#: model:ir.model.fields,field_description:manthan.field_student_student__display_name
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__display_name
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__display_name
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: manthan
+#: model:ir.model.fields.selection,name:manthan.selection__student_student__state__done
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "Done"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields.selection,name:manthan.selection__student_student__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__date_deadline
+msgid "Due Date"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_res_config_settings__template_id_new
+msgid "Email"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__female
+#: model:ir.model.fields.selection,name:manthan.selection__student_student__gender__female
+msgid "Female"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "GENDER"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__gender
+#: model_terms:ir.ui.view,arch_db:manthan.student_search_view
+msgid "Gender"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.professor_form_view
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "General Info"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.act_window,name:manthan.go_to_student
+msgid "Go to professor"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__handle_widget
+msgid "Handle Widget"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_account_move__id
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__id
+#: model:ir.model.fields,field_description:manthan.field_res_config_settings__id
+#: model:ir.model.fields,field_description:manthan.field_res_partner__id
+#: model:ir.model.fields,field_description:manthan.field_sale_order__id
+#: model:ir.model.fields,field_description:manthan.field_student_student__id
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__id
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__id
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__id
+msgid "ID"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__message_needaction
+#: model:ir.model.fields,help:manthan.field_student_student__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__message_has_error
+#: model:ir.model.fields,help:manthan.field_student_student__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__student_compute
+msgid "Invitation "
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_sale_order__is_dt
+msgid "Is Dt"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__is_published
+msgid "Is Published"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_sale_order__is_ready
+msgid "Is Ready"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_account_move
+msgid "Journal Entry"
+msgstr "Buchungssatz"
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_account_move____last_update
+#: model:ir.model.fields,field_description:manthan.field_professor_professor____last_update
+#: model:ir.model.fields,field_description:manthan.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:manthan.field_res_partner____last_update
+#: model:ir.model.fields,field_description:manthan.field_sale_order____last_update
+#: model:ir.model.fields,field_description:manthan.field_student_student____last_update
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard____last_update
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard____last_update
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__write_uid
+#: model:ir.model.fields,field_description:manthan.field_student_student__write_uid
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__write_uid
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__write_uid
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__write_date
+#: model:ir.model.fields,field_description:manthan.field_student_student__write_date
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__write_date
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__write_date
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__login_user
+msgid "Login User"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__male
+#: model:ir.model.fields.selection,name:manthan.selection__student_student__gender__male
+#: model_terms:ir.ui.view,arch_db:manthan.student_search_view
+msgid "Male"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.sales_inherit_report
+msgid "Manthan"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__new_name
+msgid "New Name"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__pin_code
+msgid "Pincode "
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__professor_choose
+#: model:res.groups,name:manthan.overtime_managers
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "Professor"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "Purchase Order #"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "Request for Quotation #"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__rollno
+msgid "Roll No."
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.professor_form_view
+msgid "SEX"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__sale_new
+msgid "Sale New"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: manthan
+#: model:ir.actions.report,name:manthan.report_student
+msgid "Sample Report"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.report,name:manthan.report_inventory_new
+msgid "Sample delivery Report"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.report,name:manthan.report_purchase_new
+msgid "Sample purchase Report"
+msgstr ""
+
+#. module: manthan
+#: model:ir.module.category,name:manthan.module_managements
+msgid "School"
+msgstr ""
+
+#. module: manthan
+#: model:ir.module.category,name:manthan.module_managements_abc
+msgid "School Manageent"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_search_view
+msgid "Search Students"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__student_signature
+msgid "Signature"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_account_bank_statement_line__so_references
+#: model:ir.model.fields,field_description:manthan.field_account_move__so_references
+#: model:ir.model.fields,field_description:manthan.field_account_payment__so_references
+#: model:ir.model.fields,field_description:manthan.field_res_partner__so_references
+#: model:ir.model.fields,field_description:manthan.field_res_users__so_references
+#: model:ir.model.fields,field_description:manthan.field_sale_order__so_references
+msgid "So References: "
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.act_window,name:manthan.students_menu_action
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__student_id
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__student_id
+#: model:ir.ui.menu,name:manthan.schools_student_menu_
+#: model:res.groups,name:manthan.overtime_users
+msgid "Student"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__student_email
+msgid "Student Email"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.print_sample_reports
+msgid "Student Report"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__state
+msgid "Student Status"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_mail_report_wizard__summary
+msgid "Summary"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.act_window,name:manthan.action_tasks_creation_report_wizard
+#: model:ir.ui.menu,name:manthan.menu_task_report_wizard
+#: model_terms:ir.ui.view,arch_db:manthan.task_creation_report_wizard
+msgid "Task Creation Report"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_done
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_done
+msgid "Task Done"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_name
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_name
+msgid "Task Name"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_not_done
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_not_done
+msgid "Task Not Done"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_start_time
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_start_time
+msgid "Task Start Date"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.task_form_view
+msgid "Task Status"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_technology
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_technology
+msgid "Task Technology Used"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_end_time
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__task_end_time
+msgid "Task end Date"
+msgstr ""
+
+#. module: manthan
+#: model:ir.ui.menu,name:manthan.task_main_menu
+msgid "Task managment"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__tasks_id
+#: model:ir.model.fields,field_description:manthan.field_student_student__tasks_name
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__tasks_id
+msgid "Task names"
+msgstr ""
+
+#. module: manthan
+#: model:ir.ui.menu,name:manthan.taskmanage_task_menu
+msgid "Tasks"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_purchaseorder_document
+msgid "Taxes"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.report_delivery_document
+msgid ""
+"Thank you for your Order.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Goods checked for completeness and function: __________________\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Goods received:\n"
+"                    <br/>\n"
+"                    Date:_____________ Signature:________________"
+msgstr ""
+"Danke für Ihre Bestellung.\n"
+"<br/>\n"
+"<br/>\n"
+"                  Waren auf Vollständigkeit und Funktion geprüft: __________________ \n"
+"<br/>\n"
+"<br/>\n"
+"                  Wareneingang:\n"
+"<br/>\n"
+"                    Datum:__________   Unterschrift:________________"
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: manthan
+#: model:ir.module.category,description:manthan.module_managements
+#: model:ir.module.category,description:manthan.module_managements_abc
+msgid "User access level for manthan module"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,help:manthan.field_student_student__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "active"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__address
+#: model:ir.model.fields,field_description:manthan.field_student_student__address
+msgid "address"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.constraint,message:manthan.constraint_student_student_unique_names
+msgid "it already exits.."
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__professor_id
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__professor_id
+msgid "many2one vadi"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__phoneno
+msgid "mobile"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__name
+#: model:ir.model.fields,field_description:manthan.field_student_student__name
+msgid "name"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "open mail wizard"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "open wizard"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__phoneno
+msgid "phoneno"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__pro_id
+msgid "pro_id"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.act_window,name:manthan.professor_menu_action
+#: model:ir.ui.menu,name:manthan.school_professor_menu
+#: model_terms:ir.ui.view,arch_db:manthan.professor_form_view
+#: model_terms:ir.ui.view,arch_db:manthan.professors_tree_view
+#: model_terms:ir.ui.view,arch_db:manthan.student_search_view
+msgid "professor"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_professor_professor
+msgid "professor description"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__students_professor_id
+msgid "professor id"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__professor_name_many2one
+#: model:ir.model.fields,field_description:manthan.field_tasks_tasks__professor_name_many2one
+msgid "professor name"
+msgstr ""
+
+#. module: manthan
+#: model:ir.ui.menu,name:manthan.schools_main_menu
+msgid "school"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "student"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_student_student
+msgid "student description"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__student_tasks_ids
+#: model:ir.model.fields,field_description:manthan.field_student_student__tax_ids
+msgid "student tasks"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_professor_professor__student_ids
+msgid "students"
+msgstr ""
+
+#. module: manthan
+#: model:ir.actions.act_window,name:manthan.task_menu_action
+msgid "task"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.student_form_view
+msgid "task Courses"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_tasks_tasks
+msgid "task description"
+msgstr ""
+
+#. module: manthan
+#: model_terms:ir.ui.view,arch_db:manthan.task_creation_report_wizard
+msgid "task tech"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__task_tech
+msgid "task technologies"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_task_creation_report_wizard
+msgid "task.creation.report.wizard"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model,name:manthan.model_task_mail_report_wizard
+msgid "task.mail.report.wizard"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_task_creation_report_wizard__task_new_id
+#: model_terms:ir.ui.view,arch_db:manthan.task_form_view
+#: model_terms:ir.ui.view,arch_db:manthan.task_tree_view
+msgid "tasks"
+msgstr ""
+
+#. module: manthan
+#: model:ir.model.fields,field_description:manthan.field_student_student__total_proffesor
+msgid "total professor"
+msgstr ""

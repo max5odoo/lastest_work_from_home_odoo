@@ -1,0 +1,14 @@
+    <?xml version="1.0" encoding="UTF-8"?>
+    <odoo>
+      <data>
+            <template name="inherit_id" ref="sale.report_saleorder_document">
+                <field name="arch" type="xml">
+                   
+                    <xpath expr="//span[@t-field='doc.payment_term_id.note']" position="after">
+                       <p>Hello World!!!</p>
+                    </xpath>
+                    
+                </field>
+           </template>
+      </data>
+    </odoo>

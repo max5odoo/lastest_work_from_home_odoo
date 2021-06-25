@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--  THIS IS THE TREE VIEW OF THE STUDENTS          -->
+    <record id="student_tree_view_tree_view" model="ir.ui.view">
+        <field name="name">student.tree.view</field>
+        <field name="model">student.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name" decoration-success="first_name=='manthan'"
+                       decoration-info="first_name=='dhruv'"
+                       widget='badge'/>
+                <field name="last_name"/>
+                <field name="email"/>
+                <field name="student_fees"/>
+                <field name="mobile_no"/>
+                <field name="gender"/>
+                <field name="profile_pic" optional="hide"/>
+                <field name="address" optional="hide"/>
+                <field name="dob" optional="hide"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  THIS IS THE FORM VIEW OF THE Students          -->
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">student.details</field>
+        <field name="arch" type="xml">
+            <form string="students">
+                <header>
+                    <button name="log_note" string="Log Message" type="object"/>
+                    <button name="button_draft" string="Draft" class="btn btn-primary"
+                            attrs="{'invisible': [('state','in',['confirm','draft'])]}" type="object"/>
+                    <button name="button_confirm" string="Confirm" states="draft" class="btn btn-success"
+                            type="object"/>
+                    <button name="button_cancel" string="Cancle" class="btn btn-danger" states="confirm"
+                            type="object"/>
+                    <button name="student_xlsx" string="create xlxs" type="object"/>
+                    <button name="%(sale.act_res_partner_2_sale_order)d" string="professor" type="action"/>
+                    <button name="student_xlrd" string="import" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancelled"
+                           options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="button_email_change" type="object" class="oe_stat_button" icon="fa-comments">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="first_name"/>
+                                </span>
+                                <span class="o_stat_text">First Name</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" bg_color="bg-primary" title='draft'
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <widget name="web_ribbon" title='confirm' attrs="{'invisible': [('state', '!=', 'confirm')]}"/>
+                    <widget name="web_ribbon" bg_color='bg-red' title='cancel'
+                            attrs="{'invisible': [('state', '!=', 'cancelled')]}"/>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="email"/>
+                            <field name="currency_id"/>
+                            <field name="student_fees" widget="monetary"/>
+                        </group>
+                        <group>
+                            <field name="mobile_no"/>
+                            <field name="gender"/>
+                            <!--         attrs="{'invisible':['|', ('age', '>=', 18), ('state', 'not in', ['confirm', 'draft'])]}                    -->
+                            <field name="profile_pic" widget="image"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="student_name" string="student name">
+                            <group>
+                                <field name="first_name"/>
+                            </group>
+                        </page>
+                        <page name="course_lines" string="course line ids">
+                            <field name="course_line_ids">
+                                <tree editable="bottom">
+                                    <field name="course_id"/>
+                                    <field name="amount"/>
+                                    <field name="duration"/>
+                                </tree>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <field name="amount_untaxed" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="amount_tax" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"
+                                           widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!--   BELOW DIV IS FOR GETTING THE CHATTER  -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Student Search view -->
+    <record id="student_search_view" model="ir.ui.view">
+        <field name="name">student.search.view</field>
+        <field name="model">student.details</field>
+        <field name="arch" type="xml">
+            <search string="Search Students">
+
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <field name="dob"/>
+                <separator/>
+
+                <filter domain="[('gender', '=', 'male')]" name="male" string="Male"/>
+                <filter domain="[('first_name', '=like','man%')]" name="first_name" string="First Name"/>
+
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter context="{'group_by':'gender'}" name="gender" string="Gender"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- THIS IS THE KANBAN VIEW   -->
+    <record id="school_kanban_view" model="ir.ui.view">
+        <field name="name">student.kanban.view</field>
+        <field name="model">student.details</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_badge" default_group_by="state">
+                <field name="id"/>
+                <field name="first_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <field name="gender"/>
+                <field name="profile_pic"/>
+                <progressbar field="state" colors='{"draft": "success", "confirm": "warning", "cancelled": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img alt="avatar" t-if="record.profile_pic.raw_value"
+                                     t-att-src="kanban_image('student.details','profile_pic',record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="first_name"/>
+                                </strong>
+                                <div t-if="record.email.value">
+                                    <t t-esc="record.email.value"/>
+                                </div>
+                                <div t-if="record.mobile_no.value">
+                                    <t t-esc="record.mobile_no.value"/>
+                                </div>
+                                <div t-if="record.gender.value">
+                                    <t t-esc="record.gender.value"/>
+                                </div>
+                            </div>
+                            <div class="w_visitor_kanban_actions">
+                                <button name="student_xlsx" type="object"
+                                        class="btn btn-danger">
+                                    Export
+                                </button>
+                                <span>
+                                    <field name="priority" widget="priority"/>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+    <!-- this is for THE MENU ACTION  -->
+    <record id="student_menu_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student.details</field>
+        <field name="view_mode">tree,form,search,kanban</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create The First Student</p>
+        </field>
+    </record>
+
+
+    <!-- THIS IS HSOW THE MENU IN THE MAIN   -->
+    <menuitem id="school_main_menu" name="School Management" action="student_menu_action"/>
+    <!--        This is to show the menu inside the main menu-->
+    <menuitem action="student_menu_action" id="student_menu" name="Students" sequence="1"
+              parent="school_main_menu"/>
+
+</odoo>

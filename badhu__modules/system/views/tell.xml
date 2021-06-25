@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Student Tree view -->
+        <record id="studentss_tree_view" model="ir.ui.view">
+            <field name="name">student.tree.view</field>
+            <field name="model">tell.tell</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="rollno"/>
+                    <field name="phoneno"/>
+                    <field name="dob"/>
+
+                    <field name="tasks_name"/>
+                    <field name="tasks_done"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Student Search view -->
+        <record id="student_search_view" model="ir.ui.view">
+            <field name="name">student.search.view</field>
+            <field name="model">tell.tell</field>
+            <field name="arch" type="xml">
+                <search string="Search Students">
+                    <field name="name"/>
+                    <field name="rollno"/>
+                    <field name="address"/>
+                    <field name="dob"/>
+                    <separator/>
+
+                    <filter domain="[('male', '=', '1')]" name="male" string="Male"/>
+                    <filter domain="[('female', '=', '1')]" name="female" string="Female"/>
+
+                    <separator/>
+
+                    <group expand="1" string="Group By">
+                        <filter context="{'group_by':'name'}" name="gender" string="Gender"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+
+        <!--Student Form view -->
+        <record id="student_form_view" model="ir.ui.view">
+            <field name="name">student.form.view</field>
+            <field name="model">tell.tell</field>
+            <field name="arch" type="xml">
+                <form string="student">
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="rollno"/>
+
+                                <field name="tasks_name"/>
+                                <field name="tasks_done"/>
+
+                            </group>
+
+                            <group>
+                                <field name="phoneno"/>
+                                <field name="dob"/>
+                            </group>
+                        </group>
+                        <separator string="SEX"/>
+                        <group>
+                            <field name="male"/>
+                            <field name="female"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="xyz" string="General Info">
+                                <group>
+                                    <field name="company_name" style="width:200px"/>
+                                </group>
+
+                            </page>
+                            <page string="task Courses">
+                                <field name="task_fro">
+                                    <tree editable="bottom">
+                                        <!-- <field name="sub_id"/>-->
+                                        <field name="task_technology"/>
+
+                                    </tree>
+                                </field>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="students_menu_action" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">tell.tell</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Student</p>
+            </field>
+        </record>
+
+        <menuitem id="schools_main_menu" name="school"/>
+        <menuitem action="students_menu_action" sequence="1" id="schools_student_menu" name="Student"
+                  parent="manthan.schools_main_menu"/>
+        <!--        <menuitem action="student_menu_action" id="school_student_menu" name="Student" parent="manthan.student_menu"/>-->
+
+    </data>
+
+
+</odoo>

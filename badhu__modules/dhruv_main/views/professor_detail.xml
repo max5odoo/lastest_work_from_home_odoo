@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+
+    <record id="action_students" model="ir.actions.act_window">
+      <field name="name">Students</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">school.student.detail</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="new_app.student_tree_view"></field>
+      <field name="binding_model_id" ref="model_school_professor_detail"></field>
+      <field name="binding_view_types">form</field>
+    </record>
+    
+
+    <!-- Tree View for Professor-->
+    <record id="professor_tree_view" model="ir.ui.view">
+      <field name="name">professor.tree.view</field>
+      <field name="model">school.professor.detail</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="sequence" widget="handle"/>
+          <field name="name"/>
+          <field name="mobile_no"/>
+          <field name="email_id"/>
+          <field name="address"/>
+        </tree>
+      </field>
+    </record>
+    <!--Professor Search view -->
+    <record id="professor_search_view" model="ir.ui.view">
+      <field name="name">professor.search.view</field>
+      <field name="model">school.professor.detail</field>
+      <field name="arch" type="xml">
+        <search string="Search Professors">
+          <field name="name"/>
+          <field name="mobile_no"/>
+          <field name="email_id"/>
+          <field name="address"/>
+        </search>
+      </field>
+    </record>
+    <!--Professor Form view -->
+    <record id="teacher_form_view" model="ir.ui.view">
+      <field name="name">teacher.form.view</field>
+      <field name="model">school.professor.detail</field>
+      <field name="arch" type="xml">
+        <form string="Professors">
+          <sheet>
+
+            <div class="oe_button_box">
+                <button class="oe_stat_button" name="action_student" type="object" icon="fa-edit"> 
+                  <field name="student_cnt" widget="statinfo"/>
+                </button>
+            </div>
+
+
+            <widget attrs="{'invisible': [('active', '=', True)]}" bg_color="bg-danger" name="web_ribbon" title="active"/>
+            <group>
+              <field name="name"/>
+              <field name="mobile_no"/>
+              </group>
+              <!-- <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">-->
+              <!-- </button>-->
+              <group>
+                <field name="email_id"/>
+                <field name="address"/>
+              </group>
+            
+            <field invisible="1" name="active" widget="boolean_button"/>
+            <notebook>
+              <page string="Professors subjects">
+                <field name="subject_line_ids">
+                  <tree editable="bottom">
+                    <field name="student_id"/>
+                    <field name="sub_name"/>
+                    <field name="sub_desc"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- Action -->
+    <record id="professor_menu_action" model="ir.actions.act_window">
+      <field name="name">Professors</field>
+      <field name="res_model">school.professor.detail</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Create The First Professor</p>
+      </field>
+    </record>
+    <menuitem id="school_menu" name="School"/>
+    <menuitem action="professor_menu_action" id="school_professor_menu" name="Professor" parent="new_app.school_menu"/>
+     <menuitem action="student_input_wizard_menu_action" id="school_student_record_menu" name="Import Record" parent="new_app.school_menu"/>
+  </data>
+</odoo>

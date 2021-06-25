@@ -1,0 +1,11 @@
+<odoo>
+    <record id="go_to_course" model="ir.actions.act_window">
+        <field name="name">Go to course</field>
+        <field name="res_model">courses.data</field>
+        <field name="view_id" ref="course_config_tree_view"/>
+        <field name="view_mode">tree</field>
+        <field name="binding_model_id" ref="model_student_data"/>
+        <field name="binding_view_types">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

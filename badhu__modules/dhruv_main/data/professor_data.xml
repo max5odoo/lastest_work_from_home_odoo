@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+	<record id="subject_d_1" model="school.subject.line">
+		<field name="sub_name">chemistry</field>
+		<field name="sub_desc">desc of chemistry</field>
+	</record>
+	
+</odoo>
+<!-- <record id="professor_d_1" model="school.professor.detail">
+		<field name="name">Jayraj</field>
+		<field name="mobile_no">8945631245</field>
+		<field name="email_id">jayraj@gmail.com</field>
+		<field name="address">gu, ahmedabad</field>
+		<field name="subject_line_ids" ref="subject_d_1"/>
+	</record> -->

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='student_data' model="student.student">
+            <field name="name">My Company</field>
+            <field name="address">hello my address is unsearchable</field>
+        </record>
+        <record id='student_second_data' model="student.student">
+            <field name="name">My Company second</field>
+            <field name="address">hello my address is unsearchable part two</field>
+        </record>
+        <record id='student_third_data' model="student.student">
+            <field name="name">My new company is defined</field>
+            <field name="address">hello my address is undiscoverd in this planet</field>
+            <field name="tasks_id" eval="[
+                (5, 0, 0),
+                (0, 0, {
+                     'task_name': 'whatever you say ',
+                      'task_technology':'java  the best'
+                })]"/>
+        </record>
+          <record id='task_first_data' model="tasks.tasks">
+            <field name="task_name">My Company second</field>
+        </record>
+        <record id='professor_first_data' model="professor.professor">
+            <field name="name">Manthan master</field>
+            <field name="address">hello my address is unsearchable part two</field>
+        </record>
+
+        <!-- this is for many2one data record, ama ref apvanu  -->
+        <record id='student_third_data' model="student.student">
+            <field name="professor_choose" ref="professor_first_data"></field>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

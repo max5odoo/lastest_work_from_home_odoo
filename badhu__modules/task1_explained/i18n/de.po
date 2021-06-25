@@ -1,0 +1,854 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* task1_explained
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-10 11:36+0000\n"
+"PO-Revision-Date: 2021-02-10 11:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.batch_form_view
+msgid "<span class=\"o_stat_text\">Remaining Seats</span>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "<strong>Age:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Batch       :</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Course Name    :</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Courses</strong><br/><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "<strong>DOB:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Fees           :</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "<strong>Gender:</strong>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "<strong>Name:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>No. of Students:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>No. of Years   :</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "<strong>Roll no.:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Student Name:</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "<strong>Total Fees  :</strong><br/>"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_abstract_for_age__age
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__age
+msgid "Age"
+msgstr "shivam"
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_tree_view
+msgid "Average of age"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.batch_menu_action
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__batch_id
+#: model:ir.ui.menu,name:task1_explained.school_batch_menu
+msgid "Batch"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.batch_form_view
+msgid "Batch Details"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.batch_tree_view
+msgid "Batch Information"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__batch_name
+msgid "Batch Name"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__batch_id
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_form_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_search_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Batches"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.regi_wiz
+msgid "Cancel"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_form_view
+msgid "Clear"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields.selection,name:task1_explained.selection__registrations_details__state__confirm
+#: model_terms:ir.ui.view,arch_db:task1_explained.registraion_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__course_ids
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__course_ids
+#: model:ir.ui.menu,name:task1_explained.school_course_menu
+#: model_terms:ir.ui.view,arch_db:task1_explained.registraion_form_view
+msgid "Course"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_form_view
+msgid "Course Info"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_tree_view
+msgid "Course Information"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__course_name
+msgid "Course Name"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_course_details
+msgid "Course details"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_kanban_view
+msgid "Course:"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.course_menu_action
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__course_id
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_form_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Courses"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.actions.act_window,help:task1_explained.course_menu_action
+msgid "Create The First Course"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.actions.act_window,help:task1_explained.student_menu_action
+msgid "Create The First Student"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.actions.act_window,help:task1_explained.batch_menu_action
+msgid "Create The First batch"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.actions.act_window,help:task1_explained.professor_menu_action
+msgid "Create The First professor"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.actions.act_window,help:task1_explained.registration_menu_action
+msgid "Create The First registration"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__create_uid
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__create_uid
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__create_uid
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__create_uid
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__create_uid
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__create_date
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__create_date
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__create_date
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__create_date
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__create_date
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__currency_id
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__currency_id
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.report,name:task1_explained.sale_report_inherit_total
+msgid "Custom Sale "
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__date_field
+msgid "Date"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_abstract_for_age__dob
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__dob
+msgid "Date Of Birth"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Date:"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_abstract_for_age__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_report_task1_explained_student_report_t1__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_res_partner__display_name
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: task1_explained
+#: model:ir.model.fields.selection,name:task1_explained.selection__registrations_details__state__done
+#: model_terms:ir.ui.view,arch_db:task1_explained.registraion_form_view
+msgid "Done"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields.selection,name:task1_explained.selection__registrations_details__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__email
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__student_email
+msgid "Email."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__fees
+msgid "Fees"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields.selection,name:task1_explained.selection__student_details__gender__female
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_search_view
+msgid "Female"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__gender
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_search_view
+msgid "Gender"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Get your Report"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.regi_wiz_action_1
+#: model:ir.actions.act_window,name:task1_explained.regi_wiz_action_submenu
+#: model_terms:ir.ui.view,arch_db:task1_explained.regi_wiz
+msgid "Go to Registration"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.go_to_student
+msgid "Go to Student"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "His Professor Details"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_abstract_for_age__id
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__id
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__id
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__id
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__id
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__id
+#: model:ir.model.fields,field_description:task1_explained.field_report_task1_explained_student_report_t1__id
+#: model:ir.model.fields,field_description:task1_explained.field_res_partner__id
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__id
+msgid "ID"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_needaction
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_has_error
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_res_partner__is_professor
+#: model:ir.model.fields,field_description:task1_explained.field_res_users__is_professor
+msgid "Is Professor"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_res_partner__is_student
+#: model:ir.model.fields,field_description:task1_explained.field_res_users__is_student
+msgid "Is Student"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_abstract_for_age____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_course_details____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_report_task1_explained_student_report_t1____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_res_partner____last_update
+#: model:ir.model.fields,field_description:task1_explained.field_student_details____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__write_uid
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__write_uid
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__write_uid
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__write_uid
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__write_uid
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__write_date
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__write_date
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__write_date
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__write_date
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__write_date
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields.selection,name:task1_explained.selection__student_details__gender__male
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_search_view
+msgid "Male"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__mobile_no
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__mobile_no
+msgid "Mobile no."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__no_of_students
+msgid "No of Students"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__no_of_years
+msgid "No of Years"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.sale_order_inherit
+msgid "PAGE"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__photo
+msgid "Photo"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Please Contact in working hours only from 10:00 to 4:00 pm."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_professor_details
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__professor_name
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__his_professor
+#: model:ir.ui.menu,name:task1_explained.school_professor_menu
+#: model_terms:ir.ui.view,arch_db:task1_explained.professor_form_view
+msgid "Professor"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Professor Contact :"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Professor Email :"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.professor_tree_view
+msgid "Professor Information"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Professor Name :"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.professor_form_view
+msgid "Professor info"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_kanban_view
+msgid "Professor:"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registraion_form_view
+msgid "Registraion"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.ui.menu,name:task1_explained.school_registration_menu
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Registration"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.report,name:task1_explained.registration_report
+msgid "Registration Card"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.regi_wiz
+msgid "Registration Details by Wizard"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registraion_form_view
+msgid "Registration Info"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_search_view
+msgid "Registration Information"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registration_report_card_one
+msgid "Registration Report"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__total_registrations
+msgid "Registrations"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_registrations_details
+msgid "Registrations details"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__remaining_seat
+msgid "Remaining seats"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__roll_no
+msgid "Roll no."
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.sale_order_inherit
+msgid "SHivam"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.ui.menu,name:task1_explained.school_menu_
+msgid "School Task"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.batch_form_view
+msgid "Seats"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__select_course
+msgid "Select Course"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__state
+msgid "Status"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_student_details
+#: model:ir.model.fields,field_description:task1_explained.field_registration_wizard__student_id
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__student
+#: model:ir.model.fields,field_description:task1_explained.field_student_details__name
+#: model:ir.ui.menu,name:task1_explained.school_student_menu
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Student"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.report,name:task1_explained.student_report
+msgid "Student Card"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.registeration_tree_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_kanban_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_search_view
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_tree_view
+msgid "Student Information"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_report_details
+msgid "Student Report"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "Student info"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_pivot_view
+msgid "Student-Courses"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.student_menu_action
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__student_ids
+#: model_terms:ir.ui.view,arch_db:task1_explained.course_form_view
+msgid "Students"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_professor_details__his_students
+msgid "Students under"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__total_fees
+msgid "Total Fees"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_registrations_details__total_fees
+msgid "Total fees"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_batch_details__total_seats
+msgid "Total seats"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_abstract_for_age
+msgid "Use of Abstract Model"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,help:task1_explained.field_course_details__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_registration_wizard
+#: model:ir.ui.menu,name:task1_explained.regi_wiz_menu
+msgid "Wizard"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.batch_form_view
+msgid "batch"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_batch_details
+msgid "batch details"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.sale_report_inherit_t1
+msgid "jn"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "open wizard using action method"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.student_form_view
+msgid "open wizard using custom method"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.professor_menu_action
+msgid "professor"
+msgstr ""
+
+#. module: task1_explained
+#: model_terms:ir.ui.view,arch_db:task1_explained.professor_search_view
+msgid "professor Information"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.actions.act_window,name:task1_explained.registration_menu_action
+msgid "registration"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model,name:task1_explained.model_report_task1_explained_student_report_t1
+msgid "report.task1_explained.student_report"
+msgstr ""
+
+#. module: task1_explained
+#: model:ir.model.fields,field_description:task1_explained.field_course_details__sequence
+msgid "seq"
+msgstr ""

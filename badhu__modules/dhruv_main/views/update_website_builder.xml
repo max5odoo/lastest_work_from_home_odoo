@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	 <template id="assets_frontend_u" inherit_id="website.assets_frontend" name="Your Snippet">
+      <xpath expr="." position="inside">
+         <link rel="stylesheet" href="/snippet/static/scss/main.scss" t-ignore="true"/>
+      </xpath>
+   </template>
+           
+	<template id="adding_new_snippet_to_website_snippetsr" inherit_id="website.snippets" name="Place into building blocks bar">
+        <xpath expr="//div[@id='snippet_structure']" position="inside">
+            <div class="o_panel_body">
+                 <t t-snippet="new_app.custom_para_with_a_redirect"
+      t-thumbnail="/custom_addons/dhruv_main/static/src/img.png"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

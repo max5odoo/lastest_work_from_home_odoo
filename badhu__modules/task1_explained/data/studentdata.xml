@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    record of contact for is_student in Registration-->
+    <data noupdate="1">
+        <record id="is_student_st" model="res.partner">
+            <field name="name">SHivam KAchhia1</field>
+            <field name="is_student">True</field>
+        </record>
+        <record id="is_student_st2" model="res.partner">
+            <field name="name">SHivam KAchhia2</field>
+            <field name="is_student">True</field>
+        </record>
+        <record id="is_student_st3" model="res.partner">
+            <field name="name">SHivam KAchhia3</field>
+            <field name="is_student">True</field>
+        </record>
+    </data>
+<!--    record data1 for Student-->
+    <data noupdate="1">
+        <record id="student_st" model="student.details">
+            <field name="name" eval="[(4, ref('is_student_st'))]"/>
+            <field name="email">KAchhia@gmail.com</field>
+            <field name="mobile_no">9988776655</field>
+            <field name="dob">2000-01-01</field>
+            <field name="age">21</field>
+            <field name="roll_no">0</field>
+        </record>
+        <record id="student_st2" model="student.details">
+            <field name="name" eval="[(4, ref('is_student_st2'))]"/>
+            <field name="email">KAchhia@gmail.com</field>
+            <field name="mobile_no">9988776655</field>
+            <field name="dob">2000-01-01</field>
+            <field name="age">21</field>
+            <field name="roll_no">1000</field>
+        </record>
+    </data>
+
+<!--    record data1 for course-->
+    <data noupdate="1">
+        <record id="course_st" model="course.details">
+            <field name="course_name">Course100</field>
+            <field name="no_of_years">6</field>
+            <field name="no_of_students">10</field>
+            <field name="student_ids" eval="[(4, ref('student_st'))]"/>
+        </record>
+        <record id="course_st2" model="course.details">
+            <field name="course_name">Course1002</field>
+            <field name="no_of_years">4</field>
+            <field name="no_of_students">10</field>
+            <field name="student_ids" eval="[(4, ref('student_st2'))]"/>
+        </record>
+    </data>
+
+<!--    record data1 for Batch-->
+    <data noupdate="1">
+        <record id="batch_st" model="batch.details">
+            <field name="batch_name">batch100</field>
+            <field name="total_seats">20</field>
+            <field name="course_ids" eval="[(4, ref('course_st')),(4, ref('course_st2'))]"/>
+        </record>
+        <record id="batch_st2" model="batch.details">
+            <field name="batch_name">batch1002</field>
+            <field name="total_seats">20</field>
+            <field name="course_ids" eval="[(4, ref('course_st2'))]"/>
+        </record>
+        <record id="batch_st3" model="batch.details">
+            <field name="batch_name">batch1003</field>
+            <field name="total_seats">50</field>
+            <field name="course_ids" eval="[(5,0),
+            (0,0,{
+                'course_name' : 'Course(5,0)',
+                'no_of_years' : 1,
+                'student_ids' : [ref('student_st2'), ref('student_st')]
+            })]"/>
+        </record>
+    </data>
+
+
+<!--    record data for registration-->
+    <data noupdate="1">
+        <record id="registration_st" model="registrations.details">
+            <field name="student" ref="is_student_st"/>
+            <field name="batch_id" ref="batch_st"/>
+            <field name="course_ids" eval="[(4, ref('course_st')),(4, ref('course_st2'))]"/>
+            <field name="select_course" ref="course_st"/>
+        </record>
+
+        <record id="registration_st3" model="registrations.details">
+            <field name="student" ref="is_student_st2"/>
+            <field name="batch_id" ref="batch_st2"/>
+            <field name="course_ids" eval="[(5,0,0),
+           (0,0,{
+               'course_name':'Course 5comma22',
+                'no_of_years':'5',
+                'student_ids':[ref('student_st')],
+           })
+         ]"/>
+            <field name="select_course" ref="course_st2"/>
+        </record>
+
+         <record id="registration_st4" model="registrations.details">
+            <field name="student" ref="is_student_st3"/>
+            <field name="batch_id" ref="batch_st2"/>
+            <field name="course_ids" eval="[(5,0,0),
+           (0,0,{
+               'course_name':'Course 5comma22',
+                'no_of_years':'5',
+                'student_ids':[ref('student_st')],
+           }),
+           (0,0,{
+               'course_name':'Course 3331213',
+                'no_of_years':'4',
+                'student_ids':[ref('student_st2')],
+           })
+         ]"/>
+            <field name="select_course" ref="course_st2"/>
+        </record>
+    </data>
+
+</odoo>

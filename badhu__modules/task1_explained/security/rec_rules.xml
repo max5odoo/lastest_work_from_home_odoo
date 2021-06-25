@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="category_school_lable" model="ir.module.category">
+        <field name="name">School</field>
+    </record>
+
+    <!--    category-->
+    <record id="category_school" model="ir.module.category">
+        <field name="name">School Management</field>
+        <field name="description">Select your Choice</field>
+        <field name="parent_id" ref="category_school_lable"/>
+    </record>
+    <!--    student-->
+    <record id="group_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="task1_explained.category_school"/>
+    </record>
+
+    <!--    professor group-->
+    <record id="group_professor" model="res.groups">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="category_school"/>
+        <field name="implied_ids" eval="[(4, ref('task1_explained.group_student'))]"/>
+    </record>
+
+    <!--    setting the rules for student-->
+    <record model="ir.rule" id="rules_for_studentt">
+        <field name="name">Student can see only his/her Record</field>
+        <field name="model_id" ref="model_student_details"/>
+        <field name="groups" eval="[(4, ref('task1_explained.group_student'))]"/>
+        <field name="domain_force">[('name', '=', user.partner_id.id)]</field>
+        <!--                <field name="domain_force">[(1,'=',1)]</field>-->
+    </record>
+
+    <!--   &lt;!&ndash;    setting the rules for student&ndash;&gt;-->
+    <!--    <record model="ir.rule" id="rules_for_student">-->
+    <!--        <field name="name">Student can only see the professor record</field>-->
+    <!--        <field name="model_id" ref="model_professor_details"/>-->
+    <!--        <field name="groups" eval="[(4, ref('task1_explained.group_student'))]"/>-->
+    <!--        <field name="perm_create">0</field>-->
+    <!--        <field name="perm_write">0</field>-->
+    <!--        <field name="perm_unlink">0</field>-->
+    <!--        <field name="perm_read">1</field>-->
+    <!--   </record>-->
+
+    <!--      setting the rules for professor-->
+    <record model="ir.rule" id="rules_for_pr1">
+        <field name="name">Professor can see all student record</field>
+        <field name="model_id" ref="model_student_details"/>
+        <field name="groups" eval="[(4, ref('task1_explained.group_professor'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <!--    professor can see all professor-->
+    <record model="ir.rule" id="god_professor">
+        <field name="name">Professor can see all the professors</field>
+        <field name="model_id" ref="model_professor_details"/>
+        <field name="groups" eval="[(4, ref('task1_explained.group_professor'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+		<!-- student fees wizard form view -->
+	    <record id="student_activity_wizard_form_view" model="ir.ui.view">
+	      <field name="name">student_activity_wizard_form_view</field>
+	      <field name="model">schedule.activity.wizard</field>
+	      <field name="arch" type="xml">
+
+	      		<form>
+
+	      			<group>
+	      			 <group>
+	      			 	
+	      			 		<field name="activity_type"/>
+	      			 		<field name="summary"/>
+	      			 </group>
+			
+  			 		 <group>
+	      			 	
+	      			 		<field name="due_date"/>
+	      			 		<field name="assign_to"/>
+	      			 </group>
+	      			 </group>
+	      			 <field name="note"/>
+		
+
+				<footer>
+					<button string="Schedule Activity"  type="object" name="add_new_activity"/>
+					<button string="Cancel" special="cancel"/>
+				</footer>
+
+				
+	      		</form>
+	    
+	      </field>
+	    </record>
+
+
+<!-- 	      <record id="student_courses_wizard_menu_action" model="ir.actions.act_window">
+	      	<field name="name" >Student Courses Update</field>
+	      	<field name="res_model" >school.student.courses.wizard</field>
+	      	<field name="view_mode">form</field>
+	      	<field name="target">new</field>
+	      </record> -->
+
+
+	   <record id="student_activity_wizard_menu_action_students" model="ir.actions.act_window">
+      <field name="name">Schedule Activity</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">schedule.activity.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      <field name="view_id" ref="new_app.student_activity_wizard_form_view"></field>
+      <field name="binding_model_id" ref="model_school_student_detail"></field>
+      <field name="binding_view_types">form</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="0">
+	<record id="todo_data_1" model="todos.detail">
+		<field name="title">insertion on one2many field</field>
+		<field name="description">enter/update record by data.xml</field>
+		<field name="is_done">True</field>
+	</record>
+	<record id="todo_data_2" model="todos.detail">
+		<field name="title">insertion on one2many field using 6,0,id</field>
+		<field name="description">enter/update record by data.xml</field>
+		<field name="is_done">False</field>
+	</record>
+
+
+</odoo>

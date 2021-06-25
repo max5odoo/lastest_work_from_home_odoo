@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+		<!-- student fees wizard form view -->
+	    <record id="student_fees_wizard_form_view" model="ir.ui.view">
+	      <field name="name">student.fees.wizard.form.view</field>
+	      <field name="model">school.student.fees.wizard</field>
+	      <field name="arch" type="xml">
+
+	      		<form>
+
+	      			 <group>
+	      			 	<group>
+	      			 		<field name="fees"/>
+	      			 	</group>
+	      			 </group>
+			
+
+
+				<footer>
+					<button string="Update"  type="object" name="update_student_fees"/>
+					<button string="Cancel" special="cancel"/>
+				</footer>
+
+	      		</form>
+	    
+	      </field>
+	    </record>
+
+
+	      <record id="student_fees_wizard_menu_action" model="ir.actions.act_window">
+	      	<field name="name" >Student Fees Update</field>
+	      	<field name="res_model" >school.student.fees.wizard</field>
+	      	<field name="view_mode">form</field>
+	      	<field name="target">new</field>
+	      </record>
+
+
+
+
+
+
+
+
+
+
+
+
+	      <!--for add a new button action in action_menu -->
+	  <record id="student_fees_wizard_menu_action_students" model="ir.actions.act_window">
+      <field name="name">Students</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">school.student.fees.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      
+      <field name="view_id" ref="new_app.student_fees_wizard_form_view"></field>
+      <field name="binding_model_id" ref="model_school_student_detail"></field>
+      <field name="binding_view_types">form</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="dh_email_template" model="mail.template">
+            <field name="name">Email Template</field>
+            <field name="model_id" ref="student_app.model_student_mail_wizard"/>
+            <!-- <field name="email_from">${(object.login_user.email_formatted |safe}</field> -->
+            <field name="email_to">${(object.mail_to) | safe}</field>
+            <field name="subject">dharmesh (Ref ${object.subject_msg})</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <header style="border-bottom: 2px solid black;width:auto;border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align:left;width:90%;">
+                            Your Course Bill
+                            <br/>
+                        </td>
+                        <td style="text-align: left;width:10%;">
+                           Azure Interiror
+                        </td>
+                    </tr>
+                </header>
+                <img src='student_project/static/img/logo_white.png'/>
+                <p>${object.email_data_wizard}</p>
+                <p>Signature................</p>
+                <footer style="border-top: 2px solid black; text-align:center;">
+                    <p>www.odoo.com</p>
+                </footer>
+            </field>
+            <field name="report_template" ref="report_student_model_view"/>
+            <field name="report_name"> %{object.first_name}</field>
+        </record>
+    </data>
+</odoo>

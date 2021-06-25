@@ -1,0 +1,21 @@
+<?xml version = "1.0"?>
+<odoo>
+    <data noupdate="0">
+        <function model="ir.model.data" name="write">
+            <function model="ir.model.data" name="search">
+                <value eval="[('module', '=', 'account'), ('name', '=', 'account.email_template_edi_invoice')]"/>
+            </function>
+            <value eval="{'noupdate': False}"/>
+        </function>
+        <record id="account.email_template_edi_invoice" model="mail.template">
+            <field name="report_name">group invoice</field>
+            <field name="report_template" ref="much_group_invoice.report_student_info"/>
+        </record>
+        <function model="ir.model.data" name="write">
+            <function model="ir.model.data" name="search">
+                <value eval="[('module', '=', 'account'), ('name', '=', 'account.email_template_edi_invoice')]"/>
+            </function>
+            <value eval="{'noupdate': True}"/>
+        </function>
+    </data>
+</odoo>

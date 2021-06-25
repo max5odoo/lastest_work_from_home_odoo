@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="student_portal_template" name="Student">
+		<t t-call="portal.portal_layout">
+			<div class="card mt-2 ">
+				<div class="card-header pb-0">
+					<div class="mb-0" style="width:100%;display:inline-block;">
+						<h3 style="float:left;">Student #
+							
+							<i>
+								<t t-esc="id"/></i>
+						</h3>
+						<a class="btn btn-secondary  o_print_btn o_portal_invoice_print" id="print_invoice_report" style="float:right;" target="_blank" title="Print">
+							<i class="fa fa-print"/>Print</a>
+					</div>
+				</div>
+				<div class="card-body mt-3">
+					<t t-as="st" t-foreach="student">
+						<div style="width:100%;">
+							<div style="width:100%;">
+								<t t-if="st.avatar_img">
+									<img class="img-thumbnail" style="height:100px;width:100px; display: block;margin-left: auto;margin-right: auto;" t-att-src="image_data_uri(st.avatar_img)"/>
+								</t>
+							</div>
+							<h4 style="float:center;text-align:center;margin-top:5px;" t-field="st.name"/>
+						</div>
+						<table style="width:100%;margin-top:15px;">
+							<tr>
+								<td>
+									<b>Email</b>
+								</td>
+								<td>
+									<p t-field="st.email_id"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>Gender</b>
+								</td>
+								<td>
+									<p t-field="st.gender"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>Address</b>
+								</td>
+								<td>
+									<p t-field="st.address_line1"/>
+									<p t-field="st.address_line2"/>
+								</td>
+							</tr>
+						</table>
+						<table class="table mt-5 table-sm">
+							<thead>
+								<tr>
+									<th scope="col">Course Name</th>
+									<th scope="col">Short Desc.</th>
+									<th scope="col">Created By</th>
+									<th scope="col">Price ₹</th>
+								</tr>
+							</thead>
+							<tbody id="courseTable">
+								<tr t-as="course" t-foreach="st.course_ids">
+									<td>
+										<a t-attf-href="/course/#{course.course_id.id}" target="'_blank'">
+											<span t-field="course.course_id"/>
+										</a>
+									</td>
+									<td>
+										<span t-field="course.short_desc"/>
+									</td>
+									<td>
+										<span t-field="course.created_by"/>
+									</td>
+									<td>
+										<span class="course_price" t-field="course.course_id.rate"/>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td/>
+									<td/>									
+									<td>Total
+									</td>
+									<td id="totalPrice">
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</t>
+				</div>
+			</div>
+		</t>
+		<script src="/custom_addons/dhruv_main/static/src/js/student_controller.js" type="text/javascript"/>
+	</template>
+</odoo>

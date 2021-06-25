@@ -1,0 +1,72 @@
+<odoo>
+<template id="regi_form">
+        <t t-call="website.layout">
+            <div class="alert alert-success" role="alert">
+                Contact us regarding any query.
+            </div>
+            <hr/>
+            <div class="page-header">
+                <center><h1>Registration Form</h1></center>
+            </div><hr/>
+            <div class="container-fluid">
+                <form action="/website_form/" data-success_page="/employee_entries" method="post"
+                      class="s_website_form" enctype="multipart/form-data"
+                      data-model_name="employee.document">
+                    <div class="form-group row form-field o_website_form_required_custom">
+                        <input class="form-control o_website_form_input" type="hidden" name="csrf_token"
+                               t-att-value="request.csrf_token()"/>
+                    </div>
+                    <div class="form-group row form-field o_website_form_required_custom">
+                        <div class="col-md-6">
+                            <label for="name" class="col-form-label">Document Name</label>
+                            <input type="text" name="name"
+                                   class="form-control o_website_form_input o_website_form_required_custom"
+                                   placeholder="e.g. Adhar Card" required=""/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="expiry_date" class="col-form-label">Expiry Date</label>
+                            <input type="date" name="expiry_date"
+                                   class="form-control o_website_form_input o_website_form_required_custom"
+                                   placeholder="e.g. Adhar Card" required=""/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="document_file" class="col-form-label">Upload Document</label>
+                            <input type="file" name="document_file"
+                                   class="form-control form-control-file o_file_input o_website_form_input o_website_form_required_custom"  accept="image/*,application/pdf,video/*"
+                                   placeholder="e.g. Adhar Card" required=""/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="multiple_docs" class="col-form-label">Multiple Upload Document</label>
+                             <input type="file" name="multiple_docs" multiple="true" accept="image/*,application/pdf,video/*"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="col-form-label">Select Employee :</label>
+                            <select id="employee" class="col-lg-4 col-md-4 col-form-label"
+                                    name="employee"
+                                    required="1">
+                                <t t-set="employees"
+                                   t-value="request.env['hr.employee'].search([])"/>
+                                <t t-foreach="employees" t-as="cid">
+                                    <option t-att-value="cid.id">
+                                        <t t-esc="cid.name"/>
+                                    </option>
+                                </t>
+                            </select><br/><br/>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                            <center>
+                                <button class="btn btn-primary btn-lg o_website_form_send"> Submit </button>
+                                <span id="o_website_form_result"/>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+    </odoo>

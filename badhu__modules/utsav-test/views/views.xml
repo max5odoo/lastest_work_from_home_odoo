@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="utsav-test.list">
+      <field name="name">Utsav-Test list</field>
+      <field name="model">utsav-test.utsav-test</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="utsav-test.action_window">
+      <field name="name">Utsav-Test window</field>
+      <field name="res_model">utsav-test.utsav-test</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="utsav-test.action_server">
+      <field name="name">Utsav-Test server</field>
+      <field name="model_id" ref="model_utsav-test_utsav-test"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Utsav-Test" id="utsav-test.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="utsav-test.menu_1" parent="utsav-test.menu_root"/>
+    <menuitem name="Menu 2" id="utsav-test.menu_2" parent="utsav-test.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="utsav-test.menu_1_list" parent="utsav-test.menu_1"
+              action="utsav-test.action_window"/>
+    <menuitem name="Server to list" id="utsav-test" parent="utsav-test.menu_2"
+              action="utsav-test.action_server"/>
+-->
+  </data>
+</odoo>

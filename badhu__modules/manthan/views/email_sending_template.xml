@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!--Email template -->
+        <record id="student_sending_email_templates" model="mail.template">
+            <field name="name">Student Email Template</field>
+            <field name="model_id" ref="manthan.model_task_mail_sending_wizard"/>
+            <field name="email_to">${(object.email_to) | safe}</field>
+            <field name="subject">Ref ${object.subject or 'n/a' }</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <div>
+
+                    <div style="width:70%;height:auto;margin:0 auto!important;padding : 25px!important;box-shadow: 5px 10px #888888!important; background-color: #d3d3d3">
+
+
+                        <div style="margin-top:5px;">
+
+                            <h1>${object.student_body}</h1>
+                            <h4>Applied Tasks</h4>
+
+                            <table cellpadding="0" cellspacing="0" width="650" align="center"
+                                   style="text-align : center;" border="1">
+
+                                <tr>
+                                    <th>Task name</th>
+                                    <th>Task Description</th>
+                                </tr>
+
+                                % for line in object.stu_id.tasks_id:
+                                <tr>
+                                    <td>${line.task_name}</td>
+                                    <td>${line.task_technology}</td>
+                                </tr>
+                                % endfor
+                            </table>
+                            <div>${object.student_signature}</div>
+                            <footer align="center" style="margin-top : 5px; border-top : 1px solid #d3d3d3">
+                                <a href="https://www.odoo.com/">odoo.com</a>
+                            </footer>
+                        </div>
+                    </div>
+
+                </div>
+
+            </field>
+
+            <field name="report_template" ref="report_student"/>
+        </record>
+    </data>
+</odoo>

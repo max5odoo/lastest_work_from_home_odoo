@@ -1,0 +1,62 @@
+<?xml version="1.0"	encoding="utf-8"?>
+<odoo>
+
+	<data>
+		<template id="report_student">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+					 <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Student Info.</h2>
+                    <p>Name :  <span t-field="o.name"/></p>
+                    <p>Email ID :  <span t-field="o.email_id"/></p>
+                     <p>Address :  <span t-field="o.address_line1"/></p>
+                      <p>Gender :  <span t-field="o.gender"/></p>
+                       <p>Fees to pay. :  <span t-field="o.fees"/></p>
+
+                         <table class="table table-sm o_main_table" style="border : 1.5px solid #d3d3d3; width : 100%">
+                         	 <thead style="display: table-row-group">
+                         	 	<tr>
+                         	 	<th class="text-left">
+                         	 	Course Name
+                         	 	</th>
+                         	 	<th class="text-center">
+                         	 		Short Desc.
+                         	 	</th>
+                         	 	<th class="text-right">
+                         	 		Created By
+                         	 	</th>
+                         	 	</tr>
+                         	 </thead>
+
+                         	 <tbody >
+                         	 	  <t t-foreach="o.course_ids" t-as="line">
+
+                         	 	  	<tr>
+                         	 	  		<td class="text-left"> 
+                         	 	  			<span t-field="line.course_id" />
+                         	 	  		}
+                         	 	  		</td>
+                         	 	  		<td class="text-center">
+                         	 	  			<span t-field="line.short_desc"/>
+                         	 	  		</td>
+                         	 	  		<td class="text-right">
+                         	 	  			<span  t-field="line.created_by" />
+                         	 	  		</td>
+
+                         	 	  	</tr>
+                         	 	  </t>
+                         	 </tbody>
+
+                         </table>
+                         <div style="float:right;" class="mt32 ml64 mr4">
+                             <img t-att-src="image_data_uri(o.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                         </div>
+                </div>
+            </t>
+			</t>
+		</t>
+		</template>
+	</data>
+
+</odoo>

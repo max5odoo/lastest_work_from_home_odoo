@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="custom_state_temp">
+         <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <page>
+<!--                    <header>-->
+<!--                        <center><h3><strong>Selected Purchased Orders By States</strong></h3></center><br/>-->
+<!--                    </header>-->
+<!--                    table for purchase-->
+                    <t t-set="counter" t-value="0"/>
+                    <t t-set="counter" t-value="len([doc.state for doc in docs if doc.state == 'purchase'])"/>
+                        <t t-if="counter != 0">
+                            <strong>
+                                <h2><center>Purchased Orders</center></h2>
+                            </strong><br/>
+                            <table class="table table-dark">
+                                <thead>
+                                        <tr>
+                                            <th style="text-align:20px; font-size:25px;">Purchase Order No</th>
+                                            <th style="text-align:20px; font-size:25px;">Vendor Name</th>
+                                            <th style="text-align:20px; font-size:25px;">Status Order</th>
+                                            <th style="text-align:20px; font-size:25px;">Amount</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="docs" t-as="doc">
+                                        <t t-if="doc.state == 'purchase'">
+                                            <td><t t-esc="doc.name"/></td>
+                                            <td> <t t-esc="doc.partner_id.name"/></td>
+                                            <td> <t t-esc="doc.state"/></td>
+                                            <td> <t t-esc="doc.amount_total"/></td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                                    <tr t-if="counter!=0" class="is-subtotal text-right">
+                                            <td name="td_section_subtotal" colspan="99">
+                                                <h3>Total: </h3>
+                                                <span
+                                                        t-esc="sum([doc.amount_total for doc in docs if doc.state == 'purchase'])"
+                                                    />
+                                            </td>
+                                        </tr>
+                                </table>
+                            </t>
+                </page>
+<!--                    table for rfq state-->
+                <page>
+                    <t t-set="d_counter" t-value="0"/>
+                    <t t-set="d_counter" t-value="len([doc.state for doc in docs if doc.state != 'purchase'])"/>
+                    <t t-if="d_counter != 0">
+                        <strong>
+                            <h2><center>Drafts</center></h2>
+                        </strong><br/>
+                                            <table class="table table-danger">
+                        <thead class="table-primary">
+                                <tr>
+                                    <th style="text-align:20px; font-size:25px;">Purchase Order No</th>
+                                    <th style="text-align:20px; font-size:25px;">Vendor Name</th>
+                                    <th style="text-align:20px; font-size:25px;">Status Order</th>
+                                    <th style="text-align:20px; font-size:25px;">Amount</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="doc">
+                                <t t-if="doc.state=='draft'">
+                                    <td><t t-esc="doc.name"/></td>
+                                    <td> <t t-esc="doc.partner_id.name"/></td>
+                                    <td> <t t-esc="doc.state"/></td>
+                                    <td> <t t-esc="doc.amount_total"/></td>
+                                </t>
+                            </tr>
+
+                        </tbody>
+                        <tr class="is-subtotal text-right">
+                                <td name="td_section_subtotal" colspan="99">
+                                    <h3>Total: </h3>
+                                    <span
+                                            t-esc="sum([doc.amount_total for doc in docs if doc.state=='draft'])"
+                                        />
+                                </td>
+                            </tr>
+                    </table>
+
+                    </t>
+
+                    <t t-set="p_total" t-value="sum([doc.amount_total for doc in docs if doc.state=='purchase'])"/>
+                    <t t-set="d_total" t-value="sum([doc.amount_total for doc in docs if doc.state=='draft'])"/>
+                    <h3 style="text-align:right;"><strong>Grand Total:</strong>
+                    <t t-esc="p_total+d_total"/></h3>
+
+                </page>
+            </t>
+         </t>
+    </template>
+</odoo>

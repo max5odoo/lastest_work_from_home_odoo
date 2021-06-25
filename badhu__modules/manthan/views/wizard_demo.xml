@@ -1,0 +1,35 @@
+<odoo>
+    <record model="ir.ui.view" id="task_creation_report_wizard">
+        <field name="name">Task Creation Report</field>
+        <field name="model">task.creation.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Task Creation Report">
+                <group>
+                    <!--                    <field name="task_new_id" widget="many2many_tags" string="NewTask"/>-->
+                    <field name="task_technology" string="task tech"/>
+                </group>
+                <!--                <group>-->
+                <!--                    <group>-->
+                <!--                        <field name="task_name"/>-->
+                <!--                        <field name="task_technology"/>-->
+                <!--                    </group>-->
+                <!--                </group>-->
+                <footer>
+                    <button name="create_new_button" string="Create" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_tasks_creation_report_wizard"
+                name="Task Creation Report"
+                res_model="task.creation.report.wizard"
+                view_mode="form"
+                target="new"/>
+
+    <menuitem action="action_tasks_creation_report_wizard"
+              id="menu_task_report_wizard"
+              parent="manthan.schools_student_menu_"/>
+</odoo>

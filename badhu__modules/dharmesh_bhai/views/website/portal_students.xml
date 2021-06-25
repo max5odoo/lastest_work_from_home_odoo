@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+        <template id="portal_students" name="student Quotations">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+
+
+
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">STUDENT</t>
+                </t>
+                <a t-attf-href="/my/signup" class="btn btn-primary" role="button" aria-disabled="true">Add</a>
+
+                <!--  <t t-if="not student">
+                    <p>There are currently no quotations for your account.</p>
+                </t> -->
+
+
+                <t t-if="not grouped_student">
+                    <div class="alert alert-warning mt8" role="alert">
+                    There are no Record.
+                    </div>
+                </t>
+
+                <t t-if="grouped_student">
+                    <t t-call="portal.portal_table">
+                        <t t-foreach="grouped_student" t-as="groups">
+                            <thead>
+
+                                <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                    <th t-if="groupby == 'gender'">
+                                        <em class="font-weight-normal text-muted">Gender :</em>
+                                        <span t-field="groups[0].sudo().gender"/>
+                                    </th>
+
+                                    <th class="text-left">Id</th>
+                                    <th >Firstname</th>
+                                    <th >Lastname</th>
+                                    <th >Age</th>
+                                    <!-- header code -->
+
+
+                                    <!-- <th t-if="groupby != 'gender'" class="text-center">gender</th> -->
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr t-foreach="groups" t-as="group">
+                                    <td class="text-left" t-if="groupby == 'gender'">
+                                        -
+                                    </td>
+                                    <td class="text-left">
+                                        #                                        <span t-esc="group.id"/>
+                                    </td>
+                                    <td class="text-left">
+                                        <a t-attf-href="/my/student/#{group.id}">
+                                            <span t-field="group.first_name"/>
+                                        </a>
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-field="group.last_name"/>
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-esc="group.age"/>
+                                    </td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </t>
+                    </t>
+                </t>
+
+
+
+
+                <!-- for shorting table only-->
+                <!-- <t t-if="student" t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th># Id</th>
+                            <th class="text-left">Name</th>
+                            <th class="text-left">Surname</th>
+                            <th class="text-right">Age</th>
+                            
+                       
+                        </tr>
+                    </thead>
+                    <t t-foreach="student" t-as="stu">
+                        <tr>
+                         
+                            <td class="text-left">
+                                <span t-field="stu.id"/>
+                            </td>
+                               <td class="text-left">
+                                        <a t-attf-href="/my/student/#{stu.id}"><span t-field="stu.first_name"/></a>
+                                    </td>
+                            <td class="text-left">
+                                <span t-field="stu.last_name"/>
+                            </td>
+                             <td class="text-right">
+                                <span t-field="stu.age"/>
+                            </td>
+                        </tr>
+                    </t>
+                </t>  -->
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

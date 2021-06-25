@@ -1,0 +1,121 @@
+<odoo>
+  <template id="portal_signup_form">
+
+    <!-- <t t-call="website.layout"> -->
+    <t t-call="portal.portal_layout">
+      <div class="card">
+        <div class="card-header ">
+          <h4>
+            Signup form
+          </h4>
+        </div>
+        <div class="card-body">
+          <form action="/my/signup" method="post" role='form' enctype="multipart/form-data" class="s_website_form">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+            <div class="row">
+              <div t-attf-class="form-group #{error.get('firstname') and 'has-error' or ''} col-md-6 ">
+                <label for="firstname">First name <span style="color:red">*</span>
+                </label>
+                <input type="text" t-attf-class="form-control #{error.get('firstname') and 'is-invalid' or ''}" name="firstname" id="fitstname" placeholder="First name"/>
+                <small id="firstname" t-attf-class="form-text text-danger #{error.get('firstname') and 'is-invalid' or ''}">
+                  <div t-if="error_message.get('firstname')">
+                    <t t-esc="error_message.get('firstname')"/>
+                  </div>
+                </small>
+
+
+              </div>
+              <div t-attf-class="form-group #{error.get('lastname') and 'has-error' or ''} col-md-6 ">
+                <label for="lastname">Last name <span style="color:red">*</span>
+                </label>
+                <input type="text" t-attf-class="form-control #{error.get('lastname') and 'is-invalid' or ''}" name="lastname" id="lastname" placeholder="Last name"/>
+                <small id="firstname" t-attf-class="form-text text-danger #{error.get('lastname') and 'is-invalid' or ''}">
+                  <div t-if="error_message.get('lastname')">
+                    <t t-esc="error_message.get('lastname')"/>
+                  </div>
+                </small>
+              </div>
+            </div>
+            <div class="row">
+              <div t-attf-class="form-group #{error.get('email') and 'has-error' or ''} col-md-6">
+                <label for="email">Email <span style="color:red">*</span>
+                </label>
+                <input type="text" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" name="email" id="email" placeholder="example@gmail.com" />
+                <small id="email" t-attf-class="form-text text-danger #{error.get('email') and 'is-invalid' or ''}">
+                  <div t-if="error_message.get('email')">
+                    <t t-esc="error_message.get('email')"/>
+                  </div>
+                </small>
+              </div>
+              <div class="col-md-6">
+                <label for="gender">Select Gender</label>
+                <select name="gender" class="form-control" id="gender">
+                  <option t-attf-value="male">Male</option>
+                  <option t-attf-value="female">Female</option>
+                  <option t-attf-value="other">Other</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+
+
+
+                <label for="course">Select course</label>
+                <select name="courses_selection" onchange="course_select(this)" class="form-control" id="courses">
+                  <t t-foreach="student_courses" t-as="course">
+                    <option t-att-value="course.course_names">
+                      <t t-esc="course.course_names"/>
+                    </option>
+                  </t>
+                  <!-- <option t-attf-value="css">css</option>
+                    <option t-attf-value="java">java</option> -->
+                </select>
+              </div>
+            </div>
+            <br/>
+
+            <div class="form-group">
+              <label for="image">Upload Your File</label>
+              <input type="file" class="form-control-file" name="photos" id="image"/>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+              <label class="form-check-label" name="check" for="exampleCheck1">Check me out</label>
+            </div>
+            <br/>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+
+                  <th scope="col">Course</th>
+                  <th scope="col">Length</th>
+
+                  <th scope="col" class="text-left">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+
+              </tbody>
+            </table>
+            <button type="button" onclick="myFunction()">Add</button>
+            <br/>
+            <input type="hidden" name="total_row" id="total_row"></input>
+            <button type="submit" class="btn btn-primary ">Submit</button>
+            <!-- for list message only -->
+            <!-- <div t-if="error_message" class="alert text-danger" role="alert">
+              <t t-foreach="error_message" t-as="err">
+                <t t-esc="err"/>
+                <br />
+              </t>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </t>
+
+
+    <script src="/student_app/static/src/js/insert_row.js"/>
+
+  </template>
+</odoo>

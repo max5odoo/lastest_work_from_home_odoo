@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+		<!-- student fees wizard form view -->
+	    <record id="student_courses_wizard_form_view" model="ir.ui.view">
+	      <field name="name">student.courses.wizard.form.view</field>
+	      <field name="model">school.student.courses.wizard</field>
+	      <field name="arch" type="xml">
+
+	      		<form>
+
+	      			 <group>
+	      			 		<!-- <field name="course_ids" >
+	      			 			<tree editable="bottom">
+	      			 				<field name="course_id"/>
+	      			 				<field name="short_desc"/>
+	      			 				<field name="created_by"/>
+	      			 			</tree>
+	      			 		</field> -->
+
+	      			 		<field name="course_line_ids" widget="many2many_tags"/>
+	      			 </group>
+			
+
+
+				<footer>
+					<button string="Update"  type="object" name="update_courses"/>
+					<button string="Cancel"/>
+				</footer>
+
+	      		</form>
+	    
+	      </field>
+	    </record>
+
+
+<!-- 	      <record id="student_courses_wizard_menu_action" model="ir.actions.act_window">
+	      	<field name="name" >Student Courses Update</field>
+	      	<field name="res_model" >school.student.courses.wizard</field>
+	      	<field name="view_mode">form</field>
+	      	<field name="target">new</field>
+	      </record> -->
+
+
+	   <record id="student_courses_wizard_menu_action_students" model="ir.actions.act_window">
+      <field name="name">Courses</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">school.student.courses.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      <field name="view_id" ref="new_app.student_courses_wizard_form_view"></field>
+      <field name="binding_model_id" ref="model_school_student_detail"></field>
+      <field name="binding_view_types">form</field>
+    </record>
+
+
+</odoo>

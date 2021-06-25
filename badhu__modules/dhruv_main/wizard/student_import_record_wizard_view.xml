@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+		<!-- student fees wizard form view -->
+	    <record id="student_input_wizard_form_view" model="ir.ui.view">
+	      <field name="name">student.input.wizard.form.view</field>
+	      <field name="model">school.student.record.wizard</field>
+	      <field name="arch" type="xml">
+
+	      		<form>
+
+	      			
+	      			 	<group>
+	      			 		<field name="data"/>
+	      			 	</group>
+	      			
+			
+
+
+				<footer>
+					<button string="Submit"  type="object" name="import_records"/>
+					<button string="Cancel" special="cancel"/>
+				</footer>
+
+	      		</form>
+	    
+	      </field>
+	    </record>
+
+
+	      <record id="student_input_wizard_menu_action" model="ir.actions.act_window">
+	      	<field name="name" >Import Student Record</field>
+	      	<field name="res_model" >school.student.record.wizard</field>
+	      	<field name="view_mode">form</field>
+	      	<field name="target">new</field>
+	      </record>
+
+
+
+
+</odoo>

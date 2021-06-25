@@ -1,0 +1,53 @@
+<odoo>
+    <template id="login_snip" name="first_snnipet">
+        <section class="snippet_testimonial">
+            <div class="container">
+                <div class="row">
+                    <div class="form_body">
+                        <div style="border-radius:10px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);background-color:#E7E9EB;width:400px;height:360px;margin:100px auto">
+                            <div style="border-top-left-radius : 10px;border-top-right-radius : 10px;text-align:center;background-color:#282A35;height:50px;">
+                                <h2 style="color:white;padding:10px 0 0 0">Login</h2>
+                            </div>
+                            <div style="margin:5px 0 0 80px;font-size:18px;padding:20px 0 0 0">
+                                <form action="/homepage" method="POST" role='form'>
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <br/>
+                                    <label for="lemail">Email :</label>
+                                    <input class="formcontainer" type="text" id="lemail" name="lemail" t-att-value="lemail" placeholder="Your Email"/>
+                                    <br/>
+                                    <label for="lpass">Password :</label>
+                                    <input class="formcontainer" type="password" id="lpass" name="lpass" t-att-value="lpass" placeholder="password"/>
+                                    <br/>
+                                    <input type="checkbox" name="keep_login" id="check" value="loged_in" style="font-size:15px" />
+                                    <label for="check" style="font-size:15px"> Remember me</label>
+
+
+                                    <p t-esc="msg" style="font-size:15px;color:red;height:10px;margin:0 0 0 0">
+                                    </p>
+
+                                    <input type="submit" value="Login" style="cursor:pointer;margin:20px 0 0 10px;height:30px;width:100px;background-color: #008CBA;color:white;display:inline-block;float:left" />
+                                </form>
+                                <a href="/homepage" class="buttons red">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+    <template id="assets_frontend_u" inherit_id="website.assets_frontend" name="name Snippet">
+        <xpath expr="." position="inside">
+            <link href="student_app/static/src/css/button.css" rel="stylesheet"/>
+
+        </xpath>
+    </template>
+    <template id="update_snippet_id" inherit_id="website.snippets" name="new snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+            <t t-snippet="student_app.login_snip" t-thumbnail="student_app/static/src/images/bg.jpg"/>
+        </xpath>
+    </template>
+
+</odoo>

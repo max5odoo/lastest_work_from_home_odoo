@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_to_own_info,access.calendar.event.own,calendar.model_calendar_event,calendar_rule.group_calendar_own_events,1,0,0,0
+access_to_all,access.calendar.event.all,calendar.model_calendar_event,calendar_rule.group_calendar_all_events,1,1,1,1

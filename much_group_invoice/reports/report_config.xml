@@ -1,0 +1,14 @@
+<?xml version="1.0"	encoding="utf-8"?>
+<odoo>
+
+	<report 
+		id="report_student_info"
+		string="Group Invoices"
+		model="account.move"
+		report_type="qweb-pdf"
+		name="much_group_invoice.report_group_invoices"
+		file="much_group_invoice.report_group_invoices"
+		/>
+
+
+</odoo> 
