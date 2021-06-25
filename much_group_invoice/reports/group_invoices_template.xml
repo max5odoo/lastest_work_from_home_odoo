@@ -1,0 +1,77 @@
+<?xml version="1.0"	encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_group_invoices">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+                    <t t-set="doc" t-value="docs.with_context({'lang':docs.partner_id.lang})" />
+                        <t t-esc="doc"/>
+                    <p>
+                        <strong>Customer </strong>:
+						<span t-field="docs[0].partner_id.name"/></p>
+					<table class="table table-bordered" style="table-layout: fixed">
+						<thead style="display: table-row-group">
+							<tr>
+								<th class="text-left">Name
+                         	 	</th>
+								<th class="text-right">Sub Total
+                         	 	</th>
+								<th class="text-right">Taxes
+                         	 	</th>
+								<th class="text-right">Total(Subtotal + Taxes)
+                         	 	</th>
+							</tr>
+						</thead>
+							<tbody>
+						<t t-set="final_total_amt" t-value="0"/>
+						<t t-as="o" t-foreach="docs">
+								<t t-as="line" t-foreach="o">
+									<t t-set="final_total_amt" t-value="final_total_amt + line.amount_total"/>
+									<tr>
+										<td class="text-left">
+											<span t-field="line.name"/>
+										</td>
+										<td class="text-right">
+											<span t-field="line.amount_untaxed"/>
+										</td>
+										<td class="text-right">
+											<!-- <span t-field="line.amount_by_group"/>-->
+											<t t-as="amount_by_group" t-foreach="line.amount_by_group">
+												<t t-if="len(line.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and line.amount_untaxed == amount_by_group[2]">
+													<span class="text-nowrap" t-esc="amount_by_group[3]"/>
+												</t>
+												<t t-else="">
+													<span class="text-nowrap" t-esc="amount_by_group[3]"/>
+												</t>
+											</t>
+										</td>
+										<td class="text-right">
+											<span t-field="line.amount_total"/>
+										</td>
+									</tr>
+								</t>
+						</t>
+							</tbody>
+					</table>
+					<div class="clearfix">
+						<div class="row" id="total">
+							<div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+								<table class="table table-sm" style="page-break-inside: avoid;">
+									<tr class="border-black o_subtotal" style="">
+										<td>
+											<strong>Total</strong>
+										</td>
+										<td class="text-right">
+											<span t-esc="final_total_amt"
+												/>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>
